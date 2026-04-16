@@ -107,4 +107,4 @@ function InfoRow({
       <span className="font-semibold text-[#111111]">{label}:</span> {value}
     </div>
   );
-}
+} 
