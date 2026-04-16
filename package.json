@@ -5,9 +5,11 @@
   "scripts": {
     "dev:api": "pnpm --filter api start:dev",
     "build:api": "pnpm --filter api build",
-    "db:push": "pnpm --filter api prisma db push",
-    "prisma:generate": "pnpm --filter api prisma generate",
     "dev:admin": "pnpm --filter admin dev",
-    "build:admin": "pnpm --filter admin build"
+    "build:admin": "pnpm --filter admin build",
+    "dev:site": "pnpm --filter qubi-llc-site dev",
+    "build:site": "pnpm --filter qubi-llc-site build",
+    "db:push": "pnpm --filter api prisma db push",
+    "prisma:generate": "pnpm --filter api prisma generate"
   }
 }

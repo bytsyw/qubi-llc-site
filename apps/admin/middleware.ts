@@ -11,6 +11,7 @@ const protectedPrefixes = [
   "/sync",
   "/webhooks",
   "/audit",
+  "/deployment",
 ];
 
 function isProtectedPath(pathname: string) {
@@ -54,7 +55,6 @@ export async function middleware(request: NextRequest) {
   const needsProtection = isProtectedPath(pathname);
 
   const response = NextResponse.next();
-
   response.headers.set("X-Robots-Tag", "noindex, nofollow");
 
   if (!token) {
@@ -93,5 +93,6 @@ export const config = {
     "/sync/:path*",
     "/webhooks/:path*",
     "/audit/:path*",
+    "/deployment/:path*",
   ],
 };

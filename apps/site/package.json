@@ -12,9 +12,7 @@
     "preview": "vite preview",
     "security:audit": "npm audit",
     "security:prod": "npm audit --omit=dev",
-    "check": "npm run build",
-    "dev:admin": "pnpm --filter admin dev",
-    "build:admin": "pnpm --filter admin build"
+    "check": "npm run build"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",

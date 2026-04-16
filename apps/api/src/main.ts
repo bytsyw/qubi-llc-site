@@ -6,8 +6,15 @@ import { HttpExceptionFormatterFilter } from "./common/filters/http-exception.fi
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  const allowedOrigins = [
+    process.env.PUBLIC_SITE_URL,
+    process.env.ADMIN_PANEL_URL,
+    "http://localhost:3000",
+    "http://localhost:5173",
+  ].filter(Boolean);
+
   app.enableCors({
-    origin: ["http://localhost:3000", "http://localhost:5173"],
+    origin: allowedOrigins,
     credentials: true,
   });
 
