@@ -1,0 +1,112 @@
+{
+    "seo": {
+      "title": "Anasayfa",
+      "description": "Qubi LLC, çocuklar için eğlenceli, premium ve ebeveynlerin güven duyabileceği modern mobil uygulamalar geliştirir."
+    },
+    "hero": {
+      "badge": "Çocuklar ve aileler için canlı dijital deneyimler",
+      "titleStart": "Çocukların ",
+      "titleHighlight1": "keyifle kullandığı",
+      "titleMiddle": ", ebeveynlerin ",
+      "titleHighlight2": "güven duyduğu",
+      "titleEnd": " mobil ürünler.",
+      "description": "Qubi LLC, çocuk odaklı mobil uygulamaları canlı, modern ve global ölçekte kullanılabilir bir tasarım diliyle geliştirir. Anasayfa markanın vitrini olarak kalırken, her uygulama için ayrı bir detay sayfası bulunur.",
+      "ctaPrimary": "Uygulamaları keşfet",
+      "ctaSecondary": "Qubi’yi tanı"
+    },
+    "stats": {
+      "downloads": "indirme",
+      "rating": "uygulama puanı",
+      "parents": "ulaşılan ebeveyn"
+    },
+    "performance": {
+      "badge": "Performans özeti",
+      "title": "Şirketi canlı hissettiren hareketli kanıt noktaları.",
+      "metrics": {
+        "totalDownloads": {
+          "label": "Toplam indirme",
+          "subtitle": "Marka performans görünümü"
+        },
+        "averageRating": {
+          "label": "Ortalama puan",
+          "subtitle": "Ebeveyn güven sinyali"
+        },
+        "parentsChoosing": {
+          "label": "Qubi’yi seçen ebeveynler",
+          "subtitle": "Hedef kitle güven göstergesi"
+        }
+      }
+    },
+    "parentConfidence": {
+      "badge": "Ebeveyn güveni",
+      "title": "Ailelerin neden Qubi deneyimlerini tercih ettiğini gösteren özet",
+      "items": {
+        "easeOfUse": "Kullanım kolaylığı",
+        "visualTrust": "Görsel güven",
+        "repeatEngagement": "Tekrar kullanım",
+        "learningValue": "Öğrenme değeri"
+      }
+    },
+    "whyParents": {
+      "badge": "Ebeveynler neden bizi seçiyor",
+      "title": "Sadece bir metin bloğu değil, güveni anlatan görsel bir yapı.",
+      "description": "Hareketli kartlar, ikonlar ve yerleşim ritmi, Qubi’nin çocuk uygulamalarını değerlendiren ebeveynler için neden öne çıktığını gösterir.",
+      "cards": [
+        {
+          "title": "Güven odaklı tasarım",
+          "text": "Hem çocuklar hem ebeveynler için sade, sakin ve güven veren arayüzler."
+        },
+        {
+          "title": "Ebeveyn dostu deneyim",
+          "text": "Tüm yolculuk boyunca açıklık ve kullanılabilirlik ön planda tutulur."
+        },
+        {
+          "title": "Global ürün bakışı",
+          "text": "Farklı pazarlardaki ailelere hitap edebilecek görsel bir dil ile tasarlanır."
+        }
+      ]
+    },
+    "teasers": {
+      "badge": "Daha fazlasını keşfet",
+      "title": "Anasayfayı odaklı tut, daha derin şirket bilgilerini ayrı sayfalara taşı.",
+      "description": "Qubi anasayfası markayı ve uygulama portföyünü hızlıca tanıtmalı. Şirket, güvenlik ve iletişim gibi daha detaylı bilgiler ise daha temiz bir deneyim için ayrı sayfalarda yer almalı.",
+      "learnMore": "Daha fazla bilgi",
+      "cards": [
+        {
+          "path": "/about",
+          "badge": "Qubi Hakkında",
+          "title": "Uygulamaların arkasındaki şirketi tanı.",
+          "text": "Qubi’nin misyonunu, ürün yaklaşımını ve global marka vizyonunu ayrı bir şirket sayfasında keşfet."
+        },
+        {
+          "path": "/trust-safety",
+          "badge": "Güvenlik",
+          "title": "Markanın güven ve ebeveyn rahatlığı dilini nasıl kurduğunu gör.",
+          "text": "Qubi deneyiminin arkasındaki güven ilkelerini, güvenlik konumlandırmasını ve rahatlatıcı dili incele."
+        },
+        {
+          "path": "/contact",
+          "badge": "İletişim",
+          "title": "Yaklaşan lansmanlar, iş birlikleri ve sorular için bize ulaş.",
+          "text": "Şirket, medya veya iş ortaklığı talepleri için özel iletişim sayfasını kullan."
+        }
+      ]
+    },
+    "featured": {
+      "badge": "Öne çıkan uygulamalar",
+      "title": "Tıklanabilen ve 5 saniyede bir otomatik dönen uygulama vitrini.",
+      "description": "Ziyaretçiler herhangi bir uygulamaya tıklayarak onu öne çıkarabilir ya da anasayfanın portföyü otomatik olarak dolaşmasına izin verebilir.",
+      "badges": {
+        "childFirst": "Çocuk odaklı UX",
+        "animatedStory": "Hareketli ürün hikâyesi"
+      },
+      "miniFeatures": {
+        "story": "Hikâye",
+        "habit": "Rutin",
+        "mobileFirst": "Mobil odaklı"
+      },
+      "ctaPrimary": "Uygulama detayını gör",
+      "ctaSecondary": "Qubi ile iletişime geç",
+      "autoRotate": "Her 5 saniyede bir otomatik geçiş yapar"
+    }
+  }

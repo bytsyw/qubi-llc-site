@@ -1,0 +1,112 @@
+{
+    "seo": {
+      "title": "Home",
+      "description": "Qubi LLC develops modern mobile applications for children with a playful, premium and parent-trusted product experience."
+    },
+    "hero": {
+      "badge": "Bright digital experiences for kids and families",
+      "titleStart": "Mobile products children ",
+      "titleHighlight1": "enjoy",
+      "titleMiddle": " and parents ",
+      "titleHighlight2": "feel good about",
+      "titleEnd": ".",
+      "description": "Qubi LLC develops child-focused mobile applications with a lively, modern and globally relevant design language. The homepage remains the brand showcase, while each application has its own dedicated detail page.",
+      "ctaPrimary": "Explore apps",
+      "ctaSecondary": "Learn about Qubi"
+    },
+    "stats": {
+      "downloads": "downloads",
+      "rating": "app rating",
+      "parents": "parents reached"
+    },
+    "performance": {
+      "badge": "Performance snapshot",
+      "title": "Animated proof points that make the company feel alive.",
+      "metrics": {
+        "totalDownloads": {
+          "label": "Total downloads",
+          "subtitle": "Brand performance snapshot"
+        },
+        "averageRating": {
+          "label": "Average rating",
+          "subtitle": "Parent-facing product trust"
+        },
+        "parentsChoosing": {
+          "label": "Parents choosing Qubi",
+          "subtitle": "Audience confidence signal"
+        }
+      }
+    },
+    "parentConfidence": {
+      "badge": "Parent confidence",
+      "title": "Why families keep choosing Qubi experiences",
+      "items": {
+        "easeOfUse": "Ease of use",
+        "visualTrust": "Visual trust",
+        "repeatEngagement": "Repeat engagement",
+        "learningValue": "Learning value"
+      }
+    },
+    "whyParents": {
+      "badge": "Why parents choose us",
+      "title": "A visual explanation of trust, not just another text block.",
+      "description": "Motion cards, icons and layout rhythm communicate why Qubi stands out for parents evaluating children’s apps.",
+      "cards": [
+        {
+          "title": "Safe by design",
+          "text": "Simple, calm and trustworthy interfaces for both children and parents."
+        },
+        {
+          "title": "Parent-friendly experience",
+          "text": "Clarity and usability are present throughout the journey."
+        },
+        {
+          "title": "Global product mindset",
+          "text": "Visual language designed to resonate with families worldwide."
+        }
+      ]
+    },
+    "teasers": {
+      "badge": "Explore more",
+      "title": "Keep the homepage focused and move deeper company information into dedicated pages.",
+      "description": "Qubi’s homepage should introduce the brand and product portfolio quickly. More detailed company, safety and contact information lives in separate pages for a cleaner browsing experience.",
+      "learnMore": "Learn more",
+      "cards": [
+        {
+          "path": "/about",
+          "badge": "About Qubi",
+          "title": "Learn about the company behind the apps.",
+          "text": "Explore Qubi’s mission, product mindset and global brand direction in a dedicated company page."
+        },
+        {
+          "path": "/trust-safety",
+          "badge": "Trust & Safety",
+          "title": "See how the brand communicates safety and parent confidence.",
+          "text": "Review the trust principles, safety positioning and reassurance language behind the Qubi experience."
+        },
+        {
+          "path": "/contact",
+          "badge": "Contact",
+          "title": "Get in touch for future launches, partnerships and questions.",
+          "text": "Use the dedicated contact page to reach Qubi for company, media or partnership inquiries."
+        }
+      ]
+    },
+    "featured": {
+      "badge": "Featured apps",
+      "title": "Clickable application showcase with automatic 5-second rotation.",
+      "description": "Visitors can click any application to focus it instantly, or let the homepage cycle through the portfolio automatically.",
+      "badges": {
+        "childFirst": "Child-first UX",
+        "animatedStory": "Animated product story"
+      },
+      "miniFeatures": {
+        "story": "Story",
+        "habit": "Habit",
+        "mobileFirst": "Mobile-first"
+      },
+      "ctaPrimary": "View app details",
+      "ctaSecondary": "Contact Qubi",
+      "autoRotate": "Automatically switches every 5 seconds"
+    }
+  }

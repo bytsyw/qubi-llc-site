@@ -1,0 +1,13 @@
+{
+  "name": "qubi-platform",
+  "private": true,
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "dev:api": "pnpm --filter api start:dev",
+    "build:api": "pnpm --filter api build",
+    "db:push": "pnpm --filter api prisma db push",
+    "prisma:generate": "pnpm --filter api prisma generate",
+    "dev:admin": "pnpm --filter admin dev",
+    "build:admin": "pnpm --filter admin build"
+  }
+}

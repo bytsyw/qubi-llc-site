@@ -1,0 +1,41 @@
+{
+    "brand": {
+      "name": "Qubi LLC",
+      "tagline": "Dünya genelinde çocuklar için mobil uygulamalar"
+    },
+    "nav": {
+      "home": "Anasayfa",
+      "about": "Hakkımızda",
+      "trustSafety": "Güvenlik",
+      "contact": "İletişim"
+    },
+    "language": {
+      "label": "Dil",
+      "en": "EN",
+      "tr": "TR"
+    },
+    "footer": {
+      "description": "Qubi LLC, modern, eğlenceli ve ebeveynlerin güven duyabileceği bir ürün diliyle çocuk odaklı mobil deneyimler geliştirir. Bu site şirketi, misyonunu ve büyüyen uygulama portföyünü tanıtır.",
+      "navigation": "Navigasyon",
+      "legal": "Güvenlik ve yasal",
+      "contact": "İletişim",
+      "safeFirst": "Önce güvenlik",
+      "globalReady": "Global marka dili",
+      "parentGuided": "Ebeveyn odaklı UX",
+      "childrenSafetyTitle": "Çocuk güvenliği",
+      "childrenSafetyText": "Ebeveyn yönlendirmeli deneyim ve dikkat dağıtımı düşük etkileşim prensipleri.",
+      "privacyPolicy": "Gizlilik Politikası",
+      "termsOfUse": "Kullanım Koşulları",
+      "parentSafetyGuide": "Ebeveyn Güvenlik Rehberi",
+      "emailTitle": "E-posta",
+      "locationTitle": "Konum",
+      "locationText": "Global odaklı dijital stüdyo",
+      "partnershipsTitle": "İş birlikleri",
+      "partnershipsText": "İş ortaklığı ve medya talepleri yakında.",
+      "copyright": "© 2026 Qubi LLC. Tüm hakları saklıdır."
+    },
+    "launch": {
+      "appStoreComingSoon": "App Store yayını yakında",
+      "googlePlayComingSoon": "Google Play yayını yakında"
+    }
+  }

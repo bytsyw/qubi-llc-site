@@ -1,0 +1,74 @@
+{
+    "seo": {
+      "notFoundTitle": "Uygulama bulunamadı",
+      "notFoundDescription": "İstenen Qubi uygulama sayfası bulunamadı."
+    },
+    "notFound": {
+      "badge": "Uygulama bulunamadı",
+      "title": "İstediğiniz uygulama sayfası mevcut değil.",
+      "description": "İstenen uygulama rotası bulunamadı. Anasayfaya dönerek Qubi portföyünü incelemeye devam edebilirsiniz.",
+      "cta": "Anasayfaya dön"
+    },
+    "top": {
+      "home": "Anasayfa",
+      "crumb": "Uygulama detay sayfası",
+      "title": "Özel uygulama detay sayfası",
+      "description": "Bu sayfa anasayfadan ayrıdır ve aynı renk dili, hareket stili ve ürün sunum mantığını takip eder."
+    },
+    "hero": {
+      "badge": "Ayrı sayfa önizlemesi",
+      "downloads": "indirme",
+      "averageRating": "ortalama puan",
+      "parentsReached": "ulaşılan ebeveyn",
+      "ctaPrimary": "Qubi ile iletişime geç",
+      "ctaSecondary": "Diğer uygulamaları keşfet"
+    },
+    "launch": {
+      "badge": "Lansman durumu",
+      "title": "Bu uygulama sayfası yayına hazırdır ve gelecekteki mağaza yayınları için hazırlanmıştır.",
+      "description": "Gerçek mağaza bağlantıları henüz eklenmemiştir. Aşağıdaki yapı, App Store ve Google Play listeleri yayınlanana kadar tüm site genelinde tutarlı lansman mesajları kullanılmasını sağlar."
+    },
+    "ratings": {
+      "badge": "Puanlar ve geri bildirimler",
+      "title": "Detay sayfası için değerlendirme sunumu",
+      "cards": {
+        "appRating": "Uygulama puanı",
+        "parentTrust": "Ebeveyn güveni",
+        "repeatUsage": "Tekrar kullanım",
+        "parentTrustSubtitle": "olumlu güven algısı",
+        "repeatUsageSubtitle": "haftalık aktif aileler"
+      }
+    },
+    "usageFlow": {
+      "badge": "Nasıl çalışır",
+      "title": "Ayrı uygulama sayfasındaki kullanım akışı"
+    },
+    "features": {
+      "badge": "Temel özellikler",
+      "title": "Bu uygulamayı ürün hikâyesi açısından yayına hazır yapan unsurlar"
+    },
+    "screenshots": {
+      "badge": "Ekran görüntüleri",
+      "title": "Ekran görüntüsü ve arayüz sunum alanı"
+    },
+    "panels": {
+      "requirements": "Kullanım gereksinimleri",
+      "terms": "Şartlar ve koşullar"
+    },
+    "faq": {
+      "badge": "SSS",
+      "title": "Yayına hazırlık ve ürünle ilgili sık sorulan sorular"
+    },
+    "related": {
+      "badge": "İlgili uygulamalar",
+      "title": "Qubi portföyünden daha fazlasını keşfet",
+      "cta": "Uygulama detayını gör"
+    },
+    "bottomMetrics": {
+      "averageSession": "Ortalama oturum",
+      "parentFeedback": "Ebeveyn geri bildirimi",
+      "usagePolicy": "Kullanım politikası",
+      "parentFeedbackValue": "Oldukça olumlu",
+      "usagePolicyValue": "Ebeveyn yönlendirmeli"
+    }
+  }

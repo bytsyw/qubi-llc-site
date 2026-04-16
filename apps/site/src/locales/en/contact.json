@@ -1,0 +1,21 @@
+{
+    "seo": {
+      "title": "Contact",
+      "description": "Contact Qubi LLC for company inquiries, future partnerships, media requests and product communication."
+    },
+    "hero": {
+      "badge": "Contact",
+      "title": "Let’s talk about Qubi, our products and future partnerships.",
+      "description": "This page can later be connected to a real contact form, partnership form or media inquiry flow."
+    },
+    "general": {
+      "badge": "General contact",
+      "title": "hello@qubillc.com",
+      "description": "For general company questions, product inquiries and future business communication."
+    },
+    "partnership": {
+      "badge": "Partnerships",
+      "title": "Coming soon",
+      "description": "A dedicated contact flow for platform launches, media requests and partnership opportunities can be added here later."
+    }
+  }

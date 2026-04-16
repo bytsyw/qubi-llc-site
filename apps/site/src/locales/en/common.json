@@ -1,0 +1,41 @@
+{
+    "brand": {
+      "name": "Qubi LLC",
+      "tagline": "Mobile apps for children worldwide"
+    },
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "trustSafety": "Trust & Safety",
+      "contact": "Contact"
+    },
+    "language": {
+      "label": "Language",
+      "en": "EN",
+      "tr": "TR"
+    },
+    "footer": {
+      "description": "Qubi LLC creates child-focused mobile experiences with a modern, playful and parent-trusted product language. The site presents the company, its mission and its growing application portfolio.",
+      "navigation": "Navigation",
+      "legal": "Safety & legal",
+      "contact": "Contact",
+      "safeFirst": "Safe-first design",
+      "globalReady": "Global-ready brand",
+      "parentGuided": "Parent-guided UX",
+      "childrenSafetyTitle": "Children’s safety",
+      "childrenSafetyText": "Parent-guided experience and low-distraction interaction principles.",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfUse": "Terms of Use",
+      "parentSafetyGuide": "Parent Safety Guide",
+      "emailTitle": "Email",
+      "locationTitle": "Location",
+      "locationText": "Global-first digital studio",
+      "partnershipsTitle": "Partnerships",
+      "partnershipsText": "Partnership and media inquiries coming soon.",
+      "copyright": "© 2026 Qubi LLC. All rights reserved."
+    },
+    "launch": {
+      "appStoreComingSoon": "App Store launch coming soon",
+      "googlePlayComingSoon": "Google Play launch coming soon"
+    }
+  }

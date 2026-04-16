@@ -1,0 +1,265 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum ProviderType {
+  APPLE
+  GOOGLE
+}
+
+enum ConnectionStatus {
+  PENDING
+  CONNECTED
+  ERROR
+  DISABLED
+}
+
+enum SyncJobType {
+  APP_DISCOVERY
+  REVIEWS
+  METRICS
+  ANALYTICS
+  WEBHOOK_RECONCILIATION
+}
+
+enum SyncRunStatus {
+  SUCCESS
+  FAILED
+  PARTIAL
+  RUNNING
+}
+
+enum CredentialType {
+  APPLE_P8
+  GOOGLE_SERVICE_ACCOUNT
+}
+
+enum WebhookSource {
+  APPLE_SERVER_NOTIFICATIONS
+  GOOGLE_RTDN
+}
+
+model App {
+  id              String                @id @default(auto()) @map("_id") @db.ObjectId
+  slug            String                @unique
+  internalName    String
+  isActive        Boolean               @default(true)
+  createdAt       DateTime              @default(now())
+  updatedAt       DateTime              @updatedAt
+
+  contents        AppContent[]
+  storeMappings   AppStoreMapping[]
+  metricSnapshots StoreMetricSnapshot[]
+  reviews         StoreReview[]
+  analytics       AnalyticsSnapshot[]
+}
+
+model AppContent {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  appId           String    @db.ObjectId
+  locale          String
+  name            String
+  shortName       String?
+  type            String?
+  badge           String?
+  description     String?
+  longDescription String?
+  highlights      Json?
+  screenshots     Json?
+  features        Json?
+  faqs            Json?
+  requirements    Json?
+  terms           Json?
+  steps           Json?
+  scores          Json?
+  screenGradient  String?
+  glowClass       String?
+  dark            Boolean   @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  app             App       @relation(fields: [appId], references: [id], onDelete: Cascade)
+
+  @@unique([appId, locale])
+  @@index([locale])
+}
+
+model ProviderConnection {
+  id            String           @id @default(auto()) @map("_id") @db.ObjectId
+  provider      ProviderType     @unique
+  status        ConnectionStatus @default(PENDING)
+  accountLabel  String?
+  lastCheckedAt DateTime?
+  lastError     String?
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+
+  credentials   ProviderCredential[]
+  mappings      AppStoreMapping[]
+  syncRuns      SyncRun[]
+}
+
+model ProviderCredential {
+  id               String             @id @default(auto()) @map("_id") @db.ObjectId
+  providerId       String             @db.ObjectId
+  type             CredentialType
+  label            String?
+  encryptedPayload String
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  provider         ProviderConnection @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId, type])
+}
+
+model AppStoreMapping {
+  id               String             @id @default(auto()) @map("_id") @db.ObjectId
+  appId            String             @db.ObjectId
+  providerId       String             @db.ObjectId
+  storeAppId       String?
+  bundleId         String?
+  packageName      String?
+  countryCode      String?
+  discovered       Boolean            @default(false)
+  isPrimary        Boolean            @default(true)
+  lastDiscoveredAt DateTime?
+  lastSyncedAt     DateTime?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  app              App                @relation(fields: [appId], references: [id], onDelete: Cascade)
+  provider         ProviderConnection @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([appId, providerId])
+  @@unique([providerId, storeAppId])
+  @@unique([providerId, packageName])
+  @@unique([providerId, bundleId])
+}
+
+model StoreMetricSnapshot {
+  id               String       @id @default(auto()) @map("_id") @db.ObjectId
+  appId            String       @db.ObjectId
+  provider         ProviderType
+  rating           Float?
+  reviewCount      Int?
+  downloadEstimate String?
+  versionLabel     String?
+  releaseStatus    String?
+  rawPayload       Json?
+  capturedAt       DateTime     @default(now())
+
+  app              App          @relation(fields: [appId], references: [id], onDelete: Cascade)
+
+  @@index([appId, provider, capturedAt])
+}
+
+model StoreReview {
+  id              String       @id @default(auto()) @map("_id") @db.ObjectId
+  appId           String       @db.ObjectId
+  provider        ProviderType
+  storeReviewId   String
+  locale          String?
+  rating          Int?
+  title           String?
+  body            String?
+  authorName      String?
+  reviewCreatedAt DateTime?
+  syncedAt        DateTime     @default(now())
+  rawPayload      Json?
+
+  app             App          @relation(fields: [appId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, storeReviewId])
+  @@index([appId, provider, syncedAt])
+}
+
+model AnalyticsSnapshot {
+  id                 String   @id @default(auto()) @map("_id") @db.ObjectId
+  appId              String   @db.ObjectId
+  locale             String?
+  parentsReached     Int?
+  repeatUsage        Float?
+  averageSessionText String?
+  trustScore         Float?
+  rawPayload         Json?
+  capturedAt         DateTime @default(now())
+
+  app                App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+
+  @@index([appId, locale, capturedAt])
+}
+
+model SyncRun {
+  id          String             @id @default(auto()) @map("_id") @db.ObjectId
+  providerId  String             @db.ObjectId
+  jobType     SyncJobType
+  status      SyncRunStatus      @default(RUNNING)
+  startedAt   DateTime           @default(now())
+  finishedAt  DateTime?
+  message     String?
+  rawPayload  Json?
+
+  provider    ProviderConnection @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId, jobType, startedAt])
+}
+
+model WebhookEvent {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  source          WebhookSource
+  eventType       String
+  externalEventId String?
+  payload         Json
+  processed       Boolean       @default(false)
+  processedAt     DateTime?
+  createdAt       DateTime      @default(now())
+
+  @@index([source, createdAt])
+  @@unique([source, externalEventId])
+}
+model AdminAuditLog {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  adminEmail  String
+  action      String
+  entityType  String
+  entityId    String?
+  targetLabel String?
+  details     Json?
+  createdAt   DateTime @default(now())
+
+  @@index([adminEmail, createdAt])
+  @@index([action, createdAt])
+  @@index([entityType, createdAt])
+}
+model DeploymentTask {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  key         String   @unique
+  title       String
+  category    String
+  status      String
+  description String
+  note        String?
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+
+  @@index([category, status])
+}
+model SmokeTestRun {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  key         String
+  title       String
+  result      String
+  note        String?
+  testerEmail String
+  executedAt  DateTime @default(now())
+  createdAt   DateTime @default(now())
+
+  @@index([key, executedAt])
+  @@index([testerEmail, executedAt])
+}
