@@ -91,8 +91,7 @@ export default function AppOperationsTimeline({
                 </div>
                 <div className="mt-2 text-xs text-black/50">
                   {formatDate(
-                    timeline.latestSyncRun.finishedAt ||
-                      timeline.latestSyncRun.startedAt,
+                    timeline.latestSyncRun.finishedAt || timeline.latestSyncRun.startedAt,
                   )}
                 </div>
               </>

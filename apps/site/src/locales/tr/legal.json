@@ -1,83 +1,83 @@
 {
-    "privacy": {
-      "seo": {
-        "title": "Gizlilik Politikası",
-        "description": "Qubi LLC’nin çocuklara yönelik mobil ürünleri ve ebeveyn odaklı dijital deneyimleri için gizlilik politikası özetini okuyun."
-      },
-      "badge": "Gizlilik Politikası",
-      "title": "Gizlilik, açıklık ve sorumlu ürün iletişimi.",
-      "description": "Bu sayfa, Qubi LLC’nin gelecekteki gizlilik politikası için lansmana hazır bir yer tutucudur. Daha sonra gerçek yasal metni tasarım sistemini bozmadan destekleyecek şekilde yapılandırılmıştır.",
-      "blocks": [
-        {
-          "title": "1. Bilgi yaklaşımı",
-          "text": "Qubi, uygulamalar yayına alındığında hangi ürün bilgilerinin toplandığını, bunların nasıl kullanıldığını ve ebeveyn odaklı kontrollerin nasıl ele alınacağını açık şekilde anlatmayı amaçlar."
-        },
-        {
-          "title": "2. Çocuk ürünlerinde hassasiyet",
-          "text": "Qubi ürünleri çocuk odaklı deneyimler için geliştirildiğinden, gizlilik iletişimi özellikle net, ebeveynler tarafından kolay okunabilir ve rahatça incelenebilir kalmalıdır."
-        },
-        {
-          "title": "3. Ebeveyn odaklı şeffaflık",
-          "text": "Canlı sistemler devreye girdiğinde, gizlilik politikası onboarding, hesap kurulumu, isteğe bağlı izinler ve olası ürün analitiklerini basit ifadelerle açıklamalıdır."
-        },
-        {
-          "title": "4. Gelecek güncellemeler",
-          "text": "Bu yer tutucu sayfa daha sonra gerçek lansman ortamı, bölgeler ve uyumluluk gereksinimlerine göre gözden geçirilmiş üretim hazır bir gizlilik politikası ile değiştirilebilir."
-        }
-      ]
+  "privacy": {
+    "seo": {
+      "title": "Gizlilik Politikası",
+      "description": "Qubi LLC’nin çocuklara yönelik mobil ürünleri ve ebeveyn odaklı dijital deneyimleri için gizlilik politikası özetini okuyun."
     },
-    "terms": {
-      "seo": {
-        "title": "Kullanım Koşulları",
-        "description": "Qubi LLC ve gelecekteki çocuk mobil uygulamaları için hazırlanan kullanım koşulları yapısını inceleyin."
+    "badge": "Gizlilik Politikası",
+    "title": "Gizlilik, açıklık ve sorumlu ürün iletişimi.",
+    "description": "Bu sayfa, Qubi LLC’nin gelecekteki gizlilik politikası için lansmana hazır bir yer tutucudur. Daha sonra gerçek yasal metni tasarım sistemini bozmadan destekleyecek şekilde yapılandırılmıştır.",
+    "blocks": [
+      {
+        "title": "1. Bilgi yaklaşımı",
+        "text": "Qubi, uygulamalar yayına alındığında hangi ürün bilgilerinin toplandığını, bunların nasıl kullanıldığını ve ebeveyn odaklı kontrollerin nasıl ele alınacağını açık şekilde anlatmayı amaçlar."
       },
-      "badge": "Kullanım Koşulları",
-      "title": "Gelecekteki lansman için hazırlanmış ürün koşulları.",
-      "description": "Bu sayfa, Qubi LLC’nin gelecekteki kullanım koşulları için yapılandırılmış bir yer tutucudur. Sitenin bugün tam görünmesini sağlar ve daha sonra resmi yasal içerik için hazır kalır.",
-      "blocks": [
-        {
-          "title": "1. Amaçlanan kullanım",
-          "text": "Qubi uygulamaları, ebeveyn duyarlılığı gözetilen iletişim ve net yapılandırılmış ürün yolculuklarıyla çocuk odaklı dijital ürünler olarak konumlandırılır."
-        },
-        {
-          "title": "2. Ürün erişilebilirliği",
-          "text": "Gerçek uygulamalar yayınlandığında mağaza erişimi, indirme yöntemleri, desteklenen bölgeler ve özellik erişimi burada netleştirilebilir."
-        },
-        {
-          "title": "3. Hesap ve erişim koşulları",
-          "text": "Gelecekte ebeveyn hesapları, isteğe bağlı profiller veya panel işlevleri sunulursa, canlı kullanım koşulları bunları açık şekilde açıklamalıdır."
-        },
-        {
-          "title": "4. Güncellemeler ve değişiklikler",
-          "text": "Qubi, uygulama portföyü geliştikçe ve farklı platformlarda yayınlandıkça ürün mesajlarını, platform erişilebilirliğini ve yasal materyalleri güncelleyebilir."
-        }
-      ]
+      {
+        "title": "2. Çocuk ürünlerinde hassasiyet",
+        "text": "Qubi ürünleri çocuk odaklı deneyimler için geliştirildiğinden, gizlilik iletişimi özellikle net, ebeveynler tarafından kolay okunabilir ve rahatça incelenebilir kalmalıdır."
+      },
+      {
+        "title": "3. Ebeveyn odaklı şeffaflık",
+        "text": "Canlı sistemler devreye girdiğinde, gizlilik politikası onboarding, hesap kurulumu, isteğe bağlı izinler ve olası ürün analitiklerini basit ifadelerle açıklamalıdır."
+      },
+      {
+        "title": "4. Gelecek güncellemeler",
+        "text": "Bu yer tutucu sayfa daha sonra gerçek lansman ortamı, bölgeler ve uyumluluk gereksinimlerine göre gözden geçirilmiş üretim hazır bir gizlilik politikası ile değiştirilebilir."
+      }
+    ]
+  },
+  "terms": {
+    "seo": {
+      "title": "Kullanım Koşulları",
+      "description": "Qubi LLC ve gelecekteki çocuk mobil uygulamaları için hazırlanan kullanım koşulları yapısını inceleyin."
     },
-    "parentSafety": {
-      "seo": {
-        "title": "Ebeveyn Güvenlik Rehberi",
-        "description": "Qubi LLC’nin ebeveyn güvenliği yaklaşımını ve çocuk dostu dijital ürün prensiplerini keşfedin."
+    "badge": "Kullanım Koşulları",
+    "title": "Gelecekteki lansman için hazırlanmış ürün koşulları.",
+    "description": "Bu sayfa, Qubi LLC’nin gelecekteki kullanım koşulları için yapılandırılmış bir yer tutucudur. Sitenin bugün tam görünmesini sağlar ve daha sonra resmi yasal içerik için hazır kalır.",
+    "blocks": [
+      {
+        "title": "1. Amaçlanan kullanım",
+        "text": "Qubi uygulamaları, ebeveyn duyarlılığı gözetilen iletişim ve net yapılandırılmış ürün yolculuklarıyla çocuk odaklı dijital ürünler olarak konumlandırılır."
       },
-      "badge": "Ebeveyn Güvenlik Rehberi",
-      "title": "Qubi’nin çocuk dostu ürün tasarımına nasıl yaklaştığını ebeveynlere daha net anlatan bir açıklama.",
-      "description": "Bu sayfa marka odaklı bir güvenlik rehberi işlevi görür ve ileride aileler için daha detaylı bir ürün destek kaynağına dönüşebilir.",
-      "cards": [
-        {
-          "title": "Düşük dikkat dağıtımlı UX",
-          "text": "Qubi, ürün deneyimlerinin daha odaklı hissedilmesi için daha sakin yerleşimler, daha net gezinme ve daha az görsel karmaşa kullanmayı hedefler."
-        },
-        {
-          "title": "Ebeveynler için okunabilir yapı",
-          "text": "Ebeveynler ürünün amacını, gezinme modelini ve güven sinyallerini hızlıca anlayabilmelidir."
-        },
-        {
-          "title": "Yaşa duyarlı iletişim",
-          "text": "Ürün dili ve etkileşim kalıpları çocuk dostu deneyim prensipleriyle uyumlu kalmalıdır."
-        },
-        {
-          "title": "Lansmana hazır güven temeli",
-          "text": "Bu rehber bugün güçlü bir güven katmanı oluşturur ve daha sonra gerçek destek, moderasyon ve ürün politikası detaylarıyla genişletilebilir."
-        }
-      ]
-    }
+      {
+        "title": "2. Ürün erişilebilirliği",
+        "text": "Gerçek uygulamalar yayınlandığında mağaza erişimi, indirme yöntemleri, desteklenen bölgeler ve özellik erişimi burada netleştirilebilir."
+      },
+      {
+        "title": "3. Hesap ve erişim koşulları",
+        "text": "Gelecekte ebeveyn hesapları, isteğe bağlı profiller veya panel işlevleri sunulursa, canlı kullanım koşulları bunları açık şekilde açıklamalıdır."
+      },
+      {
+        "title": "4. Güncellemeler ve değişiklikler",
+        "text": "Qubi, uygulama portföyü geliştikçe ve farklı platformlarda yayınlandıkça ürün mesajlarını, platform erişilebilirliğini ve yasal materyalleri güncelleyebilir."
+      }
+    ]
+  },
+  "parentSafety": {
+    "seo": {
+      "title": "Ebeveyn Güvenlik Rehberi",
+      "description": "Qubi LLC’nin ebeveyn güvenliği yaklaşımını ve çocuk dostu dijital ürün prensiplerini keşfedin."
+    },
+    "badge": "Ebeveyn Güvenlik Rehberi",
+    "title": "Qubi’nin çocuk dostu ürün tasarımına nasıl yaklaştığını ebeveynlere daha net anlatan bir açıklama.",
+    "description": "Bu sayfa marka odaklı bir güvenlik rehberi işlevi görür ve ileride aileler için daha detaylı bir ürün destek kaynağına dönüşebilir.",
+    "cards": [
+      {
+        "title": "Düşük dikkat dağıtımlı UX",
+        "text": "Qubi, ürün deneyimlerinin daha odaklı hissedilmesi için daha sakin yerleşimler, daha net gezinme ve daha az görsel karmaşa kullanmayı hedefler."
+      },
+      {
+        "title": "Ebeveynler için okunabilir yapı",
+        "text": "Ebeveynler ürünün amacını, gezinme modelini ve güven sinyallerini hızlıca anlayabilmelidir."
+      },
+      {
+        "title": "Yaşa duyarlı iletişim",
+        "text": "Ürün dili ve etkileşim kalıpları çocuk dostu deneyim prensipleriyle uyumlu kalmalıdır."
+      },
+      {
+        "title": "Lansmana hazır güven temeli",
+        "text": "Bu rehber bugün güçlü bir güven katmanı oluşturur ve daha sonra gerçek destek, moderasyon ve ürün politikası detaylarıyla genişletilebilir."
+      }
+    ]
   }
+}

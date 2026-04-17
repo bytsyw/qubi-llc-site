@@ -1,39 +1,39 @@
 {
-    "seo": {
-      "title": "About",
-      "description": "Learn about Qubi LLC, its mission, product mindset and global vision for children’s mobile experiences."
+  "seo": {
+    "title": "About",
+    "description": "Learn about Qubi LLC, its mission, product mindset and global vision for children’s mobile experiences."
+  },
+  "page": {
+    "badge": "About Qubi",
+    "title": "A company built around thoughtful children’s digital experiences.",
+    "description": "Learn more about Qubi’s mission, product mindset and global brand direction."
+  },
+  "section": {
+    "badge": "About Qubi",
+    "title": "A modern children’s app company built around trust, delight and product clarity.",
+    "description1": "Qubi LLC creates mobile experiences for children with a strong focus on thoughtful interaction, warm visual storytelling and parent confidence. The brand is not only about playful interfaces, but about building digital products families feel good about returning to.",
+    "description2": "Our product approach combines a modern UI language, calm user flows and globally relevant design principles. This allows Qubi to present itself as both a credible company and a memorable application brand.",
+    "stats": {
+      "appsValue": "3",
+      "appsLabel": "flagship app concepts",
+      "globalValue": "Global",
+      "globalLabel": "brand direction",
+      "parentValue": "Parent-first",
+      "parentLabel": "experience focus"
     },
-    "page": {
-      "badge": "About Qubi",
-      "title": "A company built around thoughtful children’s digital experiences.",
-      "description": "Learn more about Qubi’s mission, product mindset and global brand direction."
-    },
-    "section": {
-      "badge": "About Qubi",
-      "title": "A modern children’s app company built around trust, delight and product clarity.",
-      "description1": "Qubi LLC creates mobile experiences for children with a strong focus on thoughtful interaction, warm visual storytelling and parent confidence. The brand is not only about playful interfaces, but about building digital products families feel good about returning to.",
-      "description2": "Our product approach combines a modern UI language, calm user flows and globally relevant design principles. This allows Qubi to present itself as both a credible company and a memorable application brand.",
-      "stats": {
-        "appsValue": "3",
-        "appsLabel": "flagship app concepts",
-        "globalValue": "Global",
-        "globalLabel": "brand direction",
-        "parentValue": "Parent-first",
-        "parentLabel": "experience focus"
+    "pillars": [
+      {
+        "title": "Mission-led design",
+        "text": "We design products that feel joyful for children while remaining clear, calm and reassuring for parents."
       },
-      "pillars": [
-        {
-          "title": "Mission-led design",
-          "text": "We design products that feel joyful for children while remaining clear, calm and reassuring for parents."
-        },
-        {
-          "title": "Parent-trusted experiences",
-          "text": "Every interaction is shaped around clarity, low-friction journeys and a more confident family experience."
-        },
-        {
-          "title": "Global product mindset",
-          "text": "Qubi is built with an international audience in mind, using a visual language that can scale across markets."
-        }
-      ]
-    }
+      {
+        "title": "Parent-trusted experiences",
+        "text": "Every interaction is shaped around clarity, low-friction journeys and a more confident family experience."
+      },
+      {
+        "title": "Global product mindset",
+        "text": "Qubi is built with an international audience in mind, using a visual language that can scale across markets."
+      }
+    ]
   }
+}

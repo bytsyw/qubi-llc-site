@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  ADMIN_SESSION_COOKIE,
-  verifyAdminSessionToken,
-} from "@/lib/auth";
+import { ADMIN_SESSION_COOKIE, verifyAdminSessionToken } from "@/lib/auth";
 
 const protectedPrefixes = [
   "/dashboard",
@@ -69,9 +66,7 @@ export async function middleware(request: NextRequest) {
 
   if (!session) {
     if (needsProtection || isLoginPage) {
-      return clearSessionCookie(
-        NextResponse.redirect(buildLoginRedirect(request)),
-      );
+      return clearSessionCookie(NextResponse.redirect(buildLoginRedirect(request)));
     }
 
     return clearSessionCookie(response);

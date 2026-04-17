@@ -1,4 +1,4 @@
-import { PublicAppDto } from "./dto/public-app.dto";
+import { PublicAppDto } from './dto/public-app.dto';
 
 type AppEntity = {
   id: string;
@@ -29,7 +29,7 @@ type AppEntity = {
     id: string;
     providerId: string;
     provider: {
-      provider: "APPLE" | "GOOGLE";
+      provider: 'APPLE' | 'GOOGLE';
     };
     storeAppId: string | null;
     bundleId: string | null;
@@ -41,7 +41,7 @@ type AppEntity = {
     lastSyncedAt: Date | null;
   }>;
   metricSnapshots: Array<{
-    provider: "APPLE" | "GOOGLE";
+    provider: 'APPLE' | 'GOOGLE';
     rating: number | null;
     reviewCount: number | null;
     downloadEstimate: string | null;
@@ -51,7 +51,7 @@ type AppEntity = {
   }>;
   reviews: Array<{
     id: string;
-    provider: "APPLE" | "GOOGLE";
+    provider: 'APPLE' | 'GOOGLE';
     storeReviewId: string;
     locale: string | null;
     rating: number | null;
@@ -74,19 +74,19 @@ type AppEntity = {
 export function mapPublicApp(app: AppEntity, locale: string): PublicAppDto {
   const content =
     app.contents.find((item) => item.locale === locale) ??
-    app.contents.find((item) => item.locale === "en") ??
+    app.contents.find((item) => item.locale === 'en') ??
     app.contents[0] ??
     null;
 
   const latestAppleMetrics =
-    app.metricSnapshots.find((item) => item.provider === "APPLE") ?? null;
+    app.metricSnapshots.find((item) => item.provider === 'APPLE') ?? null;
 
   const latestGoogleMetrics =
-    app.metricSnapshots.find((item) => item.provider === "GOOGLE") ?? null;
+    app.metricSnapshots.find((item) => item.provider === 'GOOGLE') ?? null;
 
   const latestAnalytics =
     app.analytics.find((item) => item.locale === locale) ??
-    app.analytics.find((item) => item.locale === "en") ??
+    app.analytics.find((item) => item.locale === 'en') ??
     app.analytics[0] ??
     null;
 
@@ -166,7 +166,7 @@ export function mapPublicApp(app: AppEntity, locale: string): PublicAppDto {
 function mapMetricSnapshot(
   snapshot:
     | {
-        provider: "APPLE" | "GOOGLE";
+        provider: 'APPLE' | 'GOOGLE';
         rating: number | null;
         reviewCount: number | null;
         downloadEstimate: string | null;
@@ -179,7 +179,7 @@ function mapMetricSnapshot(
 ) {
   if (!snapshot) {
     return {
-      status: "pending" as const,
+      status: 'pending' as const,
       provider: null,
       rating: null,
       reviewCount: null,
@@ -191,7 +191,7 @@ function mapMetricSnapshot(
   }
 
   return {
-    status: "connected" as const,
+    status: 'connected' as const,
     provider: snapshot.provider,
     rating: snapshot.rating,
     reviewCount: snapshot.reviewCount,

@@ -1,4 +1,4 @@
-import { IsIn, IsOptional, IsString } from "class-validator";
+import { IsIn, IsOptional, IsString } from 'class-validator';
 
 export class CreateSmokeTestRunDto {
   @IsString()
@@ -8,7 +8,7 @@ export class CreateSmokeTestRunDto {
   title!: string;
 
   @IsString()
-  @IsIn(["passed", "failed", "blocked"])
+  @IsIn(['passed', 'failed', 'blocked'])
   result!: string;
 
   @IsOptional()

@@ -21,9 +21,7 @@ export default function WebhookProcessor() {
 
       router.refresh();
     } catch (error) {
-      setStatus(
-        error instanceof Error ? error.message : "Webhook processing failed.",
-      );
+      setStatus(error instanceof Error ? error.message : "Webhook processing failed.");
     } finally {
       setRunning(false);
     }
@@ -40,8 +38,8 @@ export default function WebhookProcessor() {
       </h2>
 
       <p className="mt-4 text-sm leading-7 text-black/60">
-        This retries pending webhook records. Apple events can become verified
-        after certificate and environment configuration is completed.
+        This retries pending webhook records. Apple events can become verified after
+        certificate and environment configuration is completed.
       </p>
 
       {status ? (

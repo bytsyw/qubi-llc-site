@@ -1,10 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
-import {
-  createLocalizedPath,
-  getLangFromPath,
-} from "../../utils/localeRouting";
+import { createLocalizedPath, getLangFromPath } from "../../utils/localeRouting";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -29,7 +26,9 @@ export default function Header() {
         <div className="flex flex-wrap items-center gap-3">
           <nav className="flex flex-wrap items-center gap-2 rounded-full border border-black/8 bg-white/80 p-1 shadow-sm">
             <HeaderLink to={createLocalizedPath(lang, "/")}>{t("nav.home")}</HeaderLink>
-            <HeaderLink to={createLocalizedPath(lang, "/about")}>{t("nav.about")}</HeaderLink>
+            <HeaderLink to={createLocalizedPath(lang, "/about")}>
+              {t("nav.about")}
+            </HeaderLink>
             <HeaderLink to={createLocalizedPath(lang, "/trust-safety")}>
               {t("nav.trustSafety")}
             </HeaderLink>

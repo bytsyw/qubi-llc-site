@@ -7,9 +7,7 @@ function getAdminSessionSecret() {
   const secret = process.env.ADMIN_SESSION_SECRET;
 
   if (!secret || secret.length < 32) {
-    throw new Error(
-      "ADMIN_SESSION_SECRET must be set and at least 32 characters long.",
-    );
+    throw new Error("ADMIN_SESSION_SECRET must be set and at least 32 characters long.");
   }
 
   return new TextEncoder().encode(secret);

@@ -90,10 +90,7 @@ function StatusCard({
           label="Credential count"
           value={String(provider?.credentialCount ?? 0)}
         />
-        <InfoRow
-          label="Last checked"
-          value={provider?.lastCheckedAt ?? "—"}
-        />
+        <InfoRow label="Last checked" value={provider?.lastCheckedAt ?? "—"} />
         <InfoRow label="Last error" value={provider?.lastError ?? "—"} />
       </div>
     </div>

@@ -52,9 +52,7 @@ type EventFlow = {
   snapshot: MetricSnapshot | null;
 };
 
-function mapWebhookSourceToProvider(
-  source: WebhookEventRecord["source"],
-): Provider {
+function mapWebhookSourceToProvider(source: WebhookEventRecord["source"]): Provider {
   return source === "APPLE_SERVER_NOTIFICATIONS" ? "APPLE" : "GOOGLE";
 }
 
@@ -111,7 +109,9 @@ function buildFlows({
         const metricDate = new Date(metricTime).getTime();
         const referenceDate = new Date(referenceTime).getTime();
 
-        return metricDate >= referenceDate && hoursBetween(metricTime, referenceTime) <= 6;
+        return (
+          metricDate >= referenceDate && hoursBetween(metricTime, referenceTime) <= 6
+        );
       }) ?? null;
 
     flows.push({
@@ -172,9 +172,7 @@ export default function AppEventFlow({
                 <div className="text-sm font-bold uppercase tracking-[0.12em] text-[#111111]">
                   {flow.provider} flow
                 </div>
-                <div className="text-xs text-black/45">
-                  Chain #{index + 1}
-                </div>
+                <div className="text-xs text-black/45">Chain #{index + 1}</div>
               </div>
 
               <div className="mt-4 grid gap-4 xl:grid-cols-3">
@@ -204,9 +202,7 @@ export default function AppEventFlow({
                       : "No matched sync"
                   }
                   subtitle={
-                    flow.sync
-                      ? `${flow.sync.message || "No message"}`
-                      : "No sync match"
+                    flow.sync ? `${flow.sync.message || "No message"}` : "No sync match"
                   }
                   footer={
                     flow.sync
@@ -230,9 +226,7 @@ export default function AppEventFlow({
                       ? `Rating: ${flow.snapshot.rating ?? "—"} · Reviews: ${flow.snapshot.reviewCount ?? "—"}`
                       : "No snapshot match"
                   }
-                  footer={
-                    flow.snapshot ? formatDate(flow.snapshot.capturedAt) : "—"
-                  }
+                  footer={flow.snapshot ? formatDate(flow.snapshot.capturedAt) : "—"}
                 />
               </div>
             </div>
@@ -268,9 +262,7 @@ function FlowCard({
       <div className="mt-3 text-sm font-semibold text-[#111111]">{title}</div>
       <div className="mt-2 text-sm leading-6 text-black/60">{subtitle}</div>
 
-      {footer ? (
-        <div className="mt-3 text-xs text-black/45">{footer}</div>
-      ) : null}
+      {footer ? <div className="mt-3 text-xs text-black/45">{footer}</div> : null}
     </div>
   );
 }

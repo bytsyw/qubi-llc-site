@@ -1,39 +1,39 @@
 {
-    "seo": {
-      "title": "Hakkımızda",
-      "description": "Qubi LLC’nin misyonunu, ürün yaklaşımını ve çocuklara yönelik mobil deneyimlerdeki global vizyonunu keşfedin."
+  "seo": {
+    "title": "Hakkımızda",
+    "description": "Qubi LLC’nin misyonunu, ürün yaklaşımını ve çocuklara yönelik mobil deneyimlerdeki global vizyonunu keşfedin."
+  },
+  "page": {
+    "badge": "Qubi Hakkında",
+    "title": "Düşünülmüş çocuk odaklı dijital deneyimler etrafında kurulan bir şirket.",
+    "description": "Qubi’nin misyonu, ürün yaklaşımı ve global marka yönü hakkında daha fazla bilgi edinin."
+  },
+  "section": {
+    "badge": "Qubi Hakkında",
+    "title": "Güven, keyif ve ürün netliği üzerine kurulu modern bir çocuk uygulama şirketi.",
+    "description1": "Qubi LLC, çocuklar için düşünülmüş etkileşim, sıcak görsel hikâye anlatımı ve ebeveyn güveni odağıyla mobil deneyimler üretir. Marka yalnızca eğlenceli arayüzlerden ibaret değildir; ailelerin tekrar dönmek isteyeceği dijital ürünler inşa etmeyi amaçlar.",
+    "description2": "Ürün yaklaşımımız modern bir arayüz dili, daha sakin kullanıcı akışları ve global ölçekte karşılık bulabilecek tasarım prensiplerini bir araya getirir. Bu sayede Qubi hem güvenilir bir şirket hem de akılda kalan bir uygulama markası olarak konumlanır.",
+    "stats": {
+      "appsValue": "3",
+      "appsLabel": "amiral uygulama konsepti",
+      "globalValue": "Global",
+      "globalLabel": "marka yönü",
+      "parentValue": "Ebeveyn odaklı",
+      "parentLabel": "deneyim yaklaşımı"
     },
-    "page": {
-      "badge": "Qubi Hakkında",
-      "title": "Düşünülmüş çocuk odaklı dijital deneyimler etrafında kurulan bir şirket.",
-      "description": "Qubi’nin misyonu, ürün yaklaşımı ve global marka yönü hakkında daha fazla bilgi edinin."
-    },
-    "section": {
-      "badge": "Qubi Hakkında",
-      "title": "Güven, keyif ve ürün netliği üzerine kurulu modern bir çocuk uygulama şirketi.",
-      "description1": "Qubi LLC, çocuklar için düşünülmüş etkileşim, sıcak görsel hikâye anlatımı ve ebeveyn güveni odağıyla mobil deneyimler üretir. Marka yalnızca eğlenceli arayüzlerden ibaret değildir; ailelerin tekrar dönmek isteyeceği dijital ürünler inşa etmeyi amaçlar.",
-      "description2": "Ürün yaklaşımımız modern bir arayüz dili, daha sakin kullanıcı akışları ve global ölçekte karşılık bulabilecek tasarım prensiplerini bir araya getirir. Bu sayede Qubi hem güvenilir bir şirket hem de akılda kalan bir uygulama markası olarak konumlanır.",
-      "stats": {
-        "appsValue": "3",
-        "appsLabel": "amiral uygulama konsepti",
-        "globalValue": "Global",
-        "globalLabel": "marka yönü",
-        "parentValue": "Ebeveyn odaklı",
-        "parentLabel": "deneyim yaklaşımı"
+    "pillars": [
+      {
+        "title": "Misyon odaklı tasarım",
+        "text": "Çocuklar için keyifli hissettiren, ebeveynler için ise net, sakin ve güven verici kalan ürünler tasarlıyoruz."
       },
-      "pillars": [
-        {
-          "title": "Misyon odaklı tasarım",
-          "text": "Çocuklar için keyifli hissettiren, ebeveynler için ise net, sakin ve güven verici kalan ürünler tasarlıyoruz."
-        },
-        {
-          "title": "Ebeveyn güveni odaklı deneyimler",
-          "text": "Her etkileşim daha açık, daha düşük sürtünmeli ve aileler için daha güven veren bir deneyim etrafında şekillenir."
-        },
-        {
-          "title": "Global ürün bakışı",
-          "text": "Qubi, farklı pazarlara ölçeklenebilecek bir görsel dil ile uluslararası bir kullanıcı kitlesi düşünülerek inşa edilir."
-        }
-      ]
-    }
+      {
+        "title": "Ebeveyn güveni odaklı deneyimler",
+        "text": "Her etkileşim daha açık, daha düşük sürtünmeli ve aileler için daha güven veren bir deneyim etrafında şekillenir."
+      },
+      {
+        "title": "Global ürün bakışı",
+        "text": "Qubi, farklı pazarlara ölçeklenebilecek bir görsel dil ile uluslararası bir kullanıcı kitlesi düşünülerek inşa edilir."
+      }
+    ]
   }
+}

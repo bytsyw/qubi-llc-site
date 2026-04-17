@@ -2,10 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import {
-  triggerAdminReviewMetricSync,
-  triggerAdminSyncRun,
-} from "@/lib/api";
+import { triggerAdminReviewMetricSync, triggerAdminSyncRun } from "@/lib/api";
 
 export default function SyncRunner() {
   const router = useRouter();
@@ -43,9 +40,7 @@ export default function SyncRunner() {
 
       router.refresh();
     } catch (error) {
-      setStatus(
-        error instanceof Error ? error.message : "Review/metric sync failed.",
-      );
+      setStatus(error instanceof Error ? error.message : "Review/metric sync failed.");
     } finally {
       setReviewRunning(false);
     }
@@ -57,9 +52,7 @@ export default function SyncRunner() {
         Manual sync
       </div>
 
-      <h2 className="mt-3 text-2xl font-black tracking-tight">
-        Run sync jobs now
-      </h2>
+      <h2 className="mt-3 text-2xl font-black tracking-tight">Run sync jobs now</h2>
 
       <p className="mt-4 text-sm leading-7 text-black/60">
         Run registry discovery or review/metric synchronization manually.

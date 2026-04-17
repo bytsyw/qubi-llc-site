@@ -1,4 +1,4 @@
-```md
+````md
 # Qubi Site
 
 Qubi LLC public website (React + Vite).
@@ -8,3 +8,5 @@ Qubi LLC public website (React + Vite).
 ```bash
 pnpm install
 pnpm dev:site
+```
+````

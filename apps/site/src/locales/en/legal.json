@@ -1,83 +1,83 @@
 {
-    "privacy": {
-      "seo": {
-        "title": "Privacy Policy",
-        "description": "Read Qubi LLC’s privacy policy overview for its children’s mobile products and parent-facing digital experiences."
-      },
-      "badge": "Privacy Policy",
-      "title": "Privacy, clarity and responsible product communication.",
-      "description": "This page is a launch-ready placeholder for Qubi LLC’s future privacy policy. It is structured to support real legal text later without changing the design system.",
-      "blocks": [
-        {
-          "title": "1. Information approach",
-          "text": "Qubi intends to communicate clearly what product information is collected, how it is used and how parent-facing controls will be handled once the applications are launched."
-        },
-        {
-          "title": "2. Children’s product sensitivity",
-          "text": "Because Qubi products are built for child-oriented experiences, privacy communication should remain especially clear, parent-readable and easy to review."
-        },
-        {
-          "title": "3. Parent-facing transparency",
-          "text": "When live systems are introduced, the privacy policy should explain onboarding, account setup, optional permissions and any product analytics in simple terms."
-        },
-        {
-          "title": "4. Future updates",
-          "text": "This placeholder page can later be replaced with a production-ready privacy policy reviewed for the real launch environment, regions and compliance requirements."
-        }
-      ]
+  "privacy": {
+    "seo": {
+      "title": "Privacy Policy",
+      "description": "Read Qubi LLC’s privacy policy overview for its children’s mobile products and parent-facing digital experiences."
     },
-    "terms": {
-      "seo": {
-        "title": "Terms of Use",
-        "description": "Review the placeholder terms of use structure for Qubi LLC and its future children’s mobile applications."
+    "badge": "Privacy Policy",
+    "title": "Privacy, clarity and responsible product communication.",
+    "description": "This page is a launch-ready placeholder for Qubi LLC’s future privacy policy. It is structured to support real legal text later without changing the design system.",
+    "blocks": [
+      {
+        "title": "1. Information approach",
+        "text": "Qubi intends to communicate clearly what product information is collected, how it is used and how parent-facing controls will be handled once the applications are launched."
       },
-      "badge": "Terms of Use",
-      "title": "Product terms prepared for future launch.",
-      "description": "This page is a structured placeholder for Qubi LLC’s future terms of use. It allows the site to look complete now and remain ready for formal legal content later.",
-      "blocks": [
-        {
-          "title": "1. Intended use",
-          "text": "Qubi applications are positioned as child-oriented digital products with parent-aware communication and clearly structured product journeys."
-        },
-        {
-          "title": "2. Product availability",
-          "text": "Store availability, download methods, supported regions and feature access can be clarified here when the real apps are published."
-        },
-        {
-          "title": "3. Account and access conditions",
-          "text": "If parent accounts, optional profiles or dashboard functionality are introduced later, the live terms page should describe those conditions clearly."
-        },
-        {
-          "title": "4. Updates and changes",
-          "text": "Qubi may revise product messaging, platform availability and legal materials as the application portfolio evolves and launches across platforms."
-        }
-      ]
+      {
+        "title": "2. Children’s product sensitivity",
+        "text": "Because Qubi products are built for child-oriented experiences, privacy communication should remain especially clear, parent-readable and easy to review."
+      },
+      {
+        "title": "3. Parent-facing transparency",
+        "text": "When live systems are introduced, the privacy policy should explain onboarding, account setup, optional permissions and any product analytics in simple terms."
+      },
+      {
+        "title": "4. Future updates",
+        "text": "This placeholder page can later be replaced with a production-ready privacy policy reviewed for the real launch environment, regions and compliance requirements."
+      }
+    ]
+  },
+  "terms": {
+    "seo": {
+      "title": "Terms of Use",
+      "description": "Review the placeholder terms of use structure for Qubi LLC and its future children’s mobile applications."
     },
-    "parentSafety": {
-      "seo": {
-        "title": "Parent Safety Guide",
-        "description": "Explore Qubi LLC’s parent safety positioning and child-friendly digital product principles."
+    "badge": "Terms of Use",
+    "title": "Product terms prepared for future launch.",
+    "description": "This page is a structured placeholder for Qubi LLC’s future terms of use. It allows the site to look complete now and remain ready for formal legal content later.",
+    "blocks": [
+      {
+        "title": "1. Intended use",
+        "text": "Qubi applications are positioned as child-oriented digital products with parent-aware communication and clearly structured product journeys."
       },
-      "badge": "Parent Safety Guide",
-      "title": "A clearer parent-facing explanation of how Qubi approaches child-friendly product design.",
-      "description": "This page acts as a brand-facing safety guide and can later become a more detailed product support resource for families.",
-      "cards": [
-        {
-          "title": "Low-distraction UX",
-          "text": "Qubi aims to use calmer layouts, clearer navigation and less visual clutter in order to make product experiences feel more focused."
-        },
-        {
-          "title": "Parent-readable structure",
-          "text": "Parents should be able to understand the product intention, navigation model and trust signals quickly."
-        },
-        {
-          "title": "Age-aware communication",
-          "text": "Product language and interaction patterns should remain aligned with child-friendly experience principles."
-        },
-        {
-          "title": "Launch-ready trust foundation",
-          "text": "This guide creates a strong trust layer now and can later be expanded with real support, moderation and product policy details."
-        }
-      ]
-    }
+      {
+        "title": "2. Product availability",
+        "text": "Store availability, download methods, supported regions and feature access can be clarified here when the real apps are published."
+      },
+      {
+        "title": "3. Account and access conditions",
+        "text": "If parent accounts, optional profiles or dashboard functionality are introduced later, the live terms page should describe those conditions clearly."
+      },
+      {
+        "title": "4. Updates and changes",
+        "text": "Qubi may revise product messaging, platform availability and legal materials as the application portfolio evolves and launches across platforms."
+      }
+    ]
+  },
+  "parentSafety": {
+    "seo": {
+      "title": "Parent Safety Guide",
+      "description": "Explore Qubi LLC’s parent safety positioning and child-friendly digital product principles."
+    },
+    "badge": "Parent Safety Guide",
+    "title": "A clearer parent-facing explanation of how Qubi approaches child-friendly product design.",
+    "description": "This page acts as a brand-facing safety guide and can later become a more detailed product support resource for families.",
+    "cards": [
+      {
+        "title": "Low-distraction UX",
+        "text": "Qubi aims to use calmer layouts, clearer navigation and less visual clutter in order to make product experiences feel more focused."
+      },
+      {
+        "title": "Parent-readable structure",
+        "text": "Parents should be able to understand the product intention, navigation model and trust signals quickly."
+      },
+      {
+        "title": "Age-aware communication",
+        "text": "Product language and interaction patterns should remain aligned with child-friendly experience principles."
+      },
+      {
+        "title": "Launch-ready trust foundation",
+        "text": "This guide creates a strong trust layer now and can later be expanded with real support, moderation and product policy details."
+      }
+    ]
   }
+}

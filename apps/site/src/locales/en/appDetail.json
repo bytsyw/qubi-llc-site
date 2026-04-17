@@ -1,74 +1,74 @@
 {
-    "seo": {
-      "notFoundTitle": "App not found",
-      "notFoundDescription": "The requested Qubi app page could not be found."
-    },
-    "notFound": {
-      "badge": "App not found",
-      "title": "The app page you requested does not exist.",
-      "description": "The requested application route could not be found. You can return to the homepage and continue browsing the Qubi portfolio.",
-      "cta": "Back to homepage"
-    },
-    "top": {
-      "home": "Homepage",
-      "crumb": "App detail page",
-      "title": "Dedicated application detail page",
-      "description": "This page is separate from the homepage and follows the same color language, motion style and product presentation logic."
-    },
-    "hero": {
-      "badge": "Separate page preview",
-      "downloads": "downloads",
-      "averageRating": "average rating",
-      "parentsReached": "parents reached",
-      "ctaPrimary": "Contact Qubi",
-      "ctaSecondary": "Explore more apps"
-    },
-    "launch": {
-      "badge": "Launch status",
-      "title": "This app page is launch-ready and prepared for future store publishing.",
-      "description": "Real store links are not connected yet. The structure below keeps launch messaging consistent across the whole site until App Store and Google Play listings are published."
-    },
-    "ratings": {
-      "badge": "Ratings & feedback",
-      "title": "Review presentation for the detail page",
-      "cards": {
-        "appRating": "App rating",
-        "parentTrust": "Parent trust",
-        "repeatUsage": "Repeat usage",
-        "parentTrustSubtitle": "positive confidence",
-        "repeatUsageSubtitle": "weekly active families"
-      }
-    },
-    "usageFlow": {
-      "badge": "How it works",
-      "title": "Usage flow on the separate application page"
-    },
-    "features": {
-      "badge": "Key features",
-      "title": "What makes this app launch-ready as a product story"
-    },
-    "screenshots": {
-      "badge": "Screenshots",
-      "title": "Screenshot and interface presentation area"
-    },
-    "panels": {
-      "requirements": "Usage requirements",
-      "terms": "Terms & conditions"
-    },
-    "faq": {
-      "badge": "FAQ",
-      "title": "Common launch and product questions"
-    },
-    "related": {
-      "badge": "Related apps",
-      "title": "Explore more from the Qubi portfolio",
-      "cta": "View app details"
-    },
-    "bottomMetrics": {
-      "averageSession": "Average session",
-      "parentFeedback": "Parent feedback",
-      "usagePolicy": "Usage policy",
-      "parentFeedbackValue": "Highly positive",
-      "usagePolicyValue": "Parent-guided"
+  "seo": {
+    "notFoundTitle": "App not found",
+    "notFoundDescription": "The requested Qubi app page could not be found."
+  },
+  "notFound": {
+    "badge": "App not found",
+    "title": "The app page you requested does not exist.",
+    "description": "The requested application route could not be found. You can return to the homepage and continue browsing the Qubi portfolio.",
+    "cta": "Back to homepage"
+  },
+  "top": {
+    "home": "Homepage",
+    "crumb": "App detail page",
+    "title": "Dedicated application detail page",
+    "description": "This page is separate from the homepage and follows the same color language, motion style and product presentation logic."
+  },
+  "hero": {
+    "badge": "Separate page preview",
+    "downloads": "downloads",
+    "averageRating": "average rating",
+    "parentsReached": "parents reached",
+    "ctaPrimary": "Contact Qubi",
+    "ctaSecondary": "Explore more apps"
+  },
+  "launch": {
+    "badge": "Launch status",
+    "title": "This app page is launch-ready and prepared for future store publishing.",
+    "description": "Real store links are not connected yet. The structure below keeps launch messaging consistent across the whole site until App Store and Google Play listings are published."
+  },
+  "ratings": {
+    "badge": "Ratings & feedback",
+    "title": "Review presentation for the detail page",
+    "cards": {
+      "appRating": "App rating",
+      "parentTrust": "Parent trust",
+      "repeatUsage": "Repeat usage",
+      "parentTrustSubtitle": "positive confidence",
+      "repeatUsageSubtitle": "weekly active families"
     }
+  },
+  "usageFlow": {
+    "badge": "How it works",
+    "title": "Usage flow on the separate application page"
+  },
+  "features": {
+    "badge": "Key features",
+    "title": "What makes this app launch-ready as a product story"
+  },
+  "screenshots": {
+    "badge": "Screenshots",
+    "title": "Screenshot and interface presentation area"
+  },
+  "panels": {
+    "requirements": "Usage requirements",
+    "terms": "Terms & conditions"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Common launch and product questions"
+  },
+  "related": {
+    "badge": "Related apps",
+    "title": "Explore more from the Qubi portfolio",
+    "cta": "View app details"
+  },
+  "bottomMetrics": {
+    "averageSession": "Average session",
+    "parentFeedback": "Parent feedback",
+    "usagePolicy": "Usage policy",
+    "parentFeedbackValue": "Highly positive",
+    "usagePolicyValue": "Parent-guided"
   }
+}

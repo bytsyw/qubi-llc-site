@@ -85,9 +85,7 @@ export default async function AppsPage() {
             <div className="text-xs font-bold uppercase tracking-[0.18em] text-yellow-700">
               Registry
             </div>
-            <h2 className="mt-2 text-2xl font-black tracking-tight">
-              App list
-            </h2>
+            <h2 className="mt-2 text-2xl font-black tracking-tight">App list</h2>
           </div>
 
           <button className="rounded-2xl bg-[#111111] px-4 py-2.5 text-sm font-bold text-yellow-300">
@@ -97,8 +95,8 @@ export default async function AppsPage() {
 
         {hasError ? (
           <div className="mt-6 rounded-[1.5rem] border border-red-200 bg-red-50 px-4 py-4 text-sm text-red-700">
-            Backend app list could not be loaded. Make sure the API is running on
-            port 4000 and try again.
+            Backend app list could not be loaded. Make sure the API is running on port
+            4000 and try again.
           </div>
         ) : apps.length === 0 ? (
           <div className="mt-6 rounded-[1.5rem] border border-black/8 bg-[#f7f5ef] px-4 py-4 text-sm text-black/60">
@@ -133,9 +131,7 @@ export default async function AppsPage() {
                         </div>
                       </td>
 
-                      <td className="px-4 py-4 text-sm text-black/60">
-                        {app.slug}
-                      </td>
+                      <td className="px-4 py-4 text-sm text-black/60">{app.slug}</td>
 
                       <td className="px-4 py-4 text-sm text-black/60">
                         {app.content?.locale || "—"}

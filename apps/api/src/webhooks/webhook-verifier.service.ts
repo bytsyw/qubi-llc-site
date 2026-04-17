@@ -1,11 +1,11 @@
-import { Injectable } from "@nestjs/common";
-import { OAuth2Client } from "google-auth-library";
+import { Injectable } from '@nestjs/common';
+import { OAuth2Client } from 'google-auth-library';
 import {
   Environment,
   SignedDataVerifier,
-} from "@apple/app-store-server-library";
-import { existsSync, readdirSync, readFileSync } from "fs";
-import { join } from "path";
+} from '@apple/app-store-server-library';
+import { existsSync, readdirSync, readFileSync } from 'fs';
+import { join } from 'path';
 
 type VerificationResult =
   | {
@@ -27,7 +27,7 @@ export class WebhookVerifierService {
     if (!signedPayload) {
       return {
         verified: false,
-        reason: "missing_signed_payload",
+        reason: 'missing_signed_payload',
       };
     }
 
@@ -35,7 +35,7 @@ export class WebhookVerifierService {
     if (!bundleId) {
       return {
         verified: false,
-        reason: "missing_apple_bundle_id",
+        reason: 'missing_apple_bundle_id',
       };
     }
 
@@ -43,13 +43,13 @@ export class WebhookVerifierService {
     if (appleRootCAs.length === 0) {
       return {
         verified: false,
-        reason: "missing_apple_root_certs",
+        reason: 'missing_apple_root_certs',
       };
     }
 
     const environment =
-      (process.env.APPLE_SERVER_ENVIRONMENT || "SANDBOX").toUpperCase() ===
-      "PRODUCTION"
+      (process.env.APPLE_SERVER_ENVIRONMENT || 'SANDBOX').toUpperCase() ===
+      'PRODUCTION'
         ? Environment.PRODUCTION
         : Environment.SANDBOX;
 
@@ -82,7 +82,7 @@ export class WebhookVerifierService {
     } catch (error) {
       return {
         verified: false,
-        reason: error instanceof Error ? error.message : "apple_verify_failed",
+        reason: error instanceof Error ? error.message : 'apple_verify_failed',
       };
     }
   }
@@ -90,10 +90,10 @@ export class WebhookVerifierService {
   async verifyGooglePushAuthorization(
     authorizationHeader?: string | null,
   ): Promise<VerificationResult> {
-    if (!authorizationHeader?.startsWith("Bearer ")) {
+    if (!authorizationHeader?.startsWith('Bearer ')) {
       return {
         verified: false,
-        reason: "missing_bearer_token",
+        reason: 'missing_bearer_token',
       };
     }
 
@@ -101,11 +101,11 @@ export class WebhookVerifierService {
     if (!audience) {
       return {
         verified: false,
-        reason: "missing_google_pubsub_audience",
+        reason: 'missing_google_pubsub_audience',
       };
     }
 
-    const token = authorizationHeader.slice("Bearer ".length).trim();
+    const token = authorizationHeader.slice('Bearer '.length).trim();
 
     try {
       const ticket = await this.googleClient.verifyIdToken({
@@ -118,17 +118,17 @@ export class WebhookVerifierService {
       if (!payload) {
         return {
           verified: false,
-          reason: "missing_google_claims",
+          reason: 'missing_google_claims',
         };
       }
 
       if (
-        payload.iss !== "accounts.google.com" &&
-        payload.iss !== "https://accounts.google.com"
+        payload.iss !== 'accounts.google.com' &&
+        payload.iss !== 'https://accounts.google.com'
       ) {
         return {
           verified: false,
-          reason: "invalid_google_issuer",
+          reason: 'invalid_google_issuer',
         };
       }
 
@@ -136,7 +136,7 @@ export class WebhookVerifierService {
       if (expectedEmail && payload.email !== expectedEmail) {
         return {
           verified: false,
-          reason: "unexpected_google_email",
+          reason: 'unexpected_google_email',
         };
       }
 
@@ -153,20 +153,20 @@ export class WebhookVerifierService {
     } catch (error) {
       return {
         verified: false,
-        reason: error instanceof Error ? error.message : "google_verify_failed",
+        reason: error instanceof Error ? error.message : 'google_verify_failed',
       };
     }
   }
 
   private loadAppleRootCAs(): Buffer[] {
-    const certDir = join(process.cwd(), "certs", "apple");
+    const certDir = join(process.cwd(), 'certs', 'apple');
 
     if (!existsSync(certDir)) {
       return [];
     }
 
     const files = readdirSync(certDir).filter((file) =>
-      [".cer", ".crt", ".pem"].some((ext) => file.toLowerCase().endsWith(ext)),
+      ['.cer', '.crt', '.pem'].some((ext) => file.toLowerCase().endsWith(ext)),
     );
 
     return files.map((file) => readFileSync(join(certDir, file)));

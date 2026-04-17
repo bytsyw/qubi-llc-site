@@ -17,11 +17,7 @@ import {
 } from "lucide-react";
 import Seo from "../components/seo/Seo";
 import { ButtonPrimary, ButtonSecondary } from "../components/common/Buttons";
-import {
-  InfoPanel,
-  ScreenshotCard,
-  UsageStep,
-} from "../components/common/ContentBlocks";
+import { InfoPanel, ScreenshotCard, UsageStep } from "../components/common/ContentBlocks";
 import {
   BottomMetric,
   MiniMetric,
@@ -29,18 +25,11 @@ import {
   RatingCard,
 } from "../components/common/Metrics";
 import { Badge, Card } from "../components/common/Surface";
-import {
-  DetailHeroPhone,
-  GalleryPhone,
-} from "../components/phones/ShowcasePhones";
+import { DetailHeroPhone, GalleryPhone } from "../components/phones/ShowcasePhones";
 import { StoreLaunchRow } from "../components/common/LaunchBadges";
-import {
-  createLocalizedPath,
-  getLangFromPath,
-} from "../utils/localeRouting";
+import { createLocalizedPath, getLangFromPath } from "../utils/localeRouting";
 import { getLocalizedApps } from "../content/getLocalizedApps";
 import { getPublicApp } from "../lib/api";
-
 
 function AppDetailPhoneShowcase({ app }) {
   return (
@@ -108,7 +97,7 @@ export default function AppDetailPage() {
   const localizedApps = useMemo(() => getLocalizedApps(lang), [lang]);
   const fallbackApp = useMemo(
     () => localizedApps.find((item) => item.id === id) ?? null,
-    [localizedApps, id]
+    [localizedApps, id],
   );
 
   const [liveData, setLiveData] = useState(null);
@@ -143,15 +132,12 @@ export default function AppDetailPage() {
 
   const app = useMemo(
     () => buildDisplayApp({ fallbackApp, liveData, lang }),
-    [fallbackApp, liveData, lang]
+    [fallbackApp, liveData, lang],
   );
   if (!fallbackApp && !liveData && !isLoading) {
     return (
       <>
-        <Seo
-          title={t("seo.notFoundTitle")}
-          description={t("seo.notFoundDescription")}
-        />
+        <Seo title={t("seo.notFoundTitle")} description={t("seo.notFoundDescription")} />
         <main>
           <section className="mx-auto max-w-7xl px-6 pb-20 pt-12 lg:px-8 lg:pt-16">
             <div className="max-w-2xl rounded-[2rem] border border-black/8 bg-white/80 p-8 shadow-[0_18px_60px_rgba(0,0,0,0.06)]">
@@ -258,9 +244,7 @@ export default function AppDetailPage() {
                 >
                   {t("hero.ctaPrimary")} <ArrowRight className="h-4 w-4" />
                 </ButtonPrimary>
-                <ButtonSecondary
-                  onClick={() => navigate(createLocalizedPath(lang, "/"))}
-                >
+                <ButtonSecondary onClick={() => navigate(createLocalizedPath(lang, "/"))}>
                   {t("hero.ctaSecondary")}
                 </ButtonSecondary>
               </div>
@@ -347,9 +331,7 @@ export default function AppDetailPage() {
               <div className="inline-flex rounded-full bg-yellow-300 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-black">
                 {t("usageFlow.badge")}
               </div>
-              <h3 className="mt-4 text-2xl font-black">
-                {t("usageFlow.title")}
-              </h3>
+              <h3 className="mt-4 text-2xl font-black">{t("usageFlow.title")}</h3>
               <div className="mt-6 space-y-4">
                 {app.steps.map((step, index) => (
                   <UsageStep key={step} index={index + 1} text={step} />
@@ -419,11 +401,7 @@ export default function AppDetailPage() {
                 items={app.requirements}
                 light
               />
-              <InfoPanel
-                icon={FileText}
-                title={t("panels.terms")}
-                items={app.terms}
-              />
+              <InfoPanel icon={FileText} title={t("panels.terms")} items={app.terms} />
             </div>
           </div>
         </section>
@@ -433,9 +411,7 @@ export default function AppDetailPage() {
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-700">
               {t("faq.badge")}
             </div>
-            <h3 className="mt-2 text-2xl font-black text-[#111111]">
-              {t("faq.title")}
-            </h3>
+            <h3 className="mt-2 text-2xl font-black text-[#111111]">{t("faq.title")}</h3>
 
             <div className="mt-6 space-y-4">
               {app.faqs.map((item) => (
@@ -479,9 +455,7 @@ function FeatureCard({ text }) {
       whileHover={{ y: -4 }}
       className="rounded-[1.6rem] border border-black/8 bg-[#f8f7f2] p-5"
     >
-      <div className="text-sm font-semibold leading-7 text-[#111111]">
-        {text}
-      </div>
+      <div className="text-sm font-semibold leading-7 text-[#111111]">{text}</div>
     </motion.div>
   );
 }

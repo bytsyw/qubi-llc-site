@@ -12,11 +12,7 @@ const OG_LOCALE_MAP = {
   tr: "tr_TR",
 };
 
-export default function Seo({
-  title,
-  description,
-  noindex = false,
-}) {
+export default function Seo({ title, description, noindex = false }) {
   const location = useLocation();
 
   useEffect(() => {
@@ -27,17 +23,12 @@ export default function Seo({
     const finalDescription = description || siteConfig.defaultDescription;
 
     const basePath = stripLocaleFromPath(location.pathname);
-    const canonicalUrl = buildAbsoluteUrl(
-      withLocalePath(currentLang, basePath)
-    );
+    const canonicalUrl = buildAbsoluteUrl(withLocalePath(currentLang, basePath));
 
     document.title = finalTitle;
 
     updateMeta("description", finalDescription);
-    updateMeta(
-      "robots",
-      noindex ? "noindex, nofollow" : "index, follow"
-    );
+    updateMeta("robots", noindex ? "noindex, nofollow" : "index, follow");
 
     updatePropertyMeta("og:title", finalTitle);
     updatePropertyMeta("og:description", finalDescription);
@@ -45,7 +36,7 @@ export default function Seo({
     updatePropertyMeta("og:url", canonicalUrl);
     updatePropertyMeta(
       "og:locale",
-      OG_LOCALE_MAP[currentLang] || OG_LOCALE_MAP[DEFAULT_LANG]
+      OG_LOCALE_MAP[currentLang] || OG_LOCALE_MAP[DEFAULT_LANG],
     );
 
     setCanonical(canonicalUrl);
@@ -72,7 +63,11 @@ function stripLocaleFromPath(pathname = "/") {
 
 function withLocalePath(lang, basePath = "/") {
   const normalizedBase =
-    !basePath || basePath === "/" ? "" : basePath.startsWith("/") ? basePath : `/${basePath}`;
+    !basePath || basePath === "/"
+      ? ""
+      : basePath.startsWith("/")
+        ? basePath
+        : `/${basePath}`;
 
   return `/${lang}${normalizedBase}`;
 }
@@ -134,7 +129,7 @@ function setHreflangs(basePath) {
   defaultLink.setAttribute("hreflang", "x-default");
   defaultLink.setAttribute(
     "href",
-    buildAbsoluteUrl(withLocalePath(DEFAULT_LANG, basePath))
+    buildAbsoluteUrl(withLocalePath(DEFAULT_LANG, basePath)),
   );
   document.head.appendChild(defaultLink);
 }

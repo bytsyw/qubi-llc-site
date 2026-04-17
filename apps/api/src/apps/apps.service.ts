@@ -1,10 +1,14 @@
-import { Injectable, NotFoundException, BadRequestException } from "@nestjs/common";
-import { ConnectionStatus, ProviderType } from "@prisma/client";
-import { PrismaService } from "../prisma/prisma.service";
-import { mapPublicApp } from "./apps.mapper";
-import { PublicAppDto } from "./dto/public-app.dto";
-import { UpdateAppContentDto } from "./dto/update-app-content.dto";
-import { UpdateAppMappingDto } from "./dto/update-app-mapping.dto";
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from '@nestjs/common';
+import { ConnectionStatus, ProviderType } from '@prisma/client';
+import { PrismaService } from '../prisma/prisma.service';
+import { mapPublicApp } from './apps.mapper';
+import { PublicAppDto } from './dto/public-app.dto';
+import { UpdateAppContentDto } from './dto/update-app-content.dto';
+import { UpdateAppMappingDto } from './dto/update-app-mapping.dto';
 @Injectable()
 export class AppsService {
   constructor(private readonly prisma: PrismaService) {}
@@ -22,25 +26,28 @@ export class AppsService {
           },
         },
         metricSnapshots: {
-          orderBy: { capturedAt: "desc" },
+          orderBy: { capturedAt: 'desc' },
           take: 10,
         },
         reviews: {
-          orderBy: { syncedAt: "desc" },
+          orderBy: { syncedAt: 'desc' },
           take: 5,
         },
         analytics: {
-          orderBy: { capturedAt: "desc" },
+          orderBy: { capturedAt: 'desc' },
           take: 5,
         },
       },
-      orderBy: { createdAt: "asc" },
+      orderBy: { createdAt: 'asc' },
     });
 
     return apps.map((app) => mapPublicApp(app, normalizedLocale));
   }
 
-  async getPublicAppBySlug(slug: string, locale?: string): Promise<PublicAppDto> {
+  async getPublicAppBySlug(
+    slug: string,
+    locale?: string,
+  ): Promise<PublicAppDto> {
     const normalizedLocale = this.normalizeLocale(locale);
 
     const app = await this.prisma.app.findUnique({
@@ -53,15 +60,15 @@ export class AppsService {
           },
         },
         metricSnapshots: {
-          orderBy: { capturedAt: "desc" },
+          orderBy: { capturedAt: 'desc' },
           take: 10,
         },
         reviews: {
-          orderBy: { syncedAt: "desc" },
+          orderBy: { syncedAt: 'desc' },
           take: 5,
         },
         analytics: {
-          orderBy: { capturedAt: "desc" },
+          orderBy: { capturedAt: 'desc' },
           take: 5,
         },
       },
@@ -112,8 +119,10 @@ export class AppsService {
       steps: dto.steps ?? existing?.steps ?? [],
       scores: dto.scores ?? existing?.scores ?? [],
       screenGradient:
-        dto.screenGradient ?? existing?.screenGradient ?? "from-[#fff8de] via-[#ffe58e] to-[#facc15]",
-      glowClass: dto.glowClass ?? existing?.glowClass ?? "bg-yellow-300/55",
+        dto.screenGradient ??
+        existing?.screenGradient ??
+        'from-[#fff8de] via-[#ffe58e] to-[#facc15]',
+      glowClass: dto.glowClass ?? existing?.glowClass ?? 'bg-yellow-300/55',
       dark: dto.dark ?? existing?.dark ?? false,
     };
 
@@ -139,15 +148,15 @@ export class AppsService {
     dto: UpdateAppMappingDto,
   ): Promise<PublicAppDto> {
     const providerType = this.normalizeProvider(provider);
-  
+
     const app = await this.prisma.app.findUnique({
       where: { slug },
     });
-  
+
     if (!app) {
       throw new NotFoundException(`App not found for slug: ${slug}`);
     }
-  
+
     const providerConnection = await this.prisma.providerConnection.upsert({
       where: { provider: providerType },
       update: {},
@@ -156,29 +165,37 @@ export class AppsService {
         status: ConnectionStatus.PENDING,
       },
     });
-  
+
     const existingMapping = await this.prisma.appStoreMapping.findFirst({
       where: {
         appId: app.id,
         providerId: providerConnection.id,
       },
     });
-  
+
     const mappingData = {
       storeAppId:
-        dto.storeAppId !== undefined ? dto.storeAppId || null : existingMapping?.storeAppId ?? null,
+        dto.storeAppId !== undefined
+          ? dto.storeAppId || null
+          : (existingMapping?.storeAppId ?? null),
       bundleId:
-        dto.bundleId !== undefined ? dto.bundleId || null : existingMapping?.bundleId ?? null,
+        dto.bundleId !== undefined
+          ? dto.bundleId || null
+          : (existingMapping?.bundleId ?? null),
       packageName:
-        dto.packageName !== undefined ? dto.packageName || null : existingMapping?.packageName ?? null,
+        dto.packageName !== undefined
+          ? dto.packageName || null
+          : (existingMapping?.packageName ?? null),
       countryCode:
-        dto.countryCode !== undefined ? dto.countryCode || null : existingMapping?.countryCode ?? "US",
+        dto.countryCode !== undefined
+          ? dto.countryCode || null
+          : (existingMapping?.countryCode ?? 'US'),
       isPrimary: dto.isPrimary ?? existingMapping?.isPrimary ?? true,
       discovered: dto.discovered ?? existingMapping?.discovered ?? false,
       lastDiscoveredAt: existingMapping?.lastDiscoveredAt ?? null,
       lastSyncedAt: new Date(),
     };
-  
+
     if (existingMapping) {
       await this.prisma.appStoreMapping.update({
         where: { id: existingMapping.id },
@@ -193,8 +210,8 @@ export class AppsService {
         },
       });
     }
-  
-    return this.getPublicAppBySlug(slug, "en");
+
+    return this.getPublicAppBySlug(slug, 'en');
   }
   async getAdminAppMetricsBySlug(slug: string) {
     const app = await this.prisma.app.findUnique({
@@ -206,26 +223,26 @@ export class AppsService {
           },
         },
         metricSnapshots: {
-          orderBy: { capturedAt: "desc" },
+          orderBy: { capturedAt: 'desc' },
           take: 20,
         },
         reviews: {
-          orderBy: { syncedAt: "desc" },
+          orderBy: { syncedAt: 'desc' },
           take: 10,
         },
         analytics: {
-          orderBy: { capturedAt: "desc" },
+          orderBy: { capturedAt: 'desc' },
           take: 10,
         },
       },
     });
-  
+
     if (!app) {
       throw new NotFoundException(`App not found for slug: ${slug}`);
     }
-  
+
     const providerIds = app.storeMappings.map((item) => item.providerId);
-  
+
     const syncRuns = providerIds.length
       ? await this.prisma.syncRun.findMany({
           where: {
@@ -234,62 +251,69 @@ export class AppsService {
           include: {
             provider: true,
           },
-          orderBy: { startedAt: "desc" },
+          orderBy: { startedAt: 'desc' },
           take: 50,
         })
       : [];
-  
+
     const filteredSyncRuns = syncRuns.filter((item) => {
       const messageMatch =
-        typeof item.message === "string" &&
+        typeof item.message === 'string' &&
         item.message.toLowerCase().includes(slug.toLowerCase());
-  
+
       const rawPayload =
-        item.rawPayload && typeof item.rawPayload === "object"
+        item.rawPayload && typeof item.rawPayload === 'object'
           ? (item.rawPayload as Record<string, unknown>)
           : null;
-  
+
       const rawApp =
-        rawPayload && typeof rawPayload.app === "string"
+        rawPayload && typeof rawPayload.app === 'string'
           ? rawPayload.app
           : null;
-  
+
       const payloadMatch =
-        typeof rawApp === "string" &&
+        typeof rawApp === 'string' &&
         rawApp.toLowerCase() === slug.toLowerCase();
-  
+
       return messageMatch || payloadMatch;
     });
-  
+
     const recentSyncRuns = filteredSyncRuns.slice(0, 15);
-  
+
     const mappingHints = app.storeMappings.map((item) => ({
       provider: item.provider.provider,
       storeAppId: item.storeAppId,
       bundleId: item.bundleId,
       packageName: item.packageName,
     }));
-  
+
     const webhookEvents = await this.prisma.webhookEvent.findMany({
-      orderBy: { createdAt: "desc" },
+      orderBy: { createdAt: 'desc' },
       take: 80,
     });
-  
+
     const recentWebhookEvents = webhookEvents
       .filter((event) => this.matchesWebhookToApp(event, slug, mappingHints))
       .slice(0, 20);
-  
+
     const latestAppleMetric =
-      app.metricSnapshots.find((item) => item.provider === ProviderType.APPLE) ?? null;
-  
+      app.metricSnapshots.find(
+        (item) => item.provider === ProviderType.APPLE,
+      ) ?? null;
+
     const latestGoogleMetric =
-      app.metricSnapshots.find((item) => item.provider === ProviderType.GOOGLE) ?? null;
-  
+      app.metricSnapshots.find(
+        (item) => item.provider === ProviderType.GOOGLE,
+      ) ?? null;
+
     const latestAnalytics = app.analytics[0] ?? null;
-  
+
     const recentMetrics = app.metricSnapshots.map((item) => {
-      const matchedSyncRun = this.findRelatedSyncRunForMetric(item, filteredSyncRuns);
-  
+      const matchedSyncRun = this.findRelatedSyncRunForMetric(
+        item,
+        filteredSyncRuns,
+      );
+
       return {
         id: item.id,
         provider: item.provider,
@@ -303,7 +327,7 @@ export class AppsService {
         matchedSyncRun,
       };
     });
-  
+
     return {
       app: {
         id: app.id,
@@ -386,7 +410,8 @@ export class AppsService {
               eventType: recentWebhookEvents[0].eventType,
               externalEventId: recentWebhookEvents[0].externalEventId,
               processed: recentWebhookEvents[0].processed,
-              processedAt: recentWebhookEvents[0].processedAt?.toISOString() ?? null,
+              processedAt:
+                recentWebhookEvents[0].processedAt?.toISOString() ?? null,
               createdAt: recentWebhookEvents[0].createdAt.toISOString(),
             }
           : null,
@@ -428,25 +453,31 @@ export class AppsService {
   ) {
     const payloadText = JSON.stringify(event.payload ?? {}).toLowerCase();
     const normalizedSlug = slug.toLowerCase();
-  
+
     if (payloadText.includes(normalizedSlug)) {
       return true;
     }
-  
+
     for (const hint of mappingHints) {
-      if (hint.storeAppId && payloadText.includes(hint.storeAppId.toLowerCase())) {
+      if (
+        hint.storeAppId &&
+        payloadText.includes(hint.storeAppId.toLowerCase())
+      ) {
         return true;
       }
-  
+
       if (hint.bundleId && payloadText.includes(hint.bundleId.toLowerCase())) {
         return true;
       }
-  
-      if (hint.packageName && payloadText.includes(hint.packageName.toLowerCase())) {
+
+      if (
+        hint.packageName &&
+        payloadText.includes(hint.packageName.toLowerCase())
+      ) {
         return true;
       }
     }
-  
+
     return false;
   }
   private findRelatedSyncRunForMetric(
@@ -467,7 +498,7 @@ export class AppsService {
     }>,
   ) {
     const metricTime = metric.capturedAt.getTime();
-  
+
     const candidates = syncRuns
       .filter((run) => run.provider.provider === metric.provider)
       .filter((run) => {
@@ -477,16 +508,16 @@ export class AppsService {
       .sort((a, b) => {
         const aAnchor = (a.finishedAt ?? a.startedAt).getTime();
         const bAnchor = (b.finishedAt ?? b.startedAt).getTime();
-  
+
         return Math.abs(metricTime - aAnchor) - Math.abs(metricTime - bAnchor);
       });
-  
+
     const match = candidates[0] ?? null;
-  
+
     if (!match) {
       return null;
     }
-  
+
     return {
       id: match.id,
       provider: match.provider.provider,
@@ -499,15 +530,15 @@ export class AppsService {
   }
   private normalizeProvider(provider: string): ProviderType {
     const normalized = provider.trim().toUpperCase();
-  
-    if (normalized === "APPLE") return ProviderType.APPLE;
-    if (normalized === "GOOGLE") return ProviderType.GOOGLE;
-  
+
+    if (normalized === 'APPLE') return ProviderType.APPLE;
+    if (normalized === 'GOOGLE') return ProviderType.GOOGLE;
+
     throw new BadRequestException(`Unsupported provider: ${provider}`);
   }
 
   private normalizeLocale(locale?: string) {
-    if (!locale) return "en";
-    return locale.toLowerCase().startsWith("tr") ? "tr" : "en";
+    if (!locale) return 'en';
+    return locale.toLowerCase().startsWith('tr') ? 'tr' : 'en';
   }
 }

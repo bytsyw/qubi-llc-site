@@ -1,47 +1,44 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "../prisma/prisma.service";
-import { UpdateDeploymentTaskDto } from "./dto/update-deployment-task.dto";
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
+import { UpdateDeploymentTaskDto } from './dto/update-deployment-task.dto';
 
 const defaultTasks = [
   {
-    key: "prod-domain-ssl",
-    title: "Production domain + SSL",
-    category: "manual",
-    status: "pending",
+    key: 'prod-domain-ssl',
+    title: 'Production domain + SSL',
+    category: 'manual',
+    status: 'pending',
     description:
-      "Gerçek domain, HTTPS ve reverse proxy yapılandırması kontrol edilmeli.",
+      'Gerçek domain, HTTPS ve reverse proxy yapılandırması kontrol edilmeli.',
   },
   {
-    key: "monitoring-alerting",
-    title: "Monitoring / alerting",
-    category: "manual",
-    status: "pending",
-    description:
-      "Log takibi, hata bildirimi ve uptime izleme aracı eklenmeli.",
+    key: 'monitoring-alerting',
+    title: 'Monitoring / alerting',
+    category: 'manual',
+    status: 'pending',
+    description: 'Log takibi, hata bildirimi ve uptime izleme aracı eklenmeli.',
   },
   {
-    key: "backup-restore",
-    title: "Backup strategy",
-    category: "manual",
-    status: "pending",
-    description:
-      "Mongo backup ve restore prosedürü netleştirilmeli.",
+    key: 'backup-restore',
+    title: 'Backup strategy',
+    category: 'manual',
+    status: 'pending',
+    description: 'Mongo backup ve restore prosedürü netleştirilmeli.',
   },
   {
-    key: "apple-live-validation",
-    title: "Apple live credential validation",
-    category: "manual",
-    status: "pending",
-    description:
-      "Apple credentials geldikten sonra canlı doğrulama yapılmalı.",
+    key: 'apple-live-validation',
+    title: 'Apple live credential validation',
+    category: 'manual',
+    status: 'pending',
+    description: 'Apple credentials geldikten sonra canlı doğrulama yapılmalı.',
   },
   {
-    key: "final-smoke-tests",
-    title: "Final store smoke tests",
-    category: "manual",
-    status: "pending",
+    key: 'final-smoke-tests',
+    title: 'Final store smoke tests',
+    category: 'manual',
+    status: 'pending',
     description:
-      "Google/Apple sync, webhook, metrics ve admin auth akışı canlıya yakın şekilde test edilmeli.",
+      'Google/Apple sync, webhook, metrics ve admin auth akışı canlıya yakın şekilde test edilmeli.',
   },
 ] as const;
 
@@ -69,7 +66,7 @@ export class DeploymentService {
     await this.ensureDefaults();
 
     const tasks = await this.prisma.deploymentTask.findMany({
-      orderBy: [{ category: "asc" }, { createdAt: "asc" }],
+      orderBy: [{ category: 'asc' }, { createdAt: 'asc' }],
     });
 
     return tasks.map((item) => ({
@@ -86,7 +83,7 @@ export class DeploymentService {
   }
   async getSmokeTestRuns() {
     const runs = await this.prisma.smokeTestRun.findMany({
-      orderBy: { executedAt: "desc" },
+      orderBy: { executedAt: 'desc' },
       take: 100,
     });
 

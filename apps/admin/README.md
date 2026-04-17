@@ -7,3 +7,4 @@ Qubi LLC yönetim paneli.
 ```bash
 pnpm install
 pnpm dev:admin
+```

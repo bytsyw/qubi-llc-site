@@ -1,19 +1,19 @@
-import { Controller, Get, Param, Query } from "@nestjs/common";
-import { AppsService } from "./apps.service";
+import { Controller, Get, Param, Query } from '@nestjs/common';
+import { AppsService } from './apps.service';
 
-@Controller("public/apps")
+@Controller('public/apps')
 export class PublicAppsController {
   constructor(private readonly appsService: AppsService) {}
 
   @Get()
-  async getPublicApps(@Query("locale") locale?: string) {
+  async getPublicApps(@Query('locale') locale?: string) {
     return this.appsService.getPublicApps(locale);
   }
 
-  @Get(":slug")
+  @Get(':slug')
   async getPublicApp(
-    @Param("slug") slug: string,
-    @Query("locale") locale?: string,
+    @Param('slug') slug: string,
+    @Query('locale') locale?: string,
   ) {
     return this.appsService.getPublicAppBySlug(slug, locale);
   }

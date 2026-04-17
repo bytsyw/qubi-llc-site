@@ -6,17 +6,17 @@ import {
   Post,
   Req,
   UseGuards,
-} from "@nestjs/common";
-import { Throttle } from "@nestjs/throttler";
-import { ProvidersService } from "./providers.service";
-import { UpdateProviderCredentialsDto } from "./dto/update-provider-credentials.dto";
-import { AdminSessionGuard } from "../security/admin-session.guard";
-import { AuditService } from "../audit/audit.service";
-import { AdminThrottlerGuard } from "../security/admin-throttler.guard";
+} from '@nestjs/common';
+import { Throttle } from '@nestjs/throttler';
+import { ProvidersService } from './providers.service';
+import { UpdateProviderCredentialsDto } from './dto/update-provider-credentials.dto';
+import { AdminSessionGuard } from '../security/admin-session.guard';
+import { AuditService } from '../audit/audit.service';
+import { AdminThrottlerGuard } from '../security/admin-throttler.guard';
 
 @UseGuards(AdminSessionGuard, AdminThrottlerGuard)
 @Throttle({ default: { limit: 40, ttl: 60000 } })
-@Controller("admin/providers")
+@Controller('admin/providers')
 export class ProvidersController {
   constructor(
     private readonly providersService: ProvidersService,
@@ -28,7 +28,7 @@ export class ProvidersController {
     return this.providersService.getProviders();
   }
 
-  @Patch("credentials")
+  @Patch('credentials')
   @Throttle({ default: { limit: 10, ttl: 60000 } })
   async saveCredentials(
     @Body() body: UpdateProviderCredentialsDto,
@@ -37,9 +37,9 @@ export class ProvidersController {
     const result = await this.providersService.saveCredentials(body);
 
     await this.auditService.logAction({
-      adminEmail: req.adminSession?.email || "unknown",
-      action: "PROVIDER_CREDENTIALS_SAVED",
-      entityType: "ProviderCredential",
+      adminEmail: req.adminSession?.email || 'unknown',
+      action: 'PROVIDER_CREDENTIALS_SAVED',
+      entityType: 'ProviderCredential',
       entityId: result?.id ?? null,
       targetLabel: body.provider,
       details: {
@@ -51,16 +51,16 @@ export class ProvidersController {
     return result;
   }
 
-  @Post("apple/discover")
+  @Post('apple/discover')
   @Throttle({ default: { limit: 5, ttl: 60000 } })
   async discoverAppleApps(@Req() req: any) {
     const result = await this.providersService.discoverAppleApps();
 
     await this.auditService.logAction({
-      adminEmail: req.adminSession?.email || "unknown",
-      action: "APPLE_DISCOVERY_TRIGGERED",
-      entityType: "ProviderConnection",
-      targetLabel: "APPLE",
+      adminEmail: req.adminSession?.email || 'unknown',
+      action: 'APPLE_DISCOVERY_TRIGGERED',
+      entityType: 'ProviderConnection',
+      targetLabel: 'APPLE',
       details: result,
     });
 

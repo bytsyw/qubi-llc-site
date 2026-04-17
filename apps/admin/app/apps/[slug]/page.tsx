@@ -155,47 +155,45 @@ export default async function AppDetailAdminPage({
               <AppMappingEditor slug={slug} mappings={appEn.mappings || []} />
             </div>
             <div className="mt-8 border-t border-black/8 pt-8">
-            <div className="text-xs font-bold uppercase tracking-[0.18em] text-yellow-700">
-              Metrics
-            </div>
-            <h2 className="mt-3 text-2xl font-black tracking-tight">
-              Latest store and vitals snapshot
-            </h2>
+              <div className="text-xs font-bold uppercase tracking-[0.18em] text-yellow-700">
+                Metrics
+              </div>
+              <h2 className="mt-3 text-2xl font-black tracking-tight">
+                Latest store and vitals snapshot
+              </h2>
 
-            <div className="mt-6">
-              <AppMetricsPanel
-                apple={metrics?.latest?.apple ?? null}
-                google={metrics?.latest?.google ?? null}
-                analytics={metrics?.latest?.analytics ?? null}
-              />
+              <div className="mt-6">
+                <AppMetricsPanel
+                  apple={metrics?.latest?.apple ?? null}
+                  google={metrics?.latest?.google ?? null}
+                  analytics={metrics?.latest?.analytics ?? null}
+                />
+              </div>
+              <div className="mt-8">
+                <AppHealthAlerts
+                  metrics={metrics?.recentMetrics ?? []}
+                  syncRuns={metrics?.recentSyncRuns ?? []}
+                  webhookEvents={metrics?.recentWebhookEvents ?? []}
+                />
+              </div>
+              <div className="mt-8">
+                <AppOperationsPanel
+                  metrics={metrics?.recentMetrics ?? []}
+                  syncRuns={metrics?.recentSyncRuns ?? []}
+                  webhookEvents={metrics?.recentWebhookEvents ?? []}
+                />
+              </div>
+              <div className="mt-8">
+                <AppOperationsTimeline timeline={metrics?.operationTimeline ?? null} />
+              </div>
+              <div className="mt-8">
+                <AppEventFlow
+                  webhookEvents={metrics?.recentWebhookEvents ?? []}
+                  syncRuns={metrics?.recentSyncRuns ?? []}
+                  metrics={metrics?.recentMetrics ?? []}
+                />
+              </div>
             </div>
-            <div className="mt-8">
-              <AppHealthAlerts
-                metrics={metrics?.recentMetrics ?? []}
-                syncRuns={metrics?.recentSyncRuns ?? []}
-                webhookEvents={metrics?.recentWebhookEvents ?? []}
-              />
-            </div>
-            <div className="mt-8">
-              <AppOperationsPanel
-                metrics={metrics?.recentMetrics ?? []}
-                syncRuns={metrics?.recentSyncRuns ?? []}
-                webhookEvents={metrics?.recentWebhookEvents ?? []}
-              />
-            </div>
-            <div className="mt-8">
-              <AppOperationsTimeline
-                timeline={metrics?.operationTimeline ?? null}
-              />
-            </div>
-            <div className="mt-8">
-              <AppEventFlow
-                webhookEvents={metrics?.recentWebhookEvents ?? []}
-                syncRuns={metrics?.recentSyncRuns ?? []}
-                metrics={metrics?.recentMetrics ?? []}
-              />
-            </div>
-          </div>
           </div>
         </section>
 

@@ -67,8 +67,8 @@ export default function AdminShell({
               Status
             </div>
             <div className="mt-3 text-sm text-white/75">
-              Content management, provider connection setup and sync monitoring
-              will be handled here.
+              Content management, provider connection setup and sync monitoring will be
+              handled here.
             </div>
           </div>
         </aside>
@@ -80,9 +80,7 @@ export default function AdminShell({
                 <div className="text-xs font-bold uppercase tracking-[0.22em] text-yellow-700">
                   Qubi Admin
                 </div>
-                <h1 className="mt-3 text-3xl font-black tracking-tight">
-                  {title}
-                </h1>
+                <h1 className="mt-3 text-3xl font-black tracking-tight">{title}</h1>
                 {description ? (
                   <p className="mt-3 max-w-3xl text-sm leading-7 text-black/58">
                     {description}

@@ -7,10 +7,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <Seo
-        title={t("seo.title")}
-        description={t("seo.description")}
-      />
+      <Seo title={t("seo.title")} description={t("seo.description")} />
 
       <main>
         <section className="mx-auto max-w-7xl px-6 pb-2 pt-10 lg:px-8 lg:pt-14">

@@ -44,11 +44,7 @@ function resultClasses(result: SmokeTestRun["result"]) {
   }
 }
 
-export default function DeploymentSmokeTests({
-  runs,
-}: {
-  runs: SmokeTestRun[];
-}) {
+export default function DeploymentSmokeTests({ runs }: { runs: SmokeTestRun[] }) {
   const router = useRouter();
   const [selectedKey, setSelectedKey] = useState(defaultTests[0].key);
   const [result, setResult] = useState<"passed" | "failed" | "blocked">("passed");
@@ -166,9 +162,7 @@ export default function DeploymentSmokeTests({
                   <div className="text-xs opacity-75">{formatDate(run.executedAt)}</div>
                 </div>
 
-                <div className="mt-3 text-sm opacity-90">
-                  Tester: {run.testerEmail}
-                </div>
+                <div className="mt-3 text-sm opacity-90">Tester: {run.testerEmail}</div>
 
                 {run.note ? (
                   <div className="mt-3 rounded-2xl border border-black/8 bg-white/70 px-4 py-3 text-sm text-black/70">

@@ -1,10 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Eye,
-  MessageCircleHeart,
-  ShieldCheck,
-  SmilePlus,
-} from "lucide-react";
+import { Eye, MessageCircleHeart, ShieldCheck, SmilePlus } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Card } from "../common/Surface";
 
@@ -52,12 +47,8 @@ export default function TrustSection() {
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-black text-[#111111]">
-                        {item.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-7 text-black/60">
-                        {item.text}
-                      </p>
+                      <h3 className="text-lg font-black text-[#111111]">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-black/60">{item.text}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -82,22 +73,10 @@ export default function TrustSection() {
             </p>
 
             <div className="mt-6 space-y-4">
-              <TrustMetric
-                label={t("panel.metrics.visualTrust")}
-                value="92%"
-              />
-              <TrustMetric
-                label={t("panel.metrics.parentStructure")}
-                value="95%"
-              />
-              <TrustMetric
-                label={t("panel.metrics.lowFriction")}
-                value="91%"
-              />
-              <TrustMetric
-                label={t("panel.metrics.brandConfidence")}
-                value="94%"
-              />
+              <TrustMetric label={t("panel.metrics.visualTrust")} value="92%" />
+              <TrustMetric label={t("panel.metrics.parentStructure")} value="95%" />
+              <TrustMetric label={t("panel.metrics.lowFriction")} value="91%" />
+              <TrustMetric label={t("panel.metrics.brandConfidence")} value="94%" />
             </div>
           </Card>
 
@@ -112,13 +91,9 @@ export default function TrustSection() {
                 whileHover={{ y: -4 }}
                 className="rounded-[2rem] border border-black/8 bg-white/80 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.06)]"
               >
-                <div className="text-base leading-8 text-black/72">
-                  “{item.quote}”
-                </div>
+                <div className="text-base leading-8 text-black/72">“{item.quote}”</div>
                 <div className="mt-5">
-                  <div className="text-sm font-black text-[#111111]">
-                    {item.author}
-                  </div>
+                  <div className="text-sm font-black text-[#111111]">{item.author}</div>
                   <div className="text-sm text-black/50">{item.role}</div>
                 </div>
               </motion.div>

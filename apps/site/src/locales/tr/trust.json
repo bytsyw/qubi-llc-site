@@ -1,53 +1,53 @@
 {
-    "seo": {
-      "title": "Güvenlik",
-      "description": "Qubi LLC’nin çocuklara yönelik dijital ürünlerde güven, güvenlik ve ebeveyn rahatlığı yaklaşımını keşfedin."
-    },
-    "page": {
-      "badge": "Güvenlik",
-      "title": "İlk ekrandan itibaren güvenli, rahatlatıcı ve ebeveyn dostu hissettirecek şekilde tasarlandı.",
-      "description": "Qubi’nin güven ilkelerini, güvenlik konumlandırmasını ve ebeveynlere güven veren marka dilini keşfedin."
-    },
-    "section": {
-      "badge": "Güvenlik",
-      "title": "Çocuklara yönelik bir ürün markası, ebeveyn indirme adımına gelmeden önce bile güven vermelidir.",
-      "description": "Qubi’nin ürün konumlandırması yalnızca görsel çekiciliğe değil; markanın güvenlik, kullanılabilirlik ve düşünülmüş deneyim tasarımını ne kadar net anlattığına da dayanır. Bu, hem ebeveynler hem de gelecekteki platform lansmanları için daha güçlü bir temel oluşturur.",
-      "items": [
-        {
-          "title": "Çocuk güvenli ürün yaklaşımı",
-          "text": "Her deneyim açıklık, yaşa uygun etkileşim ve genç kullanıcılar için daha sakin bir ürün ritmi etrafında tasarlanır."
-        },
-        {
-          "title": "Düşük dikkat dağıtımı olan arayüz",
-          "text": "Qubi ürünleri, çocukların bunalmadan odakta kalmasına yardımcı olmak için daha odaklı yerleşimler, daha yumuşak akışlar ve daha az görsel gürültü kullanır."
-        },
-        {
-          "title": "İçine yerleştirilmiş ebeveyn güveni",
-          "text": "Ebeveynler ürünün ne yaptığını, nasıl hissettirdiğini ve aile kullanımı için neden uygun olduğunu ilk bakışta anlayabilmelidir."
-        }
-      ]
-    },
-    "panel": {
-      "badge": "Ebeveyn rahatlığı",
-      "title": "En güçlü çocuk markaları yalnızca ilgi çekici değil, aynı zamanda güven vericidir.",
-      "description": "Qubi, ilk indirmeden önce güven duygusunu iletmeyi hedefler. Amaç, markanın ilk ekrandan itibaren güvenli, kaliteli ve ebeveyn dostu hissettirmesidir.",
-      "metrics": {
-        "visualTrust": "Görsel güven netliği",
-        "parentStructure": "Ebeveyn dostu yapı",
-        "lowFriction": "Düşük sürtünmeli gezinme",
-        "brandConfidence": "Marka güveni"
-      }
-    },
-    "testimonials": [
+  "seo": {
+    "title": "Güvenlik",
+    "description": "Qubi LLC’nin çocuklara yönelik dijital ürünlerde güven, güvenlik ve ebeveyn rahatlığı yaklaşımını keşfedin."
+  },
+  "page": {
+    "badge": "Güvenlik",
+    "title": "İlk ekrandan itibaren güvenli, rahatlatıcı ve ebeveyn dostu hissettirecek şekilde tasarlandı.",
+    "description": "Qubi’nin güven ilkelerini, güvenlik konumlandırmasını ve ebeveynlere güven veren marka dilini keşfedin."
+  },
+  "section": {
+    "badge": "Güvenlik",
+    "title": "Çocuklara yönelik bir ürün markası, ebeveyn indirme adımına gelmeden önce bile güven vermelidir.",
+    "description": "Qubi’nin ürün konumlandırması yalnızca görsel çekiciliğe değil; markanın güvenlik, kullanılabilirlik ve düşünülmüş deneyim tasarımını ne kadar net anlattığına da dayanır. Bu, hem ebeveynler hem de gelecekteki platform lansmanları için daha güçlü bir temel oluşturur.",
+    "items": [
       {
-        "quote": "Qubi, tipik bir çocuk uygulama markasından daha düşünülmüş hissettiriyor. Sunum eğlenceli ama yine de güven veriyor.",
-        "author": "Örnek ebeveyn yorumu",
-        "role": "İlk aile geri bildirimi"
+        "title": "Çocuk güvenli ürün yaklaşımı",
+        "text": "Her deneyim açıklık, yaşa uygun etkileşim ve genç kullanıcılar için daha sakin bir ürün ritmi etrafında tasarlanır."
       },
       {
-        "quote": "Görsel dil modern ve premium hissettiriyor, ama hem çocuklar hem yetişkinler için ulaşılabilir kalmayı başarıyor.",
-        "author": "Örnek ürün geri bildirimi",
-        "role": "Marka değerlendirme notu"
+        "title": "Düşük dikkat dağıtımı olan arayüz",
+        "text": "Qubi ürünleri, çocukların bunalmadan odakta kalmasına yardımcı olmak için daha odaklı yerleşimler, daha yumuşak akışlar ve daha az görsel gürültü kullanır."
+      },
+      {
+        "title": "İçine yerleştirilmiş ebeveyn güveni",
+        "text": "Ebeveynler ürünün ne yaptığını, nasıl hissettirdiğini ve aile kullanımı için neden uygun olduğunu ilk bakışta anlayabilmelidir."
       }
     ]
-  }
+  },
+  "panel": {
+    "badge": "Ebeveyn rahatlığı",
+    "title": "En güçlü çocuk markaları yalnızca ilgi çekici değil, aynı zamanda güven vericidir.",
+    "description": "Qubi, ilk indirmeden önce güven duygusunu iletmeyi hedefler. Amaç, markanın ilk ekrandan itibaren güvenli, kaliteli ve ebeveyn dostu hissettirmesidir.",
+    "metrics": {
+      "visualTrust": "Görsel güven netliği",
+      "parentStructure": "Ebeveyn dostu yapı",
+      "lowFriction": "Düşük sürtünmeli gezinme",
+      "brandConfidence": "Marka güveni"
+    }
+  },
+  "testimonials": [
+    {
+      "quote": "Qubi, tipik bir çocuk uygulama markasından daha düşünülmüş hissettiriyor. Sunum eğlenceli ama yine de güven veriyor.",
+      "author": "Örnek ebeveyn yorumu",
+      "role": "İlk aile geri bildirimi"
+    },
+    {
+      "quote": "Görsel dil modern ve premium hissettiriyor, ama hem çocuklar hem yetişkinler için ulaşılabilir kalmayı başarıyor.",
+      "author": "Örnek ürün geri bildirimi",
+      "role": "Marka değerlendirme notu"
+    }
+  ]
+}

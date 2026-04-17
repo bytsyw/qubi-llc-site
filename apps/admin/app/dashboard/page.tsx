@@ -47,8 +47,8 @@ export default function DashboardPage() {
             This panel is intentionally lightweight for now.
           </h2>
           <p className="mt-4 text-sm leading-7 text-white/72">
-            The goal of this step is to lock the application structure before
-            adding real forms, auth, credential encryption and sync actions.
+            The goal of this step is to lock the application structure before adding real
+            forms, auth, credential encryption and sync actions.
           </p>
         </section>
       </div>

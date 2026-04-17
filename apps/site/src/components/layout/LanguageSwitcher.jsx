@@ -1,9 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import {
-  getLangFromPath,
-  replaceOrPrefixLocale,
-} from "../../utils/localeRouting";
+import { getLangFromPath, replaceOrPrefixLocale } from "../../utils/localeRouting";
 
 export default function LanguageSwitcher() {
   const { i18n, t } = useTranslation();
@@ -16,7 +13,7 @@ export default function LanguageSwitcher() {
     i18n.changeLanguage(nextLang);
 
     navigate(
-      `${replaceOrPrefixLocale(location.pathname, nextLang)}${location.search}${location.hash}`
+      `${replaceOrPrefixLocale(location.pathname, nextLang)}${location.search}${location.hash}`,
     );
   };
 
@@ -29,9 +26,7 @@ export default function LanguageSwitcher() {
       <button
         onClick={() => handleChangeLanguage("en")}
         className={`rounded-full px-3 py-2 text-xs font-bold transition ${
-          activeLanguage === "en"
-            ? "bg-[#111111] text-yellow-300"
-            : "text-black/55"
+          activeLanguage === "en" ? "bg-[#111111] text-yellow-300" : "text-black/55"
         }`}
       >
         {t("language.en")}
@@ -40,9 +35,7 @@ export default function LanguageSwitcher() {
       <button
         onClick={() => handleChangeLanguage("tr")}
         className={`rounded-full px-3 py-2 text-xs font-bold transition ${
-          activeLanguage === "tr"
-            ? "bg-[#111111] text-yellow-300"
-            : "text-black/55"
+          activeLanguage === "tr" ? "bg-[#111111] text-yellow-300" : "text-black/55"
         }`}
       >
         {t("language.tr")}

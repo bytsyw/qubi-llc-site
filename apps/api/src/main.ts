@@ -1,7 +1,7 @@
-import { ValidationPipe, UnprocessableEntityException } from "@nestjs/common";
-import { NestFactory } from "@nestjs/core";
-import { AppModule } from "./app.module";
-import { HttpExceptionFormatterFilter } from "./common/filters/http-exception.filter";
+import { ValidationPipe, UnprocessableEntityException } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { HttpExceptionFormatterFilter } from './common/filters/http-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -9,8 +9,8 @@ async function bootstrap() {
   const allowedOrigins = [
     process.env.PUBLIC_SITE_URL,
     process.env.ADMIN_PANEL_URL,
-    "http://localhost:3000",
-    "http://localhost:5173",
+    'http://localhost:3000',
+    'http://localhost:5173',
   ].filter(Boolean);
 
   app.enableCors({
@@ -32,8 +32,8 @@ async function bootstrap() {
         }));
 
         return new UnprocessableEntityException({
-          code: "VALIDATION_ERROR",
-          message: "Validation failed.",
+          code: 'VALIDATION_ERROR',
+          message: 'Validation failed.',
           details,
         });
       },

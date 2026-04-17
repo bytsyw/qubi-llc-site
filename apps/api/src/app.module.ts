@@ -1,16 +1,16 @@
-import { Module } from "@nestjs/common";
-import { ConfigModule } from "@nestjs/config";
-import { ScheduleModule } from "@nestjs/schedule";
-import * as Joi from "joi";
-import { ThrottlerModule } from "@nestjs/throttler";
-import { PrismaModule } from "./prisma/prisma.module";
-import { HealthModule } from "./health/health.module";
-import { AppsModule } from "./apps/apps.module";
-import { ProvidersModule } from "./providers/providers.module";
-import { SyncModule } from "./sync/sync.module";
-import { WebhooksModule } from "./webhooks/webhooks.module";
-import { DeploymentModule } from "./deployment/deployment.module";
-import { AuditModule } from "./audit/audit.module";
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { ScheduleModule } from '@nestjs/schedule';
+import * as Joi from 'joi';
+import { ThrottlerModule } from '@nestjs/throttler';
+import { PrismaModule } from './prisma/prisma.module';
+import { HealthModule } from './health/health.module';
+import { AppsModule } from './apps/apps.module';
+import { ProvidersModule } from './providers/providers.module';
+import { SyncModule } from './sync/sync.module';
+import { WebhooksModule } from './webhooks/webhooks.module';
+import { DeploymentModule } from './deployment/deployment.module';
+import { AuditModule } from './audit/audit.module';
 
 @Module({
   imports: [
@@ -18,8 +18,8 @@ import { AuditModule } from "./audit/audit.module";
       isGlobal: true,
       validationSchema: Joi.object({
         NODE_ENV: Joi.string()
-          .valid("development", "production", "test")
-          .default("development"),
+          .valid('development', 'production', 'test')
+          .default('development'),
         PORT: Joi.number().default(4000),
 
         DATABASE_URL: Joi.string().required(),
@@ -32,13 +32,13 @@ import { AuditModule } from "./audit/audit.module";
         ADMIN_PANEL_URL: Joi.string().uri().required(),
 
         APPLE_SERVER_ENVIRONMENT: Joi.string()
-          .valid("SANDBOX", "PRODUCTION")
+          .valid('SANDBOX', 'PRODUCTION')
           .optional(),
         APPLE_BUNDLE_ID: Joi.string().optional(),
-        APPLE_APPLE_ID: Joi.string().allow("").optional(),
+        APPLE_APPLE_ID: Joi.string().allow('').optional(),
 
         GOOGLE_PUBSUB_AUDIENCE: Joi.string().optional(),
-        GOOGLE_PUBSUB_EXPECTED_EMAIL: Joi.string().allow("").optional(),
+        GOOGLE_PUBSUB_EXPECTED_EMAIL: Joi.string().allow('').optional(),
       }),
     }),
     ThrottlerModule.forRoot({

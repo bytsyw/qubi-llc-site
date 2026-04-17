@@ -45,12 +45,7 @@ function getStatusLabel(status: CheckStatus) {
   }
 }
 
-const statusOptions: CheckStatus[] = [
-  "pending",
-  "warning",
-  "critical",
-  "healthy",
-];
+const statusOptions: CheckStatus[] = ["pending", "warning", "critical", "healthy"];
 
 export default function DeploymentReadiness({
   liveChecks,
@@ -145,13 +140,7 @@ function ChecklistCard({
   );
 }
 
-function ChecklistItem({
-  item,
-  editable,
-}: {
-  item: CheckItem;
-  editable?: boolean;
-}) {
+function ChecklistItem({ item, editable }: { item: CheckItem; editable?: boolean }) {
   const router = useRouter();
   const [status, setStatus] = useState<CheckStatus>(item.status);
   const [note, setNote] = useState(item.note || "");
@@ -219,9 +208,7 @@ function ChecklistItem({
               {loading ? "Saving..." : "Save"}
             </button>
 
-            {message ? (
-              <div className="text-sm text-black/65">{message}</div>
-            ) : null}
+            {message ? <div className="text-sm text-black/65">{message}</div> : null}
           </div>
         </div>
       ) : item.note ? (

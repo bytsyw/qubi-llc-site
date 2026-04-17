@@ -6,10 +6,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Seo
-        title={t("seo.title")}
-        description={t("seo.description")}
-      />
+      <Seo title={t("seo.title")} description={t("seo.description")} />
 
       <main>
         <section className="mx-auto max-w-7xl px-6 pb-16 pt-10 lg:px-8 lg:pb-24 lg:pt-14">
@@ -42,9 +39,7 @@ export default function ContactPage() {
               <div className="text-xs font-bold uppercase tracking-[0.22em] text-yellow-300">
                 {t("partnership.badge")}
               </div>
-              <h2 className="mt-3 text-2xl font-black">
-                {t("partnership.title")}
-              </h2>
+              <h2 className="mt-3 text-2xl font-black">{t("partnership.title")}</h2>
               <p className="mt-4 text-sm leading-7 text-white/70">
                 {t("partnership.description")}
               </p>

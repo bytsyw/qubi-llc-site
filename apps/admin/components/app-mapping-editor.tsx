@@ -4,25 +4,22 @@ import { useMemo, useState } from "react";
 import { updateAdminAppMapping } from "@/lib/api";
 
 type MappingRecord = {
-    id: string;
-    providerId: string;
-    provider: "APPLE" | "GOOGLE";
-    storeAppId: string | null;
-    bundleId: string | null;
-    packageName: string | null;
-    countryCode: string | null;
-    discovered: boolean;
-    isPrimary: boolean;
-    lastDiscoveredAt: string | null;
-    lastSyncedAt: string | null;
-  };
+  id: string;
+  providerId: string;
+  provider: "APPLE" | "GOOGLE";
+  storeAppId: string | null;
+  bundleId: string | null;
+  packageName: string | null;
+  countryCode: string | null;
+  discovered: boolean;
+  isPrimary: boolean;
+  lastDiscoveredAt: string | null;
+  lastSyncedAt: string | null;
+};
 
-  function pickMapping(
-    mappings: MappingRecord[],
-    provider: "APPLE" | "GOOGLE",
-  ) {
-    return mappings.find((item) => item.provider === provider) ?? null;
-  }
+function pickMapping(mappings: MappingRecord[], provider: "APPLE" | "GOOGLE") {
+  return mappings.find((item) => item.provider === provider) ?? null;
+}
 
 export default function AppMappingEditor({
   slug,
@@ -126,7 +123,9 @@ export default function AppMappingEditor({
           <Field
             label="Apple App ID"
             value={appleState.storeAppId}
-            onChange={(value) => setAppleState((prev) => ({ ...prev, storeAppId: value }))}
+            onChange={(value) =>
+              setAppleState((prev) => ({ ...prev, storeAppId: value }))
+            }
           />
           <Field
             label="Bundle ID"
@@ -136,7 +135,9 @@ export default function AppMappingEditor({
           <Field
             label="Country code"
             value={appleState.countryCode}
-            onChange={(value) => setAppleState((prev) => ({ ...prev, countryCode: value }))}
+            onChange={(value) =>
+              setAppleState((prev) => ({ ...prev, countryCode: value }))
+            }
           />
         </div>
       </div>
@@ -165,12 +166,16 @@ export default function AppMappingEditor({
           <Field
             label="Google App ID"
             value={googleState.storeAppId}
-            onChange={(value) => setGoogleState((prev) => ({ ...prev, storeAppId: value }))}
+            onChange={(value) =>
+              setGoogleState((prev) => ({ ...prev, storeAppId: value }))
+            }
           />
           <Field
             label="Package name"
             value={googleState.packageName}
-            onChange={(value) => setGoogleState((prev) => ({ ...prev, packageName: value }))}
+            onChange={(value) =>
+              setGoogleState((prev) => ({ ...prev, packageName: value }))
+            }
           />
           <Field
             label="Bundle / internal key"
@@ -180,7 +185,9 @@ export default function AppMappingEditor({
           <Field
             label="Country code"
             value={googleState.countryCode}
-            onChange={(value) => setGoogleState((prev) => ({ ...prev, countryCode: value }))}
+            onChange={(value) =>
+              setGoogleState((prev) => ({ ...prev, countryCode: value }))
+            }
           />
         </div>
       </div>
@@ -199,9 +206,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-sm font-semibold text-black/65">
-        {label}
-      </label>
+      <label className="mb-2 block text-sm font-semibold text-black/65">{label}</label>
       <input
         value={value}
         onChange={(event) => onChange(event.target.value)}

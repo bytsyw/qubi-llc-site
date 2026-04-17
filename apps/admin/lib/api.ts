@@ -1,5 +1,6 @@
-const API_BASE_URL =
-  (process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000").replace(/\/$/, "");
+const API_BASE_URL = (
+  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000"
+).replace(/\/$/, "");
 
 class AdminUnauthorizedError extends Error {
   constructor(message = "Oturum süresi doldu.") {
@@ -73,10 +74,7 @@ async function parseApiError(response: Response, fallbackMessage: string) {
   return new Error(message);
 }
 
-async function adminClientFetch(
-  path: string,
-  init: RequestInit = {},
-) {
+async function adminClientFetch(path: string, init: RequestInit = {}) {
   const headers = new Headers(init.headers || {});
   headers.set("Content-Type", "application/json");
 
@@ -111,13 +109,10 @@ export async function updateAdminAppContent(
   locale: "en" | "tr",
   payload: Record<string, unknown>,
 ) {
-  const response = await adminClientFetch(
-    `/admin/apps/${slug}/content/${locale}`,
-    {
-      method: "PATCH",
-      body: JSON.stringify(payload),
-    },
-  );
+  const response = await adminClientFetch(`/admin/apps/${slug}/content/${locale}`, {
+    method: "PATCH",
+    body: JSON.stringify(payload),
+  });
 
   await ensureOk(response, `Failed to update app content (${response.status})`);
   return response.json();
@@ -128,13 +123,10 @@ export async function updateAdminAppMapping(
   provider: "APPLE" | "GOOGLE",
   payload: Record<string, unknown>,
 ) {
-  const response = await adminClientFetch(
-    `/admin/apps/${slug}/mapping/${provider}`,
-    {
-      method: "PATCH",
-      body: JSON.stringify(payload),
-    },
-  );
+  const response = await adminClientFetch(`/admin/apps/${slug}/mapping/${provider}`, {
+    method: "PATCH",
+    body: JSON.stringify(payload),
+  });
 
   await ensureOk(response, `Failed to update app mapping (${response.status})`);
   return response.json();
@@ -150,10 +142,7 @@ export async function saveAdminProviderCredentials(payload: {
     body: JSON.stringify(payload),
   });
 
-  await ensureOk(
-    response,
-    `Failed to save provider credentials (${response.status})`,
-  );
+  await ensureOk(response, `Failed to save provider credentials (${response.status})`);
   return response.json();
 }
 
@@ -180,10 +169,7 @@ export async function triggerAdminReviewMetricSync() {
     method: "POST",
   });
 
-  await ensureOk(
-    response,
-    `Failed to trigger review/metric sync (${response.status})`,
-  );
+  await ensureOk(response, `Failed to trigger review/metric sync (${response.status})`);
   return response.json();
 }
 

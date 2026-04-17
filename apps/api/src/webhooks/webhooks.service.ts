@@ -1,7 +1,7 @@
-import { Injectable } from "@nestjs/common";
-import { WebhookSource } from "@prisma/client";
-import { PrismaService } from "../prisma/prisma.service";
-import { WebhookVerifierService } from "./webhook-verifier.service";
+import { Injectable } from '@nestjs/common';
+import { WebhookSource } from '@prisma/client';
+import { PrismaService } from '../prisma/prisma.service';
+import { WebhookVerifierService } from './webhook-verifier.service';
 
 @Injectable()
 export class WebhooksService {
@@ -12,14 +12,16 @@ export class WebhooksService {
 
   async ingestAppleNotification(body: any) {
     const signedPayload =
-      typeof body?.signedPayload === "string" ? body.signedPayload : null;
+      typeof body?.signedPayload === 'string' ? body.signedPayload : null;
 
-    const verification = await this.verifier.verifyAppleSignedPayload(
-      signedPayload,
-    );
+    const verification =
+      await this.verifier.verifyAppleSignedPayload(signedPayload);
 
     const eventType = this.buildAppleEventType(body, verification);
-    const externalEventId = this.resolveAppleExternalEventId(body, verification);
+    const externalEventId = this.resolveAppleExternalEventId(
+      body,
+      verification,
+    );
 
     const record = externalEventId
       ? await this.prisma.webhookEvent.upsert({
@@ -81,7 +83,9 @@ export class WebhooksService {
 
     const eventType = this.resolveGoogleEventType(decoded);
     const externalEventId =
-      typeof body?.message?.messageId === "string" ? body.message.messageId : null;
+      typeof body?.message?.messageId === 'string'
+        ? body.message.messageId
+        : null;
 
     const record = externalEventId
       ? await this.prisma.webhookEvent.upsert({
@@ -142,7 +146,7 @@ export class WebhooksService {
   async processPendingEvents() {
     const pending = await this.prisma.webhookEvent.findMany({
       where: { processed: false },
-      orderBy: { createdAt: "asc" },
+      orderBy: { createdAt: 'asc' },
       take: 50,
     });
 
@@ -151,7 +155,7 @@ export class WebhooksService {
     for (const event of pending) {
       if (event.source === WebhookSource.APPLE_SERVER_NOTIFICATIONS) {
         const rawSignedPayload =
-          typeof (event.payload as any)?.raw?.signedPayload === "string"
+          typeof (event.payload as any)?.raw?.signedPayload === 'string'
             ? (event.payload as any).raw.signedPayload
             : null;
 
@@ -180,7 +184,7 @@ export class WebhooksService {
           results.push({
             id: event.id,
             source: event.source,
-            status: "processed",
+            status: 'processed',
           });
         } else {
           await this.prisma.webhookEvent.update({
@@ -196,7 +200,7 @@ export class WebhooksService {
           results.push({
             id: event.id,
             source: event.source,
-            status: "pending",
+            status: 'pending',
             reason: verification.reason,
           });
         }
@@ -207,14 +211,14 @@ export class WebhooksService {
       results.push({
         id: event.id,
         source: event.source,
-        status: "pending",
-        reason: "google_events_must_be_verified_at_ingest_time",
+        status: 'pending',
+        reason: 'google_events_must_be_verified_at_ingest_time',
       });
     }
 
     return {
       ok: true,
-      processedCount: results.filter((item) => item.status === "processed")
+      processedCount: results.filter((item) => item.status === 'processed')
         .length,
       results,
     };
@@ -222,7 +226,7 @@ export class WebhooksService {
 
   async getRecentWebhookEvents() {
     const events = await this.prisma.webhookEvent.findMany({
-      orderBy: { createdAt: "desc" },
+      orderBy: { createdAt: 'desc' },
       take: 50,
     });
 
@@ -241,15 +245,17 @@ export class WebhooksService {
   private buildAppleEventType(body: any, verification: any) {
     const notificationType =
       (verification?.verified &&
-        typeof verification?.details?.notificationType === "string" &&
+        typeof verification?.details?.notificationType === 'string' &&
         verification.details.notificationType) ||
-      (typeof body?.notificationType === "string" ? body.notificationType : "UNKNOWN");
+      (typeof body?.notificationType === 'string'
+        ? body.notificationType
+        : 'UNKNOWN');
 
     const subtype =
       (verification?.verified &&
-        typeof verification?.details?.subtype === "string" &&
+        typeof verification?.details?.subtype === 'string' &&
         verification.details.subtype) ||
-      (typeof body?.subtype === "string" ? body.subtype : null);
+      (typeof body?.subtype === 'string' ? body.subtype : null);
 
     return subtype ? `${notificationType}:${subtype}` : notificationType;
   }
@@ -257,12 +263,12 @@ export class WebhooksService {
   private resolveAppleExternalEventId(body: any, verification: any) {
     if (
       verification?.verified &&
-      typeof verification?.details?.notificationUUID === "string"
+      typeof verification?.details?.notificationUUID === 'string'
     ) {
       return verification.details.notificationUUID;
     }
 
-    if (typeof body?.notificationUUID === "string") {
+    if (typeof body?.notificationUUID === 'string') {
       return body.notificationUUID;
     }
 
@@ -271,14 +277,14 @@ export class WebhooksService {
 
   private decodeGoogleBody(body: any) {
     const dataBase64 =
-      typeof body?.message?.data === "string" ? body.message.data : null;
+      typeof body?.message?.data === 'string' ? body.message.data : null;
 
     if (!dataBase64) {
       return body;
     }
 
     try {
-      const decodedText = Buffer.from(dataBase64, "base64").toString("utf8");
+      const decodedText = Buffer.from(dataBase64, 'base64').toString('utf8');
       return JSON.parse(decodedText);
     } catch {
       return body;
@@ -299,9 +305,9 @@ export class WebhooksService {
     }
 
     if (decoded?.testNotification) {
-      return "TEST";
+      return 'TEST';
     }
 
-    return "UNKNOWN";
+    return 'UNKNOWN';
   }
 }

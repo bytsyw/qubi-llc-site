@@ -1,21 +1,21 @@
 {
-    "seo": {
-      "title": "İletişim",
-      "description": "Şirket, iş birliği, medya ve ürün iletişimi için Qubi LLC ile iletişime geçin."
-    },
-    "hero": {
-      "badge": "İletişim",
-      "title": "Qubi, ürünlerimiz ve gelecekteki iş birlikleri hakkında konuşalım.",
-      "description": "Bu sayfa ileride gerçek bir iletişim formuna, iş ortaklığı formuna veya medya talep akışına bağlanabilir."
-    },
-    "general": {
-      "badge": "Genel iletişim",
-      "title": "hello@qubillc.com",
-      "description": "Genel şirket soruları, ürün talepleri ve gelecekteki iş iletişimleri için."
-    },
-    "partnership": {
-      "badge": "İş birlikleri",
-      "title": "Yakında",
-      "description": "Platform lansmanları, medya talepleri ve iş ortaklığı fırsatları için özel bir iletişim akışı daha sonra buraya eklenebilir."
-    }
+  "seo": {
+    "title": "İletişim",
+    "description": "Şirket, iş birliği, medya ve ürün iletişimi için Qubi LLC ile iletişime geçin."
+  },
+  "hero": {
+    "badge": "İletişim",
+    "title": "Qubi, ürünlerimiz ve gelecekteki iş birlikleri hakkında konuşalım.",
+    "description": "Bu sayfa ileride gerçek bir iletişim formuna, iş ortaklığı formuna veya medya talep akışına bağlanabilir."
+  },
+  "general": {
+    "badge": "Genel iletişim",
+    "title": "hello@qubillc.com",
+    "description": "Genel şirket soruları, ürün talepleri ve gelecekteki iş iletişimleri için."
+  },
+  "partnership": {
+    "badge": "İş birlikleri",
+    "title": "Yakında",
+    "description": "Platform lansmanları, medya talepleri ve iş ortaklığı fırsatları için özel bir iletişim akışı daha sonra buraya eklenebilir."
   }
+}

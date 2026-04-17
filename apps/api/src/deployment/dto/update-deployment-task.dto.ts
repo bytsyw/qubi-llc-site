@@ -1,4 +1,4 @@
-import { IsIn, IsOptional, IsString } from "class-validator";
+import { IsIn, IsOptional, IsString } from 'class-validator';
 
 export class UpdateDeploymentTaskDto {
   @IsOptional()
@@ -6,6 +6,6 @@ export class UpdateDeploymentTaskDto {
   note?: string;
 
   @IsString()
-  @IsIn(["healthy", "warning", "critical", "pending"])
+  @IsIn(['healthy', 'warning', 'critical', 'pending'])
   status!: string;
 }

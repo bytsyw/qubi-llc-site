@@ -16,10 +16,14 @@ function HeroCenterPhone({ app }) {
             >
               Featured product experience
             </div>
-            <h3 className={`mt-4 text-[2.1rem] font-black leading-none sm:text-[2.35rem] ${app.dark ? "text-white" : "text-[#111111]"}`}>
+            <h3
+              className={`mt-4 text-[2.1rem] font-black leading-none sm:text-[2.35rem] ${app.dark ? "text-white" : "text-[#111111]"}`}
+            >
               {app.name}
             </h3>
-            <p className={`mt-3 max-w-[13rem] text-sm leading-5 ${app.dark ? "text-white/78" : "text-black/65"}`}>
+            <p
+              className={`mt-3 max-w-[13rem] text-sm leading-5 ${app.dark ? "text-white/78" : "text-black/65"}`}
+            >
               {app.description}
             </p>
           </div>
@@ -32,10 +36,14 @@ function HeroCenterPhone({ app }) {
             >
               <div className="flex items-center justify-between gap-2">
                 <div>
-                  <div className={`text-xs font-medium ${app.dark ? "text-white/55" : "text-black/50"}`}>
+                  <div
+                    className={`text-xs font-medium ${app.dark ? "text-white/55" : "text-black/50"}`}
+                  >
                     {app.highlights[0]}
                   </div>
-                  <div className={`text-base font-black ${app.dark ? "text-white" : "text-[#111111]"}`}>
+                  <div
+                    className={`text-base font-black ${app.dark ? "text-white" : "text-[#111111]"}`}
+                  >
                     {app.badge}
                   </div>
                 </div>
@@ -61,15 +69,23 @@ function HeroCenterPhone({ app }) {
                   app.dark ? "border-white/10 bg-white/10" : "border-black/8 bg-white/45"
                 } p-4 backdrop-blur-md`}
               >
-                <div className={`text-xs font-medium ${app.dark ? "text-white/55" : "text-black/50"}`}>Downloads</div>
-                <div className={`mt-2 text-2xl font-black ${app.dark ? "text-white" : "text-[#111111]"}`}>
+                <div
+                  className={`text-xs font-medium ${app.dark ? "text-white/55" : "text-black/50"}`}
+                >
+                  Downloads
+                </div>
+                <div
+                  className={`mt-2 text-2xl font-black ${app.dark ? "text-white" : "text-[#111111]"}`}
+                >
                   {app.downloads}
                 </div>
               </div>
 
               <div className="rounded-[1.5rem] border border-black/8 bg-[#111111] p-4 text-white">
                 <div className="text-xs font-medium text-white/50">Parent score</div>
-                <div className="mt-2 text-2xl font-black text-yellow-300">{app.rating}</div>
+                <div className="mt-2 text-2xl font-black text-yellow-300">
+                  {app.rating}
+                </div>
               </div>
             </div>
           </div>
@@ -87,8 +103,14 @@ function HeroSidePhone({ app, reverse = false }) {
         <div className="absolute left-1/2 top-3 h-5 w-24 -translate-x-1/2 rounded-full bg-black/90" />
         <div className="relative flex h-full flex-col justify-between p-4 pt-9">
           <div>
-            <div className={`text-[11px] font-semibold ${app.dark ? "text-white/55" : "text-black/55"}`}>Preview</div>
-            <div className={`mt-2 text-[2.15rem] font-black leading-none ${app.dark ? "text-white" : "text-[#111111]"}`}>
+            <div
+              className={`text-[11px] font-semibold ${app.dark ? "text-white/55" : "text-black/55"}`}
+            >
+              Preview
+            </div>
+            <div
+              className={`mt-2 text-[2.15rem] font-black leading-none ${app.dark ? "text-white" : "text-[#111111]"}`}
+            >
               {app.shortName}
             </div>
           </div>
@@ -99,15 +121,23 @@ function HeroSidePhone({ app, reverse = false }) {
                 app.dark ? "border-white/10 bg-white/10" : "border-black/8 bg-white/55"
               } p-3 backdrop-blur-md`}
             >
-              <div className={`text-xs ${app.dark ? "text-white/55" : "text-black/55"}`}>Motion card</div>
-              <div className={`mt-2 text-sm font-bold ${app.dark ? "text-white" : "text-[#111111]"}`}>
+              <div className={`text-xs ${app.dark ? "text-white/55" : "text-black/55"}`}>
+                Motion card
+              </div>
+              <div
+                className={`mt-2 text-sm font-bold ${app.dark ? "text-white" : "text-[#111111]"}`}
+              >
                 {reverse ? app.highlights[1] : app.highlights[0]}
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
-              <div className={`h-20 rounded-2xl ${app.dark ? "bg-white/10" : "bg-black/8"}`} />
-              <div className={`h-20 rounded-2xl ${app.dark ? "bg-white/10" : "bg-black/8"}`} />
+              <div
+                className={`h-20 rounded-2xl ${app.dark ? "bg-white/10" : "bg-black/8"}`}
+              />
+              <div
+                className={`h-20 rounded-2xl ${app.dark ? "bg-white/10" : "bg-black/8"}`}
+              />
             </div>
           </div>
         </div>
@@ -116,17 +146,63 @@ function HeroSidePhone({ app, reverse = false }) {
   );
 }
 
-export default function HeroPhones({ apps, activeApp, onSelectApp, animationMode = "glide", direction = 1 }) {
+export default function HeroPhones({
+  apps,
+  activeApp,
+  onSelectApp,
+  animationMode = "glide",
+  direction = 1,
+}) {
   const activeIndex = apps.findIndex((app) => app.id === activeApp.id);
   const prevApp = apps[(activeIndex - 1 + apps.length) % apps.length];
   const nextApp = apps[(activeIndex + 1) % apps.length];
 
   const configMap = {
-    fan: { leftRotate: -13, rightRotate: 13, sideScale: 1.05, centerScale: 1, sideY: 0, centerY: 0, float: false },
-    depth: { leftRotate: -18, rightRotate: 18, sideScale: 1.08, centerScale: 1.05, sideY: 10, centerY: -6, float: false },
-    float: { leftRotate: -15, rightRotate: 15, sideScale: 1.07, centerScale: 1.02, sideY: 0, centerY: 0, float: true },
-    glide: { leftRotate: -8, rightRotate: 8, sideScale: 1.03, centerScale: 1.01, sideY: 4, centerY: -2, float: false },
-    orbit: { leftRotate: -22, rightRotate: 22, sideScale: 1.1, centerScale: 1.03, sideY: -4, centerY: 0, float: true },
+    fan: {
+      leftRotate: -13,
+      rightRotate: 13,
+      sideScale: 1.05,
+      centerScale: 1,
+      sideY: 0,
+      centerY: 0,
+      float: false,
+    },
+    depth: {
+      leftRotate: -18,
+      rightRotate: 18,
+      sideScale: 1.08,
+      centerScale: 1.05,
+      sideY: 10,
+      centerY: -6,
+      float: false,
+    },
+    float: {
+      leftRotate: -15,
+      rightRotate: 15,
+      sideScale: 1.07,
+      centerScale: 1.02,
+      sideY: 0,
+      centerY: 0,
+      float: true,
+    },
+    glide: {
+      leftRotate: -8,
+      rightRotate: 8,
+      sideScale: 1.03,
+      centerScale: 1.01,
+      sideY: 4,
+      centerY: -2,
+      float: false,
+    },
+    orbit: {
+      leftRotate: -22,
+      rightRotate: 22,
+      sideScale: 1.1,
+      centerScale: 1.03,
+      sideY: -4,
+      centerY: 0,
+      float: true,
+    },
   };
 
   const config = configMap[animationMode] || configMap.fan;
@@ -165,8 +241,16 @@ export default function HeroPhones({ apps, activeApp, onSelectApp, animationMode
                   y: config.sideY,
                 }
           }
-          transition={{ duration: 0.55, repeat: config.float ? Infinity : 0, ease: "easeInOut" }}
-          whileHover={{ y: config.sideY - 10, rotate: config.leftRotate * 0.82, scale: config.sideScale + 0.04 }}
+          transition={{
+            duration: 0.55,
+            repeat: config.float ? Infinity : 0,
+            ease: "easeInOut",
+          }}
+          whileHover={{
+            y: config.sideY - 10,
+            rotate: config.leftRotate * 0.82,
+            scale: config.sideScale + 0.04,
+          }}
           onClick={() => onSelectApp(prevApp.id)}
           className="absolute left-[-1.8rem] top-12 z-10 hidden cursor-pointer border-0 bg-transparent p-0 sm:block"
           aria-label={`Show ${prevApp.name}`}
@@ -189,7 +273,11 @@ export default function HeroPhones({ apps, activeApp, onSelectApp, animationMode
                   ? {
                       opacity: 1,
                       x: 0,
-                      scale: [config.centerScale, config.centerScale + 0.02, config.centerScale],
+                      scale: [
+                        config.centerScale,
+                        config.centerScale + 0.02,
+                        config.centerScale,
+                      ],
                       y: [config.centerY, config.centerY - 14, config.centerY],
                       rotate: 0,
                     }
@@ -235,8 +323,16 @@ export default function HeroPhones({ apps, activeApp, onSelectApp, animationMode
                   y: config.sideY,
                 }
           }
-          transition={{ duration: 0.55, repeat: config.float ? Infinity : 0, ease: "easeInOut" }}
-          whileHover={{ y: config.sideY - 10, rotate: config.rightRotate * 0.82, scale: config.sideScale + 0.04 }}
+          transition={{
+            duration: 0.55,
+            repeat: config.float ? Infinity : 0,
+            ease: "easeInOut",
+          }}
+          whileHover={{
+            y: config.sideY - 10,
+            rotate: config.rightRotate * 0.82,
+            scale: config.sideScale + 0.04,
+          }}
           onClick={() => onSelectApp(nextApp.id)}
           className="absolute right-[-1.8rem] top-12 z-10 hidden cursor-pointer border-0 bg-transparent p-0 sm:block"
           aria-label={`Show ${nextApp.name}`}

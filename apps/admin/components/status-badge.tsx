@@ -1,10 +1,4 @@
-type StatusVariant =
-  | "success"
-  | "failed"
-  | "running"
-  | "pending"
-  | "skipped"
-  | "neutral";
+type StatusVariant = "success" | "failed" | "running" | "pending" | "skipped" | "neutral";
 
 function normalizeStatus(status?: string | null): StatusVariant {
   const value = (status || "").toUpperCase();

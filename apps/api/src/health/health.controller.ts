@@ -1,11 +1,7 @@
-import {
-  Controller,
-  Get,
-  InternalServerErrorException,
-} from "@nestjs/common";
-import { HealthService } from "./health.service";
+import { Controller, Get, InternalServerErrorException } from '@nestjs/common';
+import { HealthService } from './health.service';
 
-@Controller("health")
+@Controller('health')
 export class HealthController {
   constructor(private readonly healthService: HealthService) {}
 
@@ -14,21 +10,21 @@ export class HealthController {
     return this.healthService.getLiveness();
   }
 
-  @Get("liveness")
+  @Get('liveness')
   getLiveness() {
     return this.healthService.getLiveness();
   }
 
-  @Get("readiness")
+  @Get('readiness')
   async getReadiness() {
     try {
       return await this.healthService.getReadiness();
     } catch {
       throw new InternalServerErrorException({
-        code: "READINESS_FAILED",
-        message: "Service is not ready.",
+        code: 'READINESS_FAILED',
+        message: 'Service is not ready.',
         details: {
-          database: "down",
+          database: 'down',
         },
       });
     }

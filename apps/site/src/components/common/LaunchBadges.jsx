@@ -2,11 +2,7 @@ import { motion } from "framer-motion";
 import { Smartphone, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-export function LaunchBadge({
-  label,
-  icon: Icon = Sparkles,
-  dark = false,
-}) {
+export function LaunchBadge({ label, icon: Icon = Sparkles, dark = false }) {
   return (
     <motion.div
       whileHover={{ y: -2 }}
@@ -27,16 +23,8 @@ export function StoreLaunchRow({ dark = false, className = "" }) {
 
   return (
     <div className={`flex flex-wrap gap-3 ${className}`}>
-      <LaunchBadge
-        dark={dark}
-        icon={Smartphone}
-        label={t("launch.appStoreComingSoon")}
-      />
-      <LaunchBadge
-        dark={dark}
-        icon={Sparkles}
-        label={t("launch.googlePlayComingSoon")}
-      />
+      <LaunchBadge dark={dark} icon={Smartphone} label={t("launch.appStoreComingSoon")} />
+      <LaunchBadge dark={dark} icon={Sparkles} label={t("launch.googlePlayComingSoon")} />
     </div>
   );
 }

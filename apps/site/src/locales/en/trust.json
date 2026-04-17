@@ -1,53 +1,53 @@
 {
-    "seo": {
-      "title": "Trust & Safety",
-      "description": "Explore Qubi LLC’s trust, safety and parent reassurance approach for children’s digital products."
-    },
-    "page": {
-      "badge": "Trust & Safety",
-      "title": "Designed to feel safe, reassuring and parent-friendly from the first screen.",
-      "description": "Explore Qubi’s trust principles, safety positioning and parent reassurance language."
-    },
-    "section": {
-      "badge": "Trust & Safety",
-      "title": "A children’s product brand should feel trustworthy before a parent even reaches the download step.",
-      "description": "Qubi’s product positioning is not only based on visual appeal, but also on how clearly the brand communicates safety, usability and thoughtful experience design. This creates a stronger foundation for both parents and future platform launches.",
-      "items": [
-        {
-          "title": "Child-safe product thinking",
-          "text": "Every experience is designed around clarity, age-appropriate interaction and a calmer product rhythm for young users."
-        },
-        {
-          "title": "Low-distraction interface design",
-          "text": "Qubi products favor focused layouts, softer flows and less visual noise to help children stay engaged without overwhelm."
-        },
-        {
-          "title": "Parent confidence built in",
-          "text": "Parents should immediately understand what the product does, how it feels and why it is appropriate for family use."
-        }
-      ]
-    },
-    "panel": {
-      "badge": "Parent reassurance",
-      "title": "The strongest children’s brands are not only engaging, they are reassuring.",
-      "description": "Qubi aims to communicate trust before the first download. The goal is to make the brand feel safe, polished and parent-friendly from the very first screen.",
-      "metrics": {
-        "visualTrust": "Clear visual trust",
-        "parentStructure": "Parent-friendly structure",
-        "lowFriction": "Low-friction navigation",
-        "brandConfidence": "Brand confidence"
-      }
-    },
-    "testimonials": [
+  "seo": {
+    "title": "Trust & Safety",
+    "description": "Explore Qubi LLC’s trust, safety and parent reassurance approach for children’s digital products."
+  },
+  "page": {
+    "badge": "Trust & Safety",
+    "title": "Designed to feel safe, reassuring and parent-friendly from the first screen.",
+    "description": "Explore Qubi’s trust principles, safety positioning and parent reassurance language."
+  },
+  "section": {
+    "badge": "Trust & Safety",
+    "title": "A children’s product brand should feel trustworthy before a parent even reaches the download step.",
+    "description": "Qubi’s product positioning is not only based on visual appeal, but also on how clearly the brand communicates safety, usability and thoughtful experience design. This creates a stronger foundation for both parents and future platform launches.",
+    "items": [
       {
-        "quote": "Qubi feels more thoughtful than a typical children’s app brand. The presentation is playful, but still reassuring.",
-        "author": "Sample Parent Review",
-        "role": "Early family feedback"
+        "title": "Child-safe product thinking",
+        "text": "Every experience is designed around clarity, age-appropriate interaction and a calmer product rhythm for young users."
       },
       {
-        "quote": "The visual language feels modern and premium, while still staying approachable for both children and adults.",
-        "author": "Sample Product Feedback",
-        "role": "Brand evaluation note"
+        "title": "Low-distraction interface design",
+        "text": "Qubi products favor focused layouts, softer flows and less visual noise to help children stay engaged without overwhelm."
+      },
+      {
+        "title": "Parent confidence built in",
+        "text": "Parents should immediately understand what the product does, how it feels and why it is appropriate for family use."
       }
     ]
-  }
+  },
+  "panel": {
+    "badge": "Parent reassurance",
+    "title": "The strongest children’s brands are not only engaging, they are reassuring.",
+    "description": "Qubi aims to communicate trust before the first download. The goal is to make the brand feel safe, polished and parent-friendly from the very first screen.",
+    "metrics": {
+      "visualTrust": "Clear visual trust",
+      "parentStructure": "Parent-friendly structure",
+      "lowFriction": "Low-friction navigation",
+      "brandConfidence": "Brand confidence"
+    }
+  },
+  "testimonials": [
+    {
+      "quote": "Qubi feels more thoughtful than a typical children’s app brand. The presentation is playful, but still reassuring.",
+      "author": "Sample Parent Review",
+      "role": "Early family feedback"
+    },
+    {
+      "quote": "The visual language feels modern and premium, while still staying approachable for both children and adults.",
+      "author": "Sample Product Feedback",
+      "role": "Brand evaluation note"
+    }
+  ]
+}

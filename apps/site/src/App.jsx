@@ -38,26 +38,49 @@ export default function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Navigate to={createLocalizedPath(defaultLang, "/")} replace />} />
-        <Route path="/about" element={<Navigate to={createLocalizedPath(defaultLang, "/about")} replace />} />
+        <Route
+          path="/"
+          element={<Navigate to={createLocalizedPath(defaultLang, "/")} replace />}
+        />
+        <Route
+          path="/about"
+          element={<Navigate to={createLocalizedPath(defaultLang, "/about")} replace />}
+        />
         <Route
           path="/trust-safety"
-          element={<Navigate to={createLocalizedPath(defaultLang, "/trust-safety")} replace />}
+          element={
+            <Navigate to={createLocalizedPath(defaultLang, "/trust-safety")} replace />
+          }
         />
-        <Route path="/contact" element={<Navigate to={createLocalizedPath(defaultLang, "/contact")} replace />} />
+        <Route
+          path="/contact"
+          element={<Navigate to={createLocalizedPath(defaultLang, "/contact")} replace />}
+        />
         <Route
           path="/privacy-policy"
-          element={<Navigate to={createLocalizedPath(defaultLang, "/privacy-policy")} replace />}
+          element={
+            <Navigate to={createLocalizedPath(defaultLang, "/privacy-policy")} replace />
+          }
         />
         <Route
           path="/terms-of-use"
-          element={<Navigate to={createLocalizedPath(defaultLang, "/terms-of-use")} replace />}
+          element={
+            <Navigate to={createLocalizedPath(defaultLang, "/terms-of-use")} replace />
+          }
         />
         <Route
           path="/parent-safety-guide"
-          element={<Navigate to={createLocalizedPath(defaultLang, "/parent-safety-guide")} replace />}
+          element={
+            <Navigate
+              to={createLocalizedPath(defaultLang, "/parent-safety-guide")}
+              replace
+            />
+          }
         />
-        <Route path="/apps/:id" element={<RedirectToLocalizedApp defaultLang={defaultLang} />} />
+        <Route
+          path="/apps/:id"
+          element={<RedirectToLocalizedApp defaultLang={defaultLang} />}
+        />
 
         {SUPPORTED_LANGS.map((lang) => (
           <Route
@@ -86,7 +109,11 @@ export default function App() {
         ))}
 
         {SUPPORTED_LANGS.map((lang) => (
-          <Route key={`contact-${lang}`} path={`/${lang}/contact`} element={<ContactPage />} />
+          <Route
+            key={`contact-${lang}`}
+            path={`/${lang}/contact`}
+            element={<ContactPage />}
+          />
         ))}
 
         {SUPPORTED_LANGS.map((lang) => (

@@ -98,13 +98,10 @@ export default async function DeploymentPage() {
     smokeTestRuns = await getSmokeTestRuns();
   } catch {}
 
-  const googleProvider =
-    providers.find((item) => item.provider === "GOOGLE") ?? null;
-  const appleProvider =
-    providers.find((item) => item.provider === "APPLE") ?? null;
+  const googleProvider = providers.find((item) => item.provider === "GOOGLE") ?? null;
+  const appleProvider = providers.find((item) => item.provider === "APPLE") ?? null;
 
-  const lastSuccessfulSync =
-    syncRuns.find((item) => item.status === "SUCCESS") ?? null;
+  const lastSuccessfulSync = syncRuns.find((item) => item.status === "SUCCESS") ?? null;
 
   const liveChecks: CheckItem[] = [
     {
@@ -164,10 +161,7 @@ export default async function DeploymentPage() {
       title="Deployment"
       description="Bu ekran canlıya çıkış öncesi teknik hazırlık durumunu özetler."
     >
-      <DeploymentReadiness
-        liveChecks={liveChecks}
-        manualChecks={manualTasks}
-      />
+      <DeploymentReadiness liveChecks={liveChecks} manualChecks={manualTasks} />
 
       <div className="mt-8">
         <DeploymentSmokeTests runs={smokeTestRuns} />

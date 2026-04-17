@@ -22,10 +22,7 @@ export async function POST(request: NextRequest) {
   }
 
   if (email !== expectedEmail || password !== expectedPassword) {
-    return NextResponse.json(
-      { error: "Geçersiz giriş bilgileri." },
-      { status: 401 },
-    );
+    return NextResponse.json({ error: "Geçersiz giriş bilgileri." }, { status: 401 });
   }
 
   const token = await createAdminSessionToken({ email });

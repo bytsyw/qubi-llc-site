@@ -1,17 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {
-  ExternalLink,
-  Mail,
-  MapPin,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ExternalLink, Mail, MapPin, ShieldCheck, Sparkles } from "lucide-react";
 import { StoreLaunchRow } from "../common/LaunchBadges";
-import {
-  createLocalizedPath,
-  getLangFromPath,
-} from "../../utils/localeRouting";
+import { createLocalizedPath, getLangFromPath } from "../../utils/localeRouting";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -23,7 +14,10 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.9fr]">
           <div>
-            <NavLink to={createLocalizedPath(lang, "/")} className="flex items-center gap-3">
+            <NavLink
+              to={createLocalizedPath(lang, "/")}
+              className="flex items-center gap-3"
+            >
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-yellow-300 text-lg font-black text-black shadow-[0_10px_30px_rgba(250,204,21,0.18)]">
                 Q
               </div>
@@ -59,7 +53,10 @@ export default function Footer() {
 
             <div className="mt-5 flex flex-col gap-3">
               <FooterNavLink to={createLocalizedPath(lang, "/")} label={t("nav.home")} />
-              <FooterNavLink to={createLocalizedPath(lang, "/about")} label={t("nav.about")} />
+              <FooterNavLink
+                to={createLocalizedPath(lang, "/about")}
+                label={t("nav.about")}
+              />
               <FooterNavLink
                 to={createLocalizedPath(lang, "/trust-safety")}
                 label={t("nav.trustSafety")}

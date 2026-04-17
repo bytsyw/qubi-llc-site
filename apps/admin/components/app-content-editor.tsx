@@ -147,8 +147,7 @@ export default function AppContentEditor({
       setState(buildInitialState(refreshed));
       setStatus((prev) => ({ ...prev, [locale]: "Saved successfully." }));
     } catch (error) {
-      const message =
-        error instanceof Error ? error.message : "Update failed.";
+      const message = error instanceof Error ? error.message : "Update failed.";
       setStatus((prev) => ({ ...prev, [locale]: message }));
     } finally {
       setSaving((prev) => ({ ...prev, [locale]: false }));
@@ -311,9 +310,7 @@ function LocaleEditor({
           <input
             type="checkbox"
             checked={state.dark}
-            onChange={(event) =>
-              onChange({ ...state, dark: event.target.checked })
-            }
+            onChange={(event) => onChange({ ...state, dark: event.target.checked })}
           />
           Dark mode screen
         </label>
@@ -333,9 +330,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-sm font-semibold text-black/65">
-        {label}
-      </label>
+      <label className="mb-2 block text-sm font-semibold text-black/65">{label}</label>
       <input
         value={value}
         onChange={(event) => onChange(event.target.value)}
@@ -358,9 +353,7 @@ function TextAreaField({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-sm font-semibold text-black/65">
-        {label}
-      </label>
+      <label className="mb-2 block text-sm font-semibold text-black/65">{label}</label>
       <textarea
         value={value}
         onChange={(event) => onChange(event.target.value)}

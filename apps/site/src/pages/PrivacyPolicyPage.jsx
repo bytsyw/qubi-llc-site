@@ -7,10 +7,7 @@ export default function PrivacyPolicyPage() {
 
   return (
     <>
-      <Seo
-        title={t("privacy.seo.title")}
-        description={t("privacy.seo.description")}
-      />
+      <Seo title={t("privacy.seo.title")} description={t("privacy.seo.description")} />
 
       <main>
         <section className="mx-auto max-w-7xl px-6 pb-16 pt-10 lg:px-8 lg:pb-24 lg:pt-14">

@@ -15,10 +15,14 @@ export function AppShowcasePhone({ app }) {
             >
               {app.type}
             </div>
-            <div className={`mt-4 text-3xl font-black leading-none ${app.dark ? "text-white" : "text-[#111111]"}`}>
+            <div
+              className={`mt-4 text-3xl font-black leading-none ${app.dark ? "text-white" : "text-[#111111]"}`}
+            >
               {app.name}
             </div>
-            <p className={`mt-3 max-w-[13rem] text-sm leading-5 ${app.dark ? "text-white/75" : "text-black/65"}`}>
+            <p
+              className={`mt-3 max-w-[13rem] text-sm leading-5 ${app.dark ? "text-white/75" : "text-black/65"}`}
+            >
               Large device mockups help the site feel product-led, not text-led.
             </p>
           </div>
@@ -29,11 +33,21 @@ export function AppShowcasePhone({ app }) {
                 app.dark ? "border-white/10 bg-white/10" : "border-black/8 bg-white/55"
               } p-4 backdrop-blur-md`}
             >
-              <div className={`text-sm font-bold ${app.dark ? "text-white" : "text-[#111111]"}`}>Screen preview</div>
+              <div
+                className={`text-sm font-bold ${app.dark ? "text-white" : "text-[#111111]"}`}
+              >
+                Screen preview
+              </div>
               <div className="mt-3 grid grid-cols-3 gap-2">
-                <div className={`h-20 rounded-2xl ${app.dark ? "bg-white/10" : "bg-black/10"}`} />
-                <div className={`h-20 rounded-2xl ${app.dark ? "bg-white/10" : "bg-black/10"}`} />
-                <div className={`h-20 rounded-2xl ${app.dark ? "bg-white/10" : "bg-black/10"}`} />
+                <div
+                  className={`h-20 rounded-2xl ${app.dark ? "bg-white/10" : "bg-black/10"}`}
+                />
+                <div
+                  className={`h-20 rounded-2xl ${app.dark ? "bg-white/10" : "bg-black/10"}`}
+                />
+                <div
+                  className={`h-20 rounded-2xl ${app.dark ? "bg-white/10" : "bg-black/10"}`}
+                />
               </div>
             </div>
 
@@ -44,7 +58,8 @@ export function AppShowcasePhone({ app }) {
             >
               <div className="text-sm font-bold">Separate detail page available</div>
               <div className="mt-2 text-xs leading-5 text-white/75">
-                The homepage introduces the product, but the full story lives on its own page.
+                The homepage introduces the product, but the full story lives on its own
+                page.
               </div>
             </div>
           </div>
@@ -106,10 +121,14 @@ export function DetailHeroPhone({ app }) {
             >
               <div className="flex items-center justify-between gap-2">
                 <div>
-                  <div className={`text-xs font-medium ${app.dark ? "text-white/55" : "text-black/50"}`}>
+                  <div
+                    className={`text-xs font-medium ${app.dark ? "text-white/55" : "text-black/50"}`}
+                  >
                     {primaryHighlight}
                   </div>
-                  <div className={`text-base font-black ${app.dark ? "text-white" : "text-[#111111]"}`}>
+                  <div
+                    className={`text-base font-black ${app.dark ? "text-white" : "text-[#111111]"}`}
+                  >
                     {displayBadge}
                   </div>
                 </div>
@@ -130,17 +149,23 @@ export function DetailHeroPhone({ app }) {
                   app.dark ? "border-white/10 bg-white/10" : "border-black/8 bg-white/45"
                 }`}
               >
-                <div className={`text-xs font-medium ${app.dark ? "text-white/55" : "text-black/50"}`}>
+                <div
+                  className={`text-xs font-medium ${app.dark ? "text-white/55" : "text-black/50"}`}
+                >
                   Downloads
                 </div>
-                <div className={`mt-2 text-2xl font-black ${app.dark ? "text-white" : "text-[#111111]"}`}>
+                <div
+                  className={`mt-2 text-2xl font-black ${app.dark ? "text-white" : "text-[#111111]"}`}
+                >
                   {displayDownloads}
                 </div>
               </div>
 
               <div className="rounded-[1.5rem] border border-black/8 bg-[#111111] p-4 text-white">
                 <div className="text-xs font-medium text-white/50">Parent score</div>
-                <div className="mt-2 text-2xl font-black text-yellow-300">{displayRating}</div>
+                <div className="mt-2 text-2xl font-black text-yellow-300">
+                  {displayRating}
+                </div>
               </div>
             </div>
           </div>
@@ -161,22 +186,36 @@ export function GalleryPhone({ tone = "light", label, reverse = false }) {
             dark
               ? "bg-[linear-gradient(180deg,#111111_0%,#202020_40%,#facc15_100%)]"
               : reverse
-              ? "bg-[linear-gradient(180deg,#fff9e4_0%,#ffe38a_55%,#facc15_100%)]"
-              : "bg-[linear-gradient(180deg,#fff8de_0%,#f6ffd7_55%,#facc15_100%)]"
+                ? "bg-[linear-gradient(180deg,#fff9e4_0%,#ffe38a_55%,#facc15_100%)]"
+                : "bg-[linear-gradient(180deg,#fff8de_0%,#f6ffd7_55%,#facc15_100%)]"
           }`}
         />
         <div className="absolute left-1/2 top-3 h-5 w-24 -translate-x-1/2 rounded-full bg-black/90" />
         <div className="relative flex h-full flex-col justify-between p-4 pt-9">
           <div>
-            <div className={`text-[11px] font-semibold ${dark ? "text-white/55" : "text-black/55"}`}>Screen preview</div>
-            <div className={`mt-2 text-xl font-black ${dark ? "text-white" : "text-[#111111]"}`}>{label}</div>
+            <div
+              className={`text-[11px] font-semibold ${dark ? "text-white/55" : "text-black/55"}`}
+            >
+              Screen preview
+            </div>
+            <div
+              className={`mt-2 text-xl font-black ${dark ? "text-white" : "text-[#111111]"}`}
+            >
+              {label}
+            </div>
           </div>
 
           <div className="space-y-2">
-            <div className={`h-24 rounded-[1.4rem] ${dark ? "bg-white/10" : "bg-black/10"}`} />
+            <div
+              className={`h-24 rounded-[1.4rem] ${dark ? "bg-white/10" : "bg-black/10"}`}
+            />
             <div className="grid grid-cols-2 gap-2">
-              <div className={`h-14 rounded-2xl ${dark ? "bg-white/10" : "bg-black/10"}`} />
-              <div className={`h-14 rounded-2xl ${dark ? "bg-white/10" : "bg-black/10"}`} />
+              <div
+                className={`h-14 rounded-2xl ${dark ? "bg-white/10" : "bg-black/10"}`}
+              />
+              <div
+                className={`h-14 rounded-2xl ${dark ? "bg-white/10" : "bg-black/10"}`}
+              />
             </div>
           </div>
         </div>

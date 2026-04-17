@@ -1,8 +1,9 @@
 import { cookies } from "next/headers";
 import { ADMIN_SESSION_COOKIE } from "@/lib/auth";
 
-const API_BASE_URL =
-  (process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000").replace(/\/$/, "");
+const API_BASE_URL = (
+  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000"
+).replace(/\/$/, "");
 
 async function adminServerFetch(path: string, init: RequestInit = {}) {
   const cookieStore = await cookies();
@@ -35,9 +36,7 @@ export async function getAdminPublicApps(locale = "en") {
 }
 
 export async function getAdminPublicApp(slug: string, locale = "en") {
-  const response = await adminServerFetch(
-    `/public/apps/${slug}?locale=${locale}`,
-  );
+  const response = await adminServerFetch(`/public/apps/${slug}?locale=${locale}`);
 
   if (!response.ok) {
     throw new Error(`Failed to fetch app "${slug}" (${response.status})`);

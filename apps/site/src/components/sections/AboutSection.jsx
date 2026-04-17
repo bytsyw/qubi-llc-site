@@ -66,12 +66,8 @@ export default function AboutSection() {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-black text-[#111111]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-black/60">
-                      {item.text}
-                    </p>
+                    <h3 className="text-xl font-black text-[#111111]">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-black/60">{item.text}</p>
                   </div>
                 </div>
               </motion.div>

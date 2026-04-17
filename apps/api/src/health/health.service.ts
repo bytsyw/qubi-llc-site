@@ -1,5 +1,5 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "../prisma/prisma.service";
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class HealthService {
@@ -8,7 +8,7 @@ export class HealthService {
   getLiveness() {
     return {
       ok: true,
-      status: "alive",
+      status: 'alive',
       timestamp: new Date().toISOString(),
     };
   }
@@ -22,9 +22,9 @@ export class HealthService {
 
     return {
       ok: true,
-      status: "ready",
+      status: 'ready',
       checks: {
-        database: "up",
+        database: 'up',
       },
       responseTimeMs: Date.now() - startedAt,
       timestamp: new Date().toISOString(),

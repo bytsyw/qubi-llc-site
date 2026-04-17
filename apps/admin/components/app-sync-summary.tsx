@@ -20,18 +20,11 @@ function formatDate(value: string | null | undefined) {
   }).format(new Date(value));
 }
 
-function findLastRunByStatus(
-  runs: SyncRunRecord[],
-  statuses: string[],
-) {
+function findLastRunByStatus(runs: SyncRunRecord[], statuses: string[]) {
   return runs.find((run) => statuses.includes(run.status)) ?? null;
 }
 
-export default function AppSyncSummary({
-  runs,
-}: {
-  runs: SyncRunRecord[];
-}) {
+export default function AppSyncSummary({ runs }: { runs: SyncRunRecord[] }) {
   const lastSuccess = findLastRunByStatus(runs, ["SUCCESS", "SKIPPED"]);
   const lastFailure = findLastRunByStatus(runs, ["FAILED"]);
   const currentlyRunning = findLastRunByStatus(runs, ["RUNNING"]);
@@ -103,13 +96,7 @@ function SummaryCard({
   );
 }
 
-function InfoRow({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-[1rem] border border-black/8 bg-[#f7f5ef] px-4 py-3 text-sm text-black/65">
       <span className="font-semibold text-[#111111]">{label}:</span> {value}

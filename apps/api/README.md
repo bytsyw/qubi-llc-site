@@ -1,4 +1,4 @@
-```md
+````md
 # Qubi API
 
 Qubi LLC backend API (NestJS + Prisma + MongoDB).
@@ -8,3 +8,5 @@ Qubi LLC backend API (NestJS + Prisma + MongoDB).
 ```bash
 pnpm install
 pnpm dev:api
+```
+````

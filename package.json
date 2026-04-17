@@ -10,6 +10,11 @@
     "dev:site": "pnpm --filter qubi-llc-site dev",
     "build:site": "pnpm --filter qubi-llc-site build",
     "db:push": "pnpm --filter api prisma db push",
-    "prisma:generate": "pnpm --filter api prisma generate"
+    "prisma:generate": "pnpm --filter api prisma generate",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml,css,scss,html}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml,css,scss,html}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
   }
 }

@@ -36,8 +36,7 @@ function extractGoogleVitalValue(
   metricName: string,
 ) {
   const set = rawPayload?.vitals?.[metricSet];
-  const metric =
-    set?.metrics?.find((item: any) => item?.metric === metricName) ?? null;
+  const metric = set?.metrics?.find((item: any) => item?.metric === metricName) ?? null;
 
   return metric?.decimalValue?.value ?? null;
 }
@@ -56,11 +55,7 @@ function buildTrend(current: number | null, previous: number | null) {
   return `${diff}`;
 }
 
-export default function AppMetricsHistory({
-  metrics,
-}: {
-  metrics: MetricSnapshot[];
-}) {
+export default function AppMetricsHistory({ metrics }: { metrics: MetricSnapshot[] }) {
   const googleMetrics = metrics.filter((item) => item.provider === "GOOGLE");
   const appleMetrics = metrics.filter((item) => item.provider === "APPLE");
 
@@ -212,7 +207,10 @@ export default function AppMetricsHistory({
                   );
 
                   return (
-                    <tr key={item.id} className="border-t border-black/8 bg-white align-top">
+                    <tr
+                      key={item.id}
+                      className="border-t border-black/8 bg-white align-top"
+                    >
                       <td className="px-4 py-4 text-sm font-semibold text-[#111111]">
                         {item.provider}
                       </td>
@@ -235,11 +233,15 @@ export default function AppMetricsHistory({
                         {item.matchedSyncRun ? (
                           <div className="space-y-2">
                             <div className="font-semibold text-[#111111]">
-                              {item.matchedSyncRun.provider} · {item.matchedSyncRun.jobType}
+                              {item.matchedSyncRun.provider} ·{" "}
+                              {item.matchedSyncRun.jobType}
                             </div>
                             <StatusBadge status={item.matchedSyncRun.status} />
                             <div className="text-xs leading-5 text-black/50">
-                              {formatDate(item.matchedSyncRun.finishedAt || item.matchedSyncRun.startedAt)}
+                              {formatDate(
+                                item.matchedSyncRun.finishedAt ||
+                                  item.matchedSyncRun.startedAt,
+                              )}
                             </div>
                           </div>
                         ) : (

@@ -44,9 +44,7 @@ export default async function SyncPage() {
             Recent runs
           </div>
 
-          <h2 className="mt-3 text-2xl font-black tracking-tight">
-            Sync run history
-          </h2>
+          <h2 className="mt-3 text-2xl font-black tracking-tight">Sync run history</h2>
 
           {hasError ? (
             <div className="mt-6 rounded-[1.5rem] border border-red-200 bg-red-50 px-4 py-4 text-sm text-red-700">
@@ -70,7 +68,10 @@ export default async function SyncPage() {
                 </thead>
                 <tbody>
                   {runs.map((run) => (
-                    <tr key={run.id} className="border-t border-black/8 bg-white align-top">
+                    <tr
+                      key={run.id}
+                      className="border-t border-black/8 bg-white align-top"
+                    >
                       <td className="px-4 py-4 text-sm font-semibold text-[#111111]">
                         {run.provider}
                       </td>

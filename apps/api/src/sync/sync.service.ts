@@ -1,12 +1,8 @@
-import { Injectable, Logger } from "@nestjs/common";
-import {
-  ProviderType,
-  SyncJobType,
-  SyncRunStatus,
-} from "@prisma/client";
-import { Cron } from "@nestjs/schedule";
-import { PrismaService } from "../prisma/prisma.service";
-import { ProvidersService } from "../providers/providers.service";
+import { Injectable, Logger } from '@nestjs/common';
+import { ProviderType, SyncJobType, SyncRunStatus } from '@prisma/client';
+import { Cron } from '@nestjs/schedule';
+import { PrismaService } from '../prisma/prisma.service';
+import { ProvidersService } from '../providers/providers.service';
 
 @Injectable()
 export class SyncService {
@@ -17,28 +13,28 @@ export class SyncService {
     private readonly providersService: ProvidersService,
   ) {}
 
-  @Cron("0 */30 * * * *", {
-    name: "provider-registry-sync",
+  @Cron('0 */30 * * * *', {
+    name: 'provider-registry-sync',
     waitForCompletion: true,
   })
   async handleScheduledRegistrySync() {
-    await this.runProviderRegistrySync("scheduled");
+    await this.runProviderRegistrySync('scheduled');
   }
 
-  @Cron("0 */20 * * * *", {
-    name: "review-metric-sync",
+  @Cron('0 */20 * * * *', {
+    name: 'review-metric-sync',
     waitForCompletion: true,
   })
   async handleScheduledReviewMetricSync() {
-    await this.runReviewMetricSync("scheduled");
+    await this.runReviewMetricSync('scheduled');
   }
 
-  async runProviderRegistrySync(trigger: "manual" | "scheduled" = "manual") {
+  async runProviderRegistrySync(trigger: 'manual' | 'scheduled' = 'manual') {
     const providers = await this.prisma.providerConnection.findMany({
       include: {
         credentials: true,
       },
-      orderBy: { provider: "asc" },
+      orderBy: { provider: 'asc' },
     });
 
     const results: Array<Record<string, unknown>> = [];
@@ -58,7 +54,7 @@ export class SyncService {
           });
 
           results.push({
-            provider: "APPLE",
+            provider: 'APPLE',
             status: run.status,
             message: run.message,
           });
@@ -82,7 +78,7 @@ export class SyncService {
     };
   }
 
-  async runReviewMetricSync(trigger: "manual" | "scheduled" = "manual") {
+  async runReviewMetricSync(trigger: 'manual' | 'scheduled' = 'manual') {
     const apps = await this.prisma.app.findMany({
       where: { isActive: true },
       include: {
@@ -92,7 +88,7 @@ export class SyncService {
           },
         },
       },
-      orderBy: { createdAt: "asc" },
+      orderBy: { createdAt: 'asc' },
     });
 
     const results: Array<Record<string, unknown>> = [];
@@ -143,7 +139,7 @@ export class SyncService {
       include: {
         provider: true,
       },
-      orderBy: { startedAt: "desc" },
+      orderBy: { startedAt: 'desc' },
       take: 30,
     });
 
@@ -160,7 +156,7 @@ export class SyncService {
 
   private async runAppleDiscovery(
     providerId: string,
-    trigger: "manual" | "scheduled",
+    trigger: 'manual' | 'scheduled',
   ) {
     const run = await this.prisma.syncRun.create({
       data: {
@@ -186,13 +182,13 @@ export class SyncService {
       });
 
       return {
-        provider: "APPLE",
-        status: "SUCCESS",
+        provider: 'APPLE',
+        status: 'SUCCESS',
         ...result,
       };
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : "Apple discovery failed.";
+        error instanceof Error ? error.message : 'Apple discovery failed.';
 
       this.logger.error(message);
 
@@ -206,8 +202,8 @@ export class SyncService {
       });
 
       return {
-        provider: "APPLE",
-        status: "FAILED",
+        provider: 'APPLE',
+        status: 'FAILED',
         message,
       };
     }
@@ -215,7 +211,7 @@ export class SyncService {
 
   private async runGoogleSkeleton(
     providerId: string,
-    trigger: "manual" | "scheduled",
+    trigger: 'manual' | 'scheduled',
   ) {
     const message = `Google registry skeleton ran (${trigger}). Mapping is ready; discovery is not required, and package-based sync is enabled separately.`;
 
@@ -231,7 +227,7 @@ export class SyncService {
     });
 
     return {
-      provider: "GOOGLE",
+      provider: 'GOOGLE',
       status: run.status,
       message: run.message,
     };
@@ -248,7 +244,7 @@ export class SyncService {
     slug: string;
     providerId: string;
     storeAppId: string;
-    trigger: "manual" | "scheduled";
+    trigger: 'manual' | 'scheduled';
   }) {
     const run = await this.prisma.syncRun.create({
       data: {
@@ -318,7 +314,7 @@ export class SyncService {
           reviewCount: allReviews.length,
           downloadEstimate: null,
           versionLabel: null,
-          releaseStatus: "REVIEW_SYNCED",
+          releaseStatus: 'REVIEW_SYNCED',
           rawPayload: {
             syncedReviewCount: reviews.length,
           } as any,
@@ -338,14 +334,14 @@ export class SyncService {
       });
 
       return {
-        provider: "APPLE",
+        provider: 'APPLE',
         app: slug,
-        status: "SUCCESS",
+        status: 'SUCCESS',
         syncedReviewCount: reviews.length,
       };
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : "Apple review sync failed.";
+        error instanceof Error ? error.message : 'Apple review sync failed.';
 
       const shouldSkip = this.isSkippableAppleCredentialError(message);
 
@@ -361,12 +357,10 @@ export class SyncService {
       });
 
       return {
-        provider: "APPLE",
+        provider: 'APPLE',
         app: slug,
-        status: shouldSkip ? "SKIPPED" : "FAILED",
-        message: shouldSkip
-          ? "Apple credentials are not ready yet."
-          : message,
+        status: shouldSkip ? 'SKIPPED' : 'FAILED',
+        message: shouldSkip ? 'Apple credentials are not ready yet.' : message,
       };
     }
   }
@@ -382,7 +376,7 @@ export class SyncService {
     slug: string;
     providerId: string;
     packageName: string;
-    trigger: "manual" | "scheduled";
+    trigger: 'manual' | 'scheduled';
   }) {
     const run = await this.prisma.syncRun.create({
       data: {
@@ -455,7 +449,7 @@ export class SyncService {
           reviewCount: allReviews.length,
           downloadEstimate: null,
           versionLabel: null,
-          releaseStatus: "REVIEW_AND_VITALS_SYNCED",
+          releaseStatus: 'REVIEW_AND_VITALS_SYNCED',
           rawPayload: {
             syncedReviewCount: reviews.length,
             vitals,
@@ -477,15 +471,15 @@ export class SyncService {
       });
 
       return {
-        provider: "GOOGLE",
+        provider: 'GOOGLE',
         app: slug,
-        status: "SUCCESS",
+        status: 'SUCCESS',
         syncedReviewCount: reviews.length,
         vitals,
       };
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : "Google review sync failed.";
+        error instanceof Error ? error.message : 'Google review sync failed.';
 
       await this.prisma.syncRun.update({
         where: { id: run.id },
@@ -497,9 +491,9 @@ export class SyncService {
       });
 
       return {
-        provider: "GOOGLE",
+        provider: 'GOOGLE',
         app: slug,
-        status: "FAILED",
+        status: 'FAILED',
         message,
       };
     }
@@ -508,7 +502,7 @@ export class SyncService {
   private calculateAverageRating(
     reviews: Array<{ rating: number | null }>,
   ): number | null {
-    const rated = reviews.filter((item) => typeof item.rating === "number");
+    const rated = reviews.filter((item) => typeof item.rating === 'number');
 
     if (rated.length === 0) {
       return null;
@@ -516,8 +510,7 @@ export class SyncService {
 
     return Number(
       (
-        rated.reduce((sum, item) => sum + (item.rating ?? 0), 0) /
-        rated.length
+        rated.reduce((sum, item) => sum + (item.rating ?? 0), 0) / rated.length
       ).toFixed(2),
     );
   }

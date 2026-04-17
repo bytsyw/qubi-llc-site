@@ -2,20 +2,16 @@ import {
   BadRequestException,
   Injectable,
   NotFoundException,
-} from "@nestjs/common";
-import {
-  ConnectionStatus,
-  CredentialType,
-  ProviderType,
-} from "@prisma/client";
-import jwt from "jsonwebtoken";
-import { JWT } from "google-auth-library";
-import { PrismaService } from "../prisma/prisma.service";
-import { decryptJson, encryptJson } from "../common/encryption";
-import { UpdateProviderCredentialsDto } from "./dto/update-provider-credentials.dto";
+} from '@nestjs/common';
+import { ConnectionStatus, CredentialType, ProviderType } from '@prisma/client';
+import jwt from 'jsonwebtoken';
+import { JWT } from 'google-auth-library';
+import { PrismaService } from '../prisma/prisma.service';
+import { decryptJson, encryptJson } from '../common/encryption';
+import { UpdateProviderCredentialsDto } from './dto/update-provider-credentials.dto';
 
 type StoredCredentialEnvelope = {
-  provider: "APPLE" | "GOOGLE";
+  provider: 'APPLE' | 'GOOGLE';
   savedAt: string;
   payload: string;
 };
@@ -51,7 +47,7 @@ export class ProvidersService {
       include: {
         credentials: true,
       },
-      orderBy: { provider: "asc" },
+      orderBy: { provider: 'asc' },
     });
 
     return providers.map((provider) => ({
@@ -69,18 +65,18 @@ export class ProvidersService {
 
   async saveCredentials(dto: UpdateProviderCredentialsDto) {
     const providerType =
-      dto.provider === "APPLE" ? ProviderType.APPLE : ProviderType.GOOGLE;
+      dto.provider === 'APPLE' ? ProviderType.APPLE : ProviderType.GOOGLE;
 
     const credentialType =
-      dto.provider === "APPLE"
+      dto.provider === 'APPLE'
         ? CredentialType.APPLE_P8
         : CredentialType.GOOGLE_SERVICE_ACCOUNT;
 
-    if (dto.provider === "APPLE") {
+    if (dto.provider === 'APPLE') {
       this.validateApplePayload(dto.payload);
     }
 
-    if (dto.provider === "GOOGLE") {
+    if (dto.provider === 'GOOGLE') {
       this.validateGooglePayload(dto.payload);
     }
 
@@ -143,7 +139,7 @@ export class ProvidersService {
     });
 
     if (!provider) {
-      throw new NotFoundException("Apple provider is not configured.");
+      throw new NotFoundException('Apple provider is not configured.');
     }
 
     const credential = provider.credentials.find(
@@ -151,7 +147,7 @@ export class ProvidersService {
     );
 
     if (!credential) {
-      throw new BadRequestException("Apple credentials were not found.");
+      throw new BadRequestException('Apple credentials were not found.');
     }
 
     const decrypted = decryptJson<StoredCredentialEnvelope>(
@@ -162,11 +158,11 @@ export class ProvidersService {
     const token = this.createAppleJwt(parsed);
 
     const response = await fetch(
-      "https://api.appstoreconnect.apple.com/v1/apps?limit=200",
+      'https://api.appstoreconnect.apple.com/v1/apps?limit=200',
       {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       },
     );
@@ -221,12 +217,11 @@ export class ProvidersService {
         },
       });
 
-      let app =
-        existingMapping
-          ? await this.prisma.app.findUnique({
-              where: { id: existingMapping.appId },
-            })
-          : null;
+      let app = existingMapping
+        ? await this.prisma.app.findUnique({
+            where: { id: existingMapping.appId },
+          })
+        : null;
 
       if (!app) {
         app =
@@ -256,7 +251,7 @@ export class ProvidersService {
         },
         update: {
           bundleId,
-          countryCode: "US",
+          countryCode: 'US',
           discovered: true,
           isPrimary: true,
           lastDiscoveredAt: new Date(),
@@ -267,7 +262,7 @@ export class ProvidersService {
           providerId: provider.id,
           storeAppId: item.id,
           bundleId,
-          countryCode: "US",
+          countryCode: 'US',
           discovered: true,
           isPrimary: true,
           lastDiscoveredAt: new Date(),
@@ -278,7 +273,7 @@ export class ProvidersService {
       const existingEnContent = await this.prisma.appContent.findFirst({
         where: {
           appId: app.id,
-          locale: "en",
+          locale: 'en',
         },
       });
 
@@ -286,13 +281,13 @@ export class ProvidersService {
         await this.prisma.appContent.create({
           data: {
             appId: app.id,
-            locale: "en",
+            locale: 'en',
             name: appName,
             shortName: appName,
-            type: "Discovered from Apple",
-            badge: "Pending content",
-            description: "",
-            longDescription: "",
+            type: 'Discovered from Apple',
+            badge: 'Pending content',
+            description: '',
+            longDescription: '',
             highlights: [],
             screenshots: [],
             features: [],
@@ -301,8 +296,8 @@ export class ProvidersService {
             terms: [],
             steps: [],
             scores: [],
-            screenGradient: "from-[#fff8de] via-[#ffe58e] to-[#facc15]",
-            glowClass: "bg-yellow-300/55",
+            screenGradient: 'from-[#fff8de] via-[#ffe58e] to-[#facc15]',
+            glowClass: 'bg-yellow-300/55',
             dark: false,
           },
         });
@@ -340,16 +335,15 @@ export class ProvidersService {
     const token = this.createAppleJwt(credentials);
 
     const reviews: NormalizedStoreReview[] = [];
-    let nextUrl:
-      | string
-      | null = `https://api.appstoreconnect.apple.com/v1/apps/${storeAppId}/customerReviews?limit=200`;
+    let nextUrl: string | null =
+      `https://api.appstoreconnect.apple.com/v1/apps/${storeAppId}/customerReviews?limit=200`;
     let pageCount = 0;
 
     while (nextUrl && pageCount < 10) {
       const response = await fetch(nextUrl, {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       });
 
@@ -403,14 +397,16 @@ export class ProvidersService {
     const client = new JWT({
       email: credentials.client_email,
       key: credentials.private_key,
-      scopes: ["https://www.googleapis.com/auth/androidpublisher"],
+      scopes: ['https://www.googleapis.com/auth/androidpublisher'],
     });
 
     const tokenResponse = await client.authorize();
     const accessToken = tokenResponse.access_token;
 
     if (!accessToken) {
-      throw new BadRequestException("Google access token could not be created.");
+      throw new BadRequestException(
+        'Google access token could not be created.',
+      );
     }
 
     const reviews: NormalizedStoreReview[] = [];
@@ -425,13 +421,13 @@ export class ProvidersService {
         )}/reviews`,
       );
 
-      url.searchParams.set("startIndex", String(startIndex));
-      url.searchParams.set("maxResults", String(maxResults));
+      url.searchParams.set('startIndex', String(startIndex));
+      url.searchParams.set('maxResults', String(maxResults));
 
       const response = await fetch(url.toString(), {
         headers: {
           Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       });
 
@@ -466,12 +462,13 @@ export class ProvidersService {
 
       for (const review of pageReviews) {
         const userComment =
-          review.comments?.find((item) => item.userComment)?.userComment ?? null;
+          review.comments?.find((item) => item.userComment)?.userComment ??
+          null;
 
         if (!userComment) continue;
 
-        const rawText = userComment.text || userComment.originalText || "";
-        const [possibleTitle, ...rest] = rawText.split("\t");
+        const rawText = userComment.text || userComment.originalText || '';
+        const [possibleTitle, ...rest] = rawText.split('\t');
         const hasSplitTitle = rest.length > 0;
 
         reviews.push({
@@ -479,7 +476,7 @@ export class ProvidersService {
           locale: userComment.reviewerLanguage ?? null,
           rating: userComment.starRating ?? null,
           title: hasSplitTitle ? possibleTitle : null,
-          body: hasSplitTitle ? rest.join(" ").trim() : rawText || null,
+          body: hasSplitTitle ? rest.join(' ').trim() : rawText || null,
           authorName: review.authorName ?? null,
           reviewCreatedAt: this.googleTimestampToIso(userComment.lastModified),
         });
@@ -500,7 +497,7 @@ export class ProvidersService {
     const client = new JWT({
       email: credentials.client_email,
       key: credentials.private_key,
-      scopes: ["https://www.googleapis.com/auth/playdeveloperreporting"],
+      scopes: ['https://www.googleapis.com/auth/playdeveloperreporting'],
     });
 
     const tokenResponse = await client.authorize();
@@ -508,7 +505,7 @@ export class ProvidersService {
 
     if (!accessToken) {
       throw new BadRequestException(
-        "Google Reporting API access token could not be created.",
+        'Google Reporting API access token could not be created.',
       );
     }
 
@@ -516,14 +513,14 @@ export class ProvidersService {
       this.queryGoogleMetricSet({
         accessToken,
         packageName,
-        metricSet: "crashRateMetricSet",
-        metrics: ["crashRate", "userPerceivedCrashRate"],
+        metricSet: 'crashRateMetricSet',
+        metrics: ['crashRate', 'userPerceivedCrashRate'],
       }),
       this.queryGoogleMetricSet({
         accessToken,
         packageName,
-        metricSet: "anrRateMetricSet",
-        metrics: ["anrRate", "userPerceivedAnrRate"],
+        metricSet: 'anrRateMetricSet',
+        metrics: ['anrRate', 'userPerceivedAnrRate'],
       }),
     ]);
 
@@ -610,7 +607,7 @@ export class ProvidersService {
   }: {
     accessToken: string;
     packageName: string;
-    metricSet: "crashRateMetricSet" | "anrRateMetricSet";
+    metricSet: 'crashRateMetricSet' | 'anrRateMetricSet';
     metrics: string[];
   }) {
     const response = await fetch(
@@ -618,14 +615,14 @@ export class ProvidersService {
         packageName,
       )}/${metricSet}:query`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
           Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           timelineSpec: {
-            aggregationPeriod: "DAILY",
+            aggregationPeriod: 'DAILY',
             startTime: this.toGoogleDateTimeUtc(2),
             endTime: this.toGoogleDateTimeUtc(0),
           },
@@ -670,17 +667,17 @@ export class ProvidersService {
     return jwt.sign(
       {
         iss: credentials.issuerId,
-        aud: "appstoreconnect-v1",
+        aud: 'appstoreconnect-v1',
         iat: now,
         exp: now + 60 * 15,
       },
       credentials.privateKey,
       {
-        algorithm: "ES256",
+        algorithm: 'ES256',
         header: {
-          alg: "ES256",
+          alg: 'ES256',
           kid: credentials.keyId,
-          typ: "JWT",
+          typ: 'JWT',
         },
       },
     );
@@ -767,7 +764,7 @@ export class ProvidersService {
       minutes: 0,
       seconds: 0,
       nanos: 0,
-      utcOffset: "0s",
+      utcOffset: '0s',
     };
   }
 
@@ -775,8 +772,8 @@ export class ProvidersService {
     return input
       .toLowerCase()
       .trim()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
   }
 
   private async makeUniqueSlug(baseSlug: string) {

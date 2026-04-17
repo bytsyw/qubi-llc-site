@@ -2,10 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Mail, ShieldCheck, Sparkles } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {
-  createLocalizedPath,
-  getLangFromPath,
-} from "../../utils/localeRouting";
+import { createLocalizedPath, getLangFromPath } from "../../utils/localeRouting";
 
 export default function PageTeasersSection() {
   const { t } = useTranslation("home");
@@ -59,9 +56,7 @@ export default function PageTeasersSection() {
                   {item.title}
                 </h3>
 
-                <p className="mt-4 text-sm leading-7 text-black/60">
-                  {item.text}
-                </p>
+                <p className="mt-4 text-sm leading-7 text-black/60">{item.text}</p>
 
                 <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#111111]">
                   {t("teasers.learnMore")}

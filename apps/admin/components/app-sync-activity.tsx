@@ -29,11 +29,7 @@ function formatPayload(payload: any) {
   }
 }
 
-export default function AppSyncActivity({
-  runs,
-}: {
-  runs: SyncRunRecord[];
-}) {
+export default function AppSyncActivity({ runs }: { runs: SyncRunRecord[] }) {
   return (
     <div className="rounded-[1.6rem] border border-black/8 bg-[#f7f5ef] p-5">
       <div className="text-sm font-bold uppercase tracking-[0.16em] text-yellow-700">
@@ -85,13 +81,7 @@ export default function AppSyncActivity({
   );
 }
 
-function InfoRow({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-[1rem] border border-black/8 bg-white px-4 py-3 text-sm text-black/65">
       <span className="font-semibold text-[#111111]">{label}:</span> {value}

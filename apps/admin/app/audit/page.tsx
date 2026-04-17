@@ -68,9 +68,7 @@ export default async function AuditPage() {
                   </div>
                 </div>
 
-                <div className="text-sm text-black/50">
-                  {formatDate(log.createdAt)}
-                </div>
+                <div className="text-sm text-black/50">{formatDate(log.createdAt)}</div>
               </div>
 
               <div className="mt-4 grid gap-3 md:grid-cols-3">
@@ -95,17 +93,10 @@ export default async function AuditPage() {
   );
 }
 
-function InfoRow({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-[1rem] border border-black/8 bg-[#f7f5ef] px-4 py-3 text-sm text-black/65">
       <span className="font-semibold text-[#111111]">{label}:</span> {value}
     </div>
   );
-} 
-
+}

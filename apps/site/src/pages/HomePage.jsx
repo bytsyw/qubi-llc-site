@@ -21,18 +21,11 @@ import { AppShowcasePhone } from "../components/phones/ShowcasePhones";
 import { ButtonPrimary, ButtonSecondary } from "../components/common/Buttons";
 import { Card, Badge } from "../components/common/Surface";
 import { TinyFeature } from "../components/common/ContentBlocks";
-import {
-  MetricBar,
-  MiniMetric,
-  PulseRow,
-} from "../components/common/Metrics";
+import { MetricBar, MiniMetric, PulseRow } from "../components/common/Metrics";
 import { metrics } from "../data/site";
 import PageTeasersSection from "../components/sections/PageTeasersSection";
 import { StoreLaunchRow } from "../components/common/LaunchBadges";
-import {
-  createLocalizedPath,
-  getLangFromPath,
-} from "../utils/localeRouting";
+import { createLocalizedPath, getLangFromPath } from "../utils/localeRouting";
 import { getLocalizedApps } from "../content/getLocalizedApps";
 import { getPublicApps } from "../lib/api";
 
@@ -50,7 +43,7 @@ export default function HomePage({ onOpenDetail }) {
 
   const activeFallbackApp = useMemo(
     () => localizedApps.find((app) => app.id === activeHomeAppId) || localizedApps[0],
-    [activeHomeAppId, localizedApps]
+    [activeHomeAppId, localizedApps],
   );
 
   const activeHomeApp = useMemo(() => {
@@ -64,7 +57,8 @@ export default function HomePage({ onOpenDetail }) {
     const toIndex = localizedApps.findIndex((app) => app.id === toId);
 
     if ((fromIndex + 1) % localizedApps.length === toIndex) return 1;
-    if ((fromIndex - 1 + localizedApps.length) % localizedApps.length === toIndex) return -1;
+    if ((fromIndex - 1 + localizedApps.length) % localizedApps.length === toIndex)
+      return -1;
     return toIndex > fromIndex ? 1 : -1;
   };
 
@@ -77,7 +71,7 @@ export default function HomePage({ onOpenDetail }) {
   useEffect(() => {
     const interval = setInterval(() => {
       const currentIndex = localizedApps.findIndex(
-        (app) => app.id === previousIdRef.current
+        (app) => app.id === previousIdRef.current,
       );
       const nextId = localizedApps[(currentIndex + 1) % localizedApps.length].id;
       previousIdRef.current = nextId;
@@ -90,7 +84,7 @@ export default function HomePage({ onOpenDetail }) {
 
   useEffect(() => {
     let active = true;
-  
+
     async function loadApps() {
       try {
         const data = await getPublicApps(lang);
@@ -101,9 +95,9 @@ export default function HomePage({ onOpenDetail }) {
         setLiveApps([]);
       }
     }
-  
+
     loadApps();
-  
+
     return () => {
       active = false;
     };
@@ -132,10 +126,7 @@ export default function HomePage({ onOpenDetail }) {
 
   return (
     <>
-      <Seo
-        title={t("seo.title")}
-        description={t("seo.description")}
-      />
+      <Seo title={t("seo.title")} description={t("seo.description")} />
 
       <main>
         <section className="relative mx-auto max-w-7xl px-6 pb-16 pt-10 lg:px-8 lg:pb-24 lg:pt-14">
@@ -228,11 +219,7 @@ export default function HomePage({ onOpenDetail }) {
 
               <div className="mt-8 space-y-6">
                 {localizedMetrics.map((metric, index) => (
-                  <MetricBar
-                    key={metric.label}
-                    metric={metric}
-                    delay={index * 0.08}
-                  />
+                  <MetricBar key={metric.label} metric={metric} delay={index * 0.08} />
                 ))}
               </div>
             </Card>
@@ -245,22 +232,13 @@ export default function HomePage({ onOpenDetail }) {
                 {t("parentConfidence.title")}
               </h3>
               <div className="mt-6 space-y-4">
-                <PulseRow
-                  label={t("parentConfidence.items.easeOfUse")}
-                  value="96%"
-                />
-                <PulseRow
-                  label={t("parentConfidence.items.visualTrust")}
-                  value="92%"
-                />
+                <PulseRow label={t("parentConfidence.items.easeOfUse")} value="96%" />
+                <PulseRow label={t("parentConfidence.items.visualTrust")} value="92%" />
                 <PulseRow
                   label={t("parentConfidence.items.repeatEngagement")}
                   value="88%"
                 />
-                <PulseRow
-                  label={t("parentConfidence.items.learningValue")}
-                  value="94%"
-                />
+                <PulseRow label={t("parentConfidence.items.learningValue")} value="94%" />
               </div>
             </div>
           </div>
@@ -292,9 +270,7 @@ export default function HomePage({ onOpenDetail }) {
                     <h3 className="mt-5 text-xl font-black text-[#111111]">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-6 text-black/60">
-                      {item.text}
-                    </p>
+                    <p className="mt-3 text-sm leading-6 text-black/60">{item.text}</p>
                   </Card>
                 );
               })}
@@ -381,14 +357,8 @@ export default function HomePage({ onOpenDetail }) {
               </div>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                <TinyFeature
-                  icon={BookOpen}
-                  label={t("featured.miniFeatures.story")}
-                />
-                <TinyFeature
-                  icon={TimerReset}
-                  label={t("featured.miniFeatures.habit")}
-                />
+                <TinyFeature icon={BookOpen} label={t("featured.miniFeatures.story")} />
+                <TinyFeature icon={TimerReset} label={t("featured.miniFeatures.habit")} />
                 <TinyFeature
                   icon={Smartphone}
                   label={t("featured.miniFeatures.mobileFirst")}

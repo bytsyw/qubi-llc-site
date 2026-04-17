@@ -64,7 +64,9 @@ export function InfoPanel({ icon: Icon, title, items, light = false }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       className={`rounded-[2rem] border p-6 shadow-[0_16px_45px_rgba(0,0,0,0.05)] ${
-        light ? "border-black/8 bg-white/80 text-[#111111]" : "border-black/8 bg-[#111111] text-white"
+        light
+          ? "border-black/8 bg-white/80 text-[#111111]"
+          : "border-black/8 bg-[#111111] text-white"
       }`}
     >
       <div className="flex items-center gap-3">
@@ -76,7 +78,9 @@ export function InfoPanel({ icon: Icon, title, items, light = false }) {
           <Icon className="h-5 w-5" />
         </div>
         <div>
-          <div className={`text-sm font-semibold ${light ? "text-black/48" : "text-white/45"}`}>
+          <div
+            className={`text-sm font-semibold ${light ? "text-black/48" : "text-white/45"}`}
+          >
             Information block
           </div>
           <h3 className="text-xl font-black">{title}</h3>
@@ -88,7 +92,9 @@ export function InfoPanel({ icon: Icon, title, items, light = false }) {
           <div
             key={item}
             className={`rounded-[1.3rem] border px-4 py-3 text-sm leading-6 ${
-              light ? "border-black/8 bg-[#f8f7f2] text-black/68" : "border-white/10 bg-white/5 text-white/72"
+              light
+                ? "border-black/8 bg-[#f8f7f2] text-black/68"
+                : "border-white/10 bg-white/5 text-white/72"
             }`}
           >
             {item}

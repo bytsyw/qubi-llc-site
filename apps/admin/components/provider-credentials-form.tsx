@@ -1,10 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  discoverAdminAppleApps,
-  saveAdminProviderCredentials,
-} from "@/lib/api";
+import { discoverAdminAppleApps, saveAdminProviderCredentials } from "@/lib/api";
 
 type ProviderCardProps = {
   provider: "APPLE" | "GOOGLE";
@@ -89,7 +86,9 @@ export default function ProviderCredentialsForm({
           <input
             value={accountLabel}
             onChange={(event) => setAccountLabel(event.target.value)}
-            placeholder={provider === "APPLE" ? "Apple App Store Connect" : "Google Play Console"}
+            placeholder={
+              provider === "APPLE" ? "Apple App Store Connect" : "Google Play Console"
+            }
             className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none"
           />
         </div>
@@ -105,7 +104,7 @@ export default function ProviderCredentialsForm({
             placeholder={
               provider === "APPLE"
                 ? appleExample
-                : 'Paste Google service account JSON here.'
+                : "Paste Google service account JSON here."
             }
             className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none"
           />

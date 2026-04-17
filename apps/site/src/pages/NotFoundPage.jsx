@@ -25,7 +25,8 @@ export default function NotFoundPage() {
               </h1>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-black/62 sm:text-lg">
-                The link may be outdated, the address may be incorrect, or the page may not exist in the current Qubi site structure.
+                The link may be outdated, the address may be incorrect, or the page may
+                not exist in the current Qubi site structure.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
